@@ -1,0 +1,796 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Dashboard CXP — PRIORITARIOS — Gestión Bancaria</title><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script><style>:root{--purple:#200086;--purple-dark:#160060;--purple-soft:#EFEAFB;--green:#15E574;--ink:#1A1A2E;--gray:#6B6B7B;--line:#E3E1EE;--bg:#F7F7FB;}*{box-sizing:border-box;}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Arial,sans-serif;}header{background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:#fff;padding:26px 32px;}header h1{margin:0;font-size:21px;}header .sub{font-size:12px;opacity:.85;margin-top:4px;}.wrap{max-width:1180px;margin:0 auto;padding:24px 22px 60px;}.kpirow{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px;}.kpi{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;flex:1;min-width:150px;}.kpi-lbl{font-size:11px;color:var(--gray);font-weight:700;text-transform:uppercase;letter-spacing:.3px;}.kpi-val{font-size:20px;font-weight:700;margin-top:3px;}.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-bottom:26px;}.rcard{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px;}.rcard-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}.rcard-name{font-weight:700;font-size:13px;}.badge-riesgo{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:10px;}.rcard-monto{font-size:19px;font-weight:700;margin-bottom:4px;}.rcard-meta{font-size:11px;color:var(--gray);margin-top:4px;}.rcard-bar{background:#EDEDF4;border-radius:6px;height:6px;margin-top:8px;overflow:hidden;}.rcard-bar-fill{height:100%;}.tabs{display:flex;gap:6px;border-bottom:2px solid var(--line);margin-bottom:22px;flex-wrap:wrap;}.tabbtn{background:none;border:none;padding:10px 16px;font-size:13px;font-weight:600;color:var(--gray);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;}.tabbtn.active{color:var(--purple);border-bottom-color:var(--green);}.panel{display:none;}.panel.active{display:block;}.chartgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}@media (max-width:800px){.chartgrid{grid-template-columns:1fr;}}.chartcard{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px;}.chartcard h3{margin:0 0 8px;font-size:12.5px;color:var(--purple);}.cbox{position:relative;height:280px;}.dtitle{font-size:13px;color:var(--purple);margin:18px 0 4px;}table{width:100%;border-collapse:collapse;font-size:12px;}thead th{background:var(--purple);color:#fff;text-align:left;padding:8px 9px;position:sticky;top:0;}tbody td{padding:7px 9px;border-bottom:1px solid var(--line);white-space:nowrap;}tbody tr:nth-child(even){background:#FAFAFD;}.tbl-scroll{max-height:420px;overflow:auto;border:1px solid var(--line);border-radius:8px;}.num{text-align:right;font-variant-numeric:tabular-nums;}.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:9px;}.t-fact{background:#E7ECFF;color:#2740B0;}.t-ant{background:#E6FBF0;color:#0F8C4E;}.badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:9px;}.b-red{background:#FCEBEB;color:#D64545;}.b-green{background:#E6FBF0;color:#0F8C4E;}.chartcard.full{grid-column:1/-1;}</style></head><body><header><h1>Dashboard CXP — PRIORITARIOS</h1><div class="sub">Gestión Bancaria · Ingenio Magdalena — generado 28 de julio de 2026 a las 9:57 a. m.</div></header><div class="wrap"><div class="kpirow"><div class="kpi"><div class="kpi-lbl">Monto total</div><div class="kpi-val">$786,971.66</div></div><div class="kpi"><div class="kpi-lbl">Facturas</div><div class="kpi-val">128</div></div><div class="kpi"><div class="kpi-lbl">Anticipos</div><div class="kpi-val">2</div></div><div class="kpi"><div class="kpi-lbl">Proveedores</div><div class="kpi-val">37</div></div><div class="kpi"><div class="kpi-lbl">% vencido (facturas)</div><div class="kpi-val">40%</div></div><div class="kpi"><div class="kpi-lbl">Mayor exposición</div><div class="kpi-val" style="font-size:14px;">TRANSPORTE</div></div></div><div class="rgrid">
+    <div class="rcard" style="border-left:4px solid #F2C94C;">
+      <div class="rcard-top">
+        <span class="rcard-name">TRANSPORTE</span>
+        <span class="badge-riesgo" style="color:#946200; background:#FAEEDA;">Moderado</span>
+      </div>
+      <div class="rcard-monto">$549,403.19</div>
+      <div class="rcard-meta">13 proveedores · 36 facturas · 0 anticipos</div>
+      <div class="rcard-bar"><div class="rcard-bar-fill" style="width:38.837022406076684%; background:#946200;"></div></div>
+      <div class="rcard-meta">39% del monto de facturas está vencido</div>
+    </div>
+    <div class="rcard" style="border-left:4px solid #6B6B7B;">
+      <div class="rcard-top">
+        <span class="rcard-name">TRANSPORTE AGRICOLA</span>
+        <span class="badge-riesgo" style="color:#946200; background:#FAEEDA;">Moderado</span>
+      </div>
+      <div class="rcard-monto">$132,273.09</div>
+      <div class="rcard-meta">5 proveedores · 20 facturas · 0 anticipos</div>
+      <div class="rcard-bar"><div class="rcard-bar-fill" style="width:31.754259313062093%; background:#946200;"></div></div>
+      <div class="rcard-meta">32% del monto de facturas está vencido</div>
+    </div>
+    <div class="rcard" style="border-left:4px solid #C2185B;">
+      <div class="rcard-top">
+        <span class="rcard-name">TRANSPORTE INDUSTRIA</span>
+        <span class="badge-riesgo" style="color:#D64545; background:#FCEBEB;">Crítico</span>
+      </div>
+      <div class="rcard-monto">$53,622.62</div>
+      <div class="rcard-meta">4 proveedores · 10 facturas · 0 anticipos</div>
+      <div class="rcard-bar"><div class="rcard-bar-fill" style="width:97.29526457304772%; background:#D64545;"></div></div>
+      <div class="rcard-meta">97% del monto de facturas está vencido</div>
+    </div>
+    <div class="rcard" style="border-left:4px solid #9B51E0;">
+      <div class="rcard-top">
+        <span class="rcard-name">ALIMENTACION</span>
+        <span class="badge-riesgo" style="color:#0F8C4E; background:#E6FBF0;">Bajo</span>
+      </div>
+      <div class="rcard-monto">$33,049.62</div>
+      <div class="rcard-meta">13 proveedores · 37 facturas · 2 anticipos</div>
+      <div class="rcard-bar"><div class="rcard-bar-fill" style="width:9.439919651003818%; background:#0F8C4E;"></div></div>
+      <div class="rcard-meta">9% del monto de facturas está vencido</div>
+    </div>
+    <div class="rcard" style="border-left:4px solid #00B8A9;">
+      <div class="rcard-top">
+        <span class="rcard-name">SALUD</span>
+        <span class="badge-riesgo" style="color:#0F8C4E; background:#E6FBF0;">Bajo</span>
+      </div>
+      <div class="rcard-monto">$18,623.14</div>
+      <div class="rcard-meta">2 proveedores · 25 facturas · 0 anticipos</div>
+      <div class="rcard-bar"><div class="rcard-bar-fill" style="width:0.3524110327259527%; background:#0F8C4E;"></div></div>
+      <div class="rcard-meta">0% del monto de facturas está vencido</div>
+    </div></div><div class="tabs"><button class="tabbtn active" data-t="resumen">Resumen</button><button class="tabbtn" data-t="transporte">TRANSPORTE</button><button class="tabbtn" data-t="transporte_agricola">TRANSPORTE AGRICOLA</button><button class="tabbtn" data-t="transporte_industria">TRANSPORTE INDUSTRIA</button><button class="tabbtn" data-t="alimentacion">ALIMENTACION</button><button class="tabbtn" data-t="salud">SALUD</button></div><div class="panel active" id="panel-resumen"><div class="chartcard full" style="margin-bottom:24px;"><h3>Vencimiento semanal — total, todos los rubros</h3><div class="cbox" style="height:340px;"><canvas id="cv-total"></canvas></div></div></div>
+    <div class="panel" id="panel-transporte">
+      <div class="kpirow">
+        <div class="kpi"><div class="kpi-lbl">Monto total</div><div class="kpi-val">$549,403.19</div></div>
+        <div class="kpi"><div class="kpi-lbl">Proveedores</div><div class="kpi-val">13</div></div>
+        <div class="kpi"><div class="kpi-lbl">Facturas</div><div class="kpi-val">36</div></div>
+        <div class="kpi"><div class="kpi-lbl">Anticipos</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-lbl">% vencido</div><div class="kpi-val" style="color:#946200">39%</div></div>
+      </div>
+      <div class="chartgrid">
+        <div class="chartcard"><h3>Monto por proveedor</h3><div class="cbox"><canvas id="cv-prov-transporte"></canvas></div></div>
+        <div class="chartcard"><h3>Vencimiento semanal</h3><div class="cbox"><canvas id="cv-week-transporte"></canvas></div></div>
+      </div>
+      <h3 class="dtitle">Detalle — TRANSPORTE</h3>
+      <div class="tbl-scroll"><table><thead><tr>
+      <th>Tipo</th><th>Empresa</th><th>Código</th><th>Proveedor</th><th>Documento</th>
+      <th>Vencimiento</th><th class="num">Monto (USD)</th><th>Estado</th>
+    </tr></thead><tbody><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17005779</td><td>MARVIN GIOVANNI REYES NAVARRETE</td>
+        <td>5100011047</td><td>28/07/2026</td>
+        <td class="num">$227,987.73</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17005779</td><td>MARVIN GIOVANNI REYES NAVARRETE</td>
+        <td>5100010726</td><td>22/07/2026</td>
+        <td class="num">$55,746.43</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17005779</td><td>MARVIN GIOVANNI REYES NAVARRETE</td>
+        <td>5100010763</td><td>22/07/2026</td>
+        <td class="num">$33,991.69</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003112</td><td>JORGE LUIS MARROQUIN HERWING</td>
+        <td>5100011118</td><td>29/07/2026</td>
+        <td class="num">$27,899.21</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17001388</td><td>JOSE ALBERTO CASTRO BARRERA</td>
+        <td>5100010628</td><td>21/07/2026</td>
+        <td class="num">$21,899.06</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17001388</td><td>JOSE ALBERTO CASTRO BARRERA</td>
+        <td>5100010689</td><td>21/07/2026</td>
+        <td class="num">$21,187.12</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17001429</td><td>GLADYS ARGENTINA DEL CID ARENAS</td>
+        <td>5100010908</td><td>24/07/2026</td>
+        <td class="num">$18,730.40</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17001182</td><td>JOSÉ LUIS GÓMEZ GONZÁLES</td>
+        <td>5100010492</td><td>20/07/2026</td>
+        <td class="num">$17,013.20</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003112</td><td>JORGE LUIS MARROQUIN HERWING</td>
+        <td>5100011119</td><td>29/07/2026</td>
+        <td class="num">$14,581.17</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003600</td><td>TAVIL S.A.</td>
+        <td>5100010669</td><td>21/07/2026</td>
+        <td class="num">$14,028.73</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17005406</td><td>SERVICIOS Y TRANSPORTES DEL SUR</td>
+        <td>5100010977</td><td>27/07/2026</td>
+        <td class="num">$11,906.48</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17005406</td><td>SERVICIOS Y TRANSPORTES DEL SUR</td>
+        <td>5100010592</td><td>20/07/2026</td>
+        <td class="num">$10,991.67</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003112</td><td>JORGE LUIS MARROQUIN HERWING</td>
+        <td>5100011120</td><td>29/07/2026</td>
+        <td class="num">$10,131.16</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17005406</td><td>SERVICIOS Y TRANSPORTES DEL SUR</td>
+        <td>5100010979</td><td>27/07/2026</td>
+        <td class="num">$9,490.79</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17005406</td><td>SERVICIOS Y TRANSPORTES DEL SUR</td>
+        <td>5100010606</td><td>21/07/2026</td>
+        <td class="num">$8,598.24</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17002325</td><td>JACINTO GÓMEZ GONZÁLES</td>
+        <td>5100010527</td><td>20/07/2026</td>
+        <td class="num">$7,434.10</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17001389</td><td>MELVIN ALEXANDER MARROQUIN</td>
+        <td>5100011149</td><td>30/07/2026</td>
+        <td class="num">$6,185.62</td><td><span class="badge b-green">vence en 2 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003112</td><td>JORGE LUIS MARROQUIN HERWING</td>
+        <td>5100011164</td><td>31/07/2026</td>
+        <td class="num">$4,326.51</td><td><span class="badge b-green">vence en 3 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17002325</td><td>JACINTO GÓMEZ GONZÁLES</td>
+        <td>5100010764</td><td>22/07/2026</td>
+        <td class="num">$3,751.20</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17001389</td><td>MELVIN ALEXANDER MARROQUIN</td>
+        <td>5100011204</td><td>31/07/2026</td>
+        <td class="num">$3,730.95</td><td><span class="badge b-green">vence en 3 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003112</td><td>JORGE LUIS MARROQUIN HERWING</td>
+        <td>5100011121</td><td>29/07/2026</td>
+        <td class="num">$2,915.42</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17005406</td><td>SERVICIOS Y TRANSPORTES DEL SUR</td>
+        <td>5100010931</td><td>27/07/2026</td>
+        <td class="num">$2,892.02</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17006569</td><td>RENTA TOTAL  SOCIEDAD ANONIMA</td>
+        <td>5100011123</td><td>20/08/2026</td>
+        <td class="num">$2,841.03</td><td><span class="badge b-green">vence en 23 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17005406</td><td>SERVICIOS Y TRANSPORTES DEL SUR</td>
+        <td>5100010941</td><td>27/07/2026</td>
+        <td class="num">$2,053.31</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17001389</td><td>MELVIN ALEXANDER MARROQUIN</td>
+        <td>5100011174</td><td>31/07/2026</td>
+        <td class="num">$1,846.94</td><td><span class="badge b-green">vence en 3 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003112</td><td>JORGE LUIS MARROQUIN HERWING</td>
+        <td>5100011038</td><td>28/07/2026</td>
+        <td class="num">$1,813.33</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17006569</td><td>RENTA TOTAL  SOCIEDAD ANONIMA</td>
+        <td>5100010827</td><td>14/08/2026</td>
+        <td class="num">$1,743.01</td><td><span class="badge b-green">vence en 17 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17004922</td><td>JULIO OMAR GARCIA REYNOSO</td>
+        <td>5100011005</td><td>28/07/2026</td>
+        <td class="num">$1,118.66</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003112</td><td>JORGE LUIS MARROQUIN HERWING</td>
+        <td>5100011165</td><td>31/07/2026</td>
+        <td class="num">$1,060.11</td><td><span class="badge b-green">vence en 3 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003112</td><td>JORGE LUIS MARROQUIN HERWING</td>
+        <td>5100011037</td><td>28/07/2026</td>
+        <td class="num">$714.65</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17001063</td><td>CARLOS HUMBERTO GOMEZ CAMPOS</td>
+        <td>5100011099</td><td>29/07/2026</td>
+        <td class="num">$644.32</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17002329</td><td>FREDY ADINIO CASTILLO BOCH</td>
+        <td>5100010980</td><td>27/07/2026</td>
+        <td class="num">$96.41</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17001429</td><td>GLADYS ARGENTINA DEL CID ARENAS</td>
+        <td>5100011010</td><td>28/07/2026</td>
+        <td class="num">$13.14</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17002329</td><td>FREDY ADINIO CASTILLO BOCH</td>
+        <td>5100010942</td><td>27/07/2026</td>
+        <td class="num">$13.13</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17005406</td><td>SERVICIOS Y TRANSPORTES DEL SUR</td>
+        <td>5100010939</td><td>27/07/2026</td>
+        <td class="num">$13.13</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17005406</td><td>SERVICIOS Y TRANSPORTES DEL SUR</td>
+        <td>5100011053</td><td>28/07/2026</td>
+        <td class="num">$13.12</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr></tbody></table></div>
+    <div style="font-size:10.5px; color:#9A6A18; margin-top:4px;">* Vencimiento calculado con plazo real cargado manualmente (Fecha de documento + días), no con la fecha de SAP.</div>
+    </div>
+    <div class="panel" id="panel-transporte_agricola">
+      <div class="kpirow">
+        <div class="kpi"><div class="kpi-lbl">Monto total</div><div class="kpi-val">$132,273.09</div></div>
+        <div class="kpi"><div class="kpi-lbl">Proveedores</div><div class="kpi-val">5</div></div>
+        <div class="kpi"><div class="kpi-lbl">Facturas</div><div class="kpi-val">20</div></div>
+        <div class="kpi"><div class="kpi-lbl">Anticipos</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-lbl">% vencido</div><div class="kpi-val" style="color:#946200">32%</div></div>
+      </div>
+      <div class="chartgrid">
+        <div class="chartcard"><h3>Monto por proveedor</h3><div class="cbox"><canvas id="cv-prov-transporte_agricola"></canvas></div></div>
+        <div class="chartcard"><h3>Vencimiento semanal</h3><div class="cbox"><canvas id="cv-week-transporte_agricola"></canvas></div></div>
+      </div>
+      <h3 class="dtitle">Detalle — TRANSPORTE AGRICOLA</h3>
+      <div class="tbl-scroll"><table><thead><tr>
+      <th>Tipo</th><th>Empresa</th><th>Código</th><th>Proveedor</th><th>Documento</th>
+      <th>Vencimiento</th><th class="num">Monto (USD)</th><th>Estado</th>
+    </tr></thead><tbody><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17001373</td><td>JAVIER ANTONIO ALVAREZ LIMA</td>
+        <td>5100009920</td><td>03/07/2026</td>
+        <td class="num">$23,193.09</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003337</td><td>LUIS ANTONIO ALVAREZ CHOVAJAY</td>
+        <td>5100010132</td><td>29/07/2026</td>
+        <td class="num">$21,302.39</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17004154</td><td>GUILLERMO VICENTE VICENTE</td>
+        <td>5100010091</td><td>29/07/2026</td>
+        <td class="num">$19,921.23</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17004154</td><td>GUILLERMO VICENTE VICENTE</td>
+        <td>5100011271</td><td>25/08/2026</td>
+        <td class="num">$12,947.55</td><td><span class="badge b-green">vence en 28 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17004633</td><td>HECTOR RAFAEL PEÑATE CRISTALES</td>
+        <td>5100010131</td><td>29/07/2026</td>
+        <td class="num">$10,809.26</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17001373</td><td>JAVIER ANTONIO ALVAREZ LIMA</td>
+        <td>5100010133</td><td>07/07/2026</td>
+        <td class="num">$8,209.92</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17004156</td><td>JOSE VIDAL ROLDAN LOPEZ</td>
+        <td>5100010934</td><td>17/09/2026</td>
+        <td class="num">$7,267.38</td><td><span class="badge b-green">vence en 51 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003337</td><td>LUIS ANTONIO ALVAREZ CHOVAJAY</td>
+        <td>5100010365</td><td>07/08/2026</td>
+        <td class="num">$6,895.46</td><td><span class="badge b-green">vence en 10 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17001373</td><td>JAVIER ANTONIO ALVAREZ LIMA</td>
+        <td>5100010405</td><td>16/07/2026</td>
+        <td class="num">$5,938.71</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17004156</td><td>JOSE VIDAL ROLDAN LOPEZ</td>
+        <td>5100009475</td><td>16/08/2026</td>
+        <td class="num">$5,040.66</td><td><span class="badge b-green">vence en 19 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17001373</td><td>JAVIER ANTONIO ALVAREZ LIMA</td>
+        <td>5100010629</td><td>21/07/2026</td>
+        <td class="num">$4,660.62</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003337</td><td>LUIS ANTONIO ALVAREZ CHOVAJAY</td>
+        <td>5100010787</td><td>13/08/2026</td>
+        <td class="num">$2,897.20</td><td><span class="badge b-green">vence en 16 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17004156</td><td>JOSE VIDAL ROLDAN LOPEZ</td>
+        <td>5100011096</td><td>19/09/2026</td>
+        <td class="num">$1,219.16</td><td><span class="badge b-green">vence en 53 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17004156</td><td>JOSE VIDAL ROLDAN LOPEZ</td>
+        <td>5100010954</td><td>17/09/2026</td>
+        <td class="num">$837.96</td><td><span class="badge b-green">vence en 51 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17004633</td><td>HECTOR RAFAEL PEÑATE CRISTALES</td>
+        <td>5100009997</td><td>28/07/2026</td>
+        <td class="num">$551.23</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17004633</td><td>HECTOR RAFAEL PEÑATE CRISTALES</td>
+        <td>5100010495</td><td>11/08/2026</td>
+        <td class="num">$528.80</td><td><span class="badge b-green">vence en 14 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17004633</td><td>HECTOR RAFAEL PEÑATE CRISTALES</td>
+        <td>5100010257</td><td>31/07/2026</td>
+        <td class="num">$13.13</td><td><span class="badge b-green">vence en 3 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17004633</td><td>HECTOR RAFAEL PEÑATE CRISTALES</td>
+        <td>5100010116</td><td>29/07/2026</td>
+        <td class="num">$13.12</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17004633</td><td>HECTOR RAFAEL PEÑATE CRISTALES</td>
+        <td>5100010101</td><td>29/07/2026</td>
+        <td class="num">$13.12</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17004154</td><td>GUILLERMO VICENTE VICENTE</td>
+        <td>5100010035</td><td>28/07/2026</td>
+        <td class="num">$13.10</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr></tbody></table></div>
+    <div style="font-size:10.5px; color:#9A6A18; margin-top:4px;">* Vencimiento calculado con plazo real cargado manualmente (Fecha de documento + días), no con la fecha de SAP.</div>
+    </div>
+    <div class="panel" id="panel-transporte_industria">
+      <div class="kpirow">
+        <div class="kpi"><div class="kpi-lbl">Monto total</div><div class="kpi-val">$53,622.62</div></div>
+        <div class="kpi"><div class="kpi-lbl">Proveedores</div><div class="kpi-val">4</div></div>
+        <div class="kpi"><div class="kpi-lbl">Facturas</div><div class="kpi-val">10</div></div>
+        <div class="kpi"><div class="kpi-lbl">Anticipos</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-lbl">% vencido</div><div class="kpi-val" style="color:#D64545">97%</div></div>
+      </div>
+      <div class="chartgrid">
+        <div class="chartcard"><h3>Monto por proveedor</h3><div class="cbox"><canvas id="cv-prov-transporte_industria"></canvas></div></div>
+        <div class="chartcard"><h3>Vencimiento semanal</h3><div class="cbox"><canvas id="cv-week-transporte_industria"></canvas></div></div>
+      </div>
+      <h3 class="dtitle">Detalle — TRANSPORTE INDUSTRIA</h3>
+      <div class="tbl-scroll"><table><thead><tr>
+      <th>Tipo</th><th>Empresa</th><th>Código</th><th>Proveedor</th><th>Documento</th>
+      <th>Vencimiento</th><th class="num">Monto (USD)</th><th>Estado</th>
+    </tr></thead><tbody><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003503</td><td>HARRIS UBALDO MARROQUÍN AGUILAR</td>
+        <td>5100010140</td><td>07/07/2026</td>
+        <td class="num">$8,811.01</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003657</td><td>ROBERTO ANTONIO RUIZ ASTURIAS</td>
+        <td>5100006531</td><td>22/04/2026</td>
+        <td class="num">$7,984.73</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003657</td><td>ROBERTO ANTONIO RUIZ ASTURIAS</td>
+        <td>5100010350</td><td>16/07/2026</td>
+        <td class="num">$7,388.11</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003657</td><td>ROBERTO ANTONIO RUIZ ASTURIAS</td>
+        <td>5100010351</td><td>16/07/2026</td>
+        <td class="num">$6,558.37</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003503</td><td>HARRIS UBALDO MARROQUÍN AGUILAR</td>
+        <td>5100010467</td><td>17/07/2026</td>
+        <td class="num">$5,950.35</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003503</td><td>HARRIS UBALDO MARROQUÍN AGUILAR</td>
+        <td>5100009936</td><td>03/07/2026</td>
+        <td class="num">$5,372.83</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17000796</td><td>MARCOS ENRIQUE QUIÑONEZ FLORES</td>
+        <td>5100010359</td><td>16/07/2026</td>
+        <td class="num">$4,288.80</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003503</td><td>HARRIS UBALDO MARROQUÍN AGUILAR</td>
+        <td>5100010601</td><td>21/07/2026</td>
+        <td class="num">$3,572.88</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17000796</td><td>MARCOS ENRIQUE QUIÑONEZ FLORES</td>
+        <td>5100010587</td><td>20/07/2026</td>
+        <td class="num">$2,245.19</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17003869</td><td>CARLOS JUNIEL LOPEZ HERRERA</td>
+        <td>5100011285</td><td>03/08/2026</td>
+        <td class="num">$1,450.35</td><td><span class="badge b-green">vence en 6 d.</span></td>
+      </tr></tbody></table></div>
+    <div style="font-size:10.5px; color:#9A6A18; margin-top:4px;">* Vencimiento calculado con plazo real cargado manualmente (Fecha de documento + días), no con la fecha de SAP.</div>
+    </div>
+    <div class="panel" id="panel-alimentacion">
+      <div class="kpirow">
+        <div class="kpi"><div class="kpi-lbl">Monto total</div><div class="kpi-val">$33,049.62</div></div>
+        <div class="kpi"><div class="kpi-lbl">Proveedores</div><div class="kpi-val">13</div></div>
+        <div class="kpi"><div class="kpi-lbl">Facturas</div><div class="kpi-val">37</div></div>
+        <div class="kpi"><div class="kpi-lbl">Anticipos</div><div class="kpi-val">2</div></div>
+        <div class="kpi"><div class="kpi-lbl">% vencido</div><div class="kpi-val" style="color:#0F8C4E">9%</div></div>
+      </div>
+      <div class="chartgrid">
+        <div class="chartcard"><h3>Monto por proveedor</h3><div class="cbox"><canvas id="cv-prov-alimentacion"></canvas></div></div>
+        <div class="chartcard"><h3>Vencimiento semanal</h3><div class="cbox"><canvas id="cv-week-alimentacion"></canvas></div></div>
+      </div>
+      <h3 class="dtitle">Detalle — ALIMENTACION</h3>
+      <div class="tbl-scroll"><table><thead><tr>
+      <th>Tipo</th><th>Empresa</th><th>Código</th><th>Proveedor</th><th>Documento</th>
+      <th>Vencimiento</th><th class="num">Monto (USD)</th><th>Estado</th>
+    </tr></thead><tbody><tr>
+        <td><span class="tag t-ant">ANTICIPO</span></td>
+        <td>GT00</td><td>17006522</td><td>FRANCISCO ANTONIO PINEDA ARCHILA</td>
+        <td>1500000536</td><td>26/02/2026</td>
+        <td class="num">$6,409.32</td><td></td>
+      </tr><tr>
+        <td><span class="tag t-ant">ANTICIPO</span></td>
+        <td>GT00</td><td>17006522</td><td>FRANCISCO ANTONIO PINEDA ARCHILA</td>
+        <td>1500000061</td><td>14/01/2026</td>
+        <td class="num">$6,408.56</td><td></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17005211</td><td>SERVICIOS DE GERENCIA  S.A.</td>
+        <td>5100014492</td><td>02/08/2026</td>
+        <td class="num">$3,180.05</td><td><span class="badge b-green">vence en 5 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17005211</td><td>SERVICIOS DE GERENCIA  S.A.</td>
+        <td>5100014514</td><td>02/08/2026</td>
+        <td class="num">$1,518.08</td><td><span class="badge b-green">vence en 5 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002318</td><td>PECUARIA EXPORTADORA  SOCIEDAD ANON</td>
+        <td>5100014432</td><td>31/07/2026</td>
+        <td class="num">$1,357.34</td><td><span class="badge b-green">vence en 3 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17003969</td><td>IRMA LETICIA MONROY REYES DE FLORES</td>
+        <td>5100013110</td><td>30/07/2026</td>
+        <td class="num">$1,115.82</td><td><span class="badge b-green">vence en 2 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17003362</td><td>ARROCERA LOS CORRALES SOCIEDAD ANON</td>
+        <td>5100013470</td><td>07/08/2026</td>
+        <td class="num">$1,081.51</td><td><span class="badge b-green">vence en 10 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17004948</td><td>MULTIGRANOS BONANZA</td>
+        <td>5100014351</td><td>30/07/2026</td>
+        <td class="num">$1,075.81</td><td><span class="badge b-green">vence en 2 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006659</td><td>MAPRI FOOD SERVICE SOCIEDAD ANONIM</td>
+        <td>5100014284</td><td>20/08/2026</td>
+        <td class="num">$1,002.31</td><td><span class="badge b-green">vence en 23 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17003232</td><td>DISTRIBUIDORA Y COMERCIALIZADORA DI</td>
+        <td>5100014289</td><td>29/07/2026</td>
+        <td class="num">$892.25</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17003232</td><td>DISTRIBUIDORA Y COMERCIALIZADORA DI</td>
+        <td>5100014551</td><td>03/08/2026</td>
+        <td class="num">$883.71</td><td><span class="badge b-green">vence en 6 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006659</td><td>MAPRI FOOD SERVICE SOCIEDAD ANONIM</td>
+        <td>5100013849</td><td>13/08/2026</td>
+        <td class="num">$869.56</td><td><span class="badge b-green">vence en 16 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17006803</td><td>MARIA JOSE MORALES COLINDRES</td>
+        <td>5100010147</td><td>07/07/2026</td>
+        <td class="num">$809.15</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002318</td><td>PECUARIA EXPORTADORA  SOCIEDAD ANON</td>
+        <td>5100014448</td><td>31/07/2026</td>
+        <td class="num">$800.57</td><td><span class="badge b-green">vence en 3 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17006803</td><td>MARIA JOSE MORALES COLINDRES</td>
+        <td>5100009066</td><td>18/06/2026</td>
+        <td class="num">$691.90</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006013</td><td>ALIMENTOS BARCELONA  SOCIEDAD</td>
+        <td>5100014077</td><td>28/07/2026</td>
+        <td class="num">$470.08</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006013</td><td>ALIMENTOS BARCELONA  SOCIEDAD</td>
+        <td>5100014085</td><td>28/07/2026</td>
+        <td class="num">$466.07</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006492</td><td>EMPRESA DE ALIMENTOS PROCESADOS</td>
+        <td>5100014119</td><td>04/08/2026</td>
+        <td class="num">$436.40</td><td><span class="badge b-green">vence en 7 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17004948</td><td>MULTIGRANOS BONANZA</td>
+        <td>5100014624</td><td>04/08/2026</td>
+        <td class="num">$416.80</td><td><span class="badge b-green">vence en 7 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17003969</td><td>IRMA LETICIA MONROY REYES DE FLORES</td>
+        <td>5100013489</td><td>07/08/2026</td>
+        <td class="num">$410.45</td><td><span class="badge b-green">vence en 10 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006659</td><td>MAPRI FOOD SERVICE SOCIEDAD ANONIM</td>
+        <td>5100013948</td><td>15/08/2026</td>
+        <td class="num">$320.04</td><td><span class="badge b-green">vence en 18 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006013</td><td>ALIMENTOS BARCELONA  SOCIEDAD</td>
+        <td>5100014219</td><td>29/07/2026</td>
+        <td class="num">$316.57</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006400</td><td>VEGETALIA  SOCIEDAD ANONIMA</td>
+        <td>5100014333</td><td>29/07/2026</td>
+        <td class="num">$289.85</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17006803</td><td>MARIA JOSE MORALES COLINDRES</td>
+        <td>5100010500</td><td>20/07/2026</td>
+        <td class="num">$284.86</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17003232</td><td>DISTRIBUIDORA Y COMERCIALIZADORA DI</td>
+        <td>5100014292</td><td>29/07/2026</td>
+        <td class="num">$262.47</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17005211</td><td>SERVICIOS DE GERENCIA  S.A.</td>
+        <td>5100014332</td><td>29/07/2026</td>
+        <td class="num">$258.27</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17003232</td><td>DISTRIBUIDORA Y COMERCIALIZADORA DI</td>
+        <td>5100014231</td><td>29/07/2026</td>
+        <td class="num">$203.81</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006622</td><td>ALIMENTOS Y NUTRICION  SOCIEDAD</td>
+        <td>5100012980</td><td>29/07/2026</td>
+        <td class="num">$157.07</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006013</td><td>ALIMENTOS BARCELONA  SOCIEDAD</td>
+        <td>5100014078</td><td>28/07/2026</td>
+        <td class="num">$156.46</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT30</td><td>17006803</td><td>MARIA JOSE MORALES COLINDRES</td>
+        <td>5100008629</td><td>04/06/2026</td>
+        <td class="num">$123.95</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006013</td><td>ALIMENTOS BARCELONA  SOCIEDAD</td>
+        <td>5100014084</td><td>28/07/2026</td>
+        <td class="num">$104.97</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17003232</td><td>DISTRIBUIDORA Y COMERCIALIZADORA DI</td>
+        <td>5100014246</td><td>29/07/2026</td>
+        <td class="num">$94.43</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006013</td><td>ALIMENTOS BARCELONA  SOCIEDAD</td>
+        <td>5100014113</td><td>28/07/2026</td>
+        <td class="num">$78.23</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17004948</td><td>MULTIGRANOS BONANZA</td>
+        <td>5100014271</td><td>29/07/2026</td>
+        <td class="num">$40.40</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17003232</td><td>DISTRIBUIDORA Y COMERCIALIZADORA DI</td>
+        <td>5100014288</td><td>29/07/2026</td>
+        <td class="num">$39.37</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006622</td><td>ALIMENTOS Y NUTRICION  SOCIEDAD</td>
+        <td>5100013194</td><td>01/08/2026</td>
+        <td class="num">$10.57</td><td><span class="badge b-green">vence en 4 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006622</td><td>ALIMENTOS Y NUTRICION  SOCIEDAD</td>
+        <td>5100013014</td><td>29/07/2026</td>
+        <td class="num">$5.88</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006622</td><td>ALIMENTOS Y NUTRICION  SOCIEDAD</td>
+        <td>5100013193</td><td>01/08/2026</td>
+        <td class="num">$3.53</td><td><span class="badge b-green">vence en 4 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006013</td><td>ALIMENTOS BARCELONA  SOCIEDAD</td>
+        <td>5100014075</td><td>28/07/2026</td>
+        <td class="num">$3.15</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr></tbody></table></div>
+    <div style="font-size:10.5px; color:#9A6A18; margin-top:4px;">* Vencimiento calculado con plazo real cargado manualmente (Fecha de documento + días), no con la fecha de SAP.</div>
+    </div>
+    <div class="panel" id="panel-salud">
+      <div class="kpirow">
+        <div class="kpi"><div class="kpi-lbl">Monto total</div><div class="kpi-val">$18,623.14</div></div>
+        <div class="kpi"><div class="kpi-lbl">Proveedores</div><div class="kpi-val">2</div></div>
+        <div class="kpi"><div class="kpi-lbl">Facturas</div><div class="kpi-val">25</div></div>
+        <div class="kpi"><div class="kpi-lbl">Anticipos</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-lbl">% vencido</div><div class="kpi-val" style="color:#0F8C4E">0%</div></div>
+      </div>
+      <div class="chartgrid">
+        <div class="chartcard"><h3>Monto por proveedor</h3><div class="cbox"><canvas id="cv-prov-salud"></canvas></div></div>
+        <div class="chartcard"><h3>Vencimiento semanal</h3><div class="cbox"><canvas id="cv-week-salud"></canvas></div></div>
+      </div>
+      <h3 class="dtitle">Detalle — SALUD</h3>
+      <div class="tbl-scroll"><table><thead><tr>
+      <th>Tipo</th><th>Empresa</th><th>Código</th><th>Proveedor</th><th>Documento</th>
+      <th>Vencimiento</th><th class="num">Monto (USD)</th><th>Estado</th>
+    </tr></thead><tbody><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006504</td><td>DOCTOR ONLINE  SOCIEDAD ANONIMA</td>
+        <td>5100013158</td><td>31/07/2026</td>
+        <td class="num">$5,831.45</td><td><span class="badge b-green">vence en 3 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17006504</td><td>DOCTOR ONLINE  SOCIEDAD ANONIMA</td>
+        <td>5100013160</td><td>31/07/2026</td>
+        <td class="num">$1,360.68</td><td><span class="badge b-green">vence en 3 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100013955</td><td>15/08/2026</td>
+        <td class="num">$1,219.73</td><td><span class="badge b-green">vence en 18 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100014497</td><td>24/08/2026</td>
+        <td class="num">$1,142.26</td><td><span class="badge b-green">vence en 27 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100014502</td><td>24/08/2026</td>
+        <td class="num">$888.44</td><td><span class="badge b-green">vence en 27 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100014501</td><td>24/08/2026</td>
+        <td class="num">$888.44</td><td><span class="badge b-green">vence en 27 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100014500</td><td>24/08/2026</td>
+        <td class="num">$888.44</td><td><span class="badge b-green">vence en 27 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100014499</td><td>24/08/2026</td>
+        <td class="num">$888.44</td><td><span class="badge b-green">vence en 27 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100013956</td><td>15/08/2026</td>
+        <td class="num">$686.10</td><td><span class="badge b-green">vence en 18 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100013848</td><td>13/08/2026</td>
+        <td class="num">$527.12</td><td><span class="badge b-green">vence en 16 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT06</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100001079</td><td>19/08/2026</td>
+        <td class="num">$491.99</td><td><span class="badge b-green">vence en 22 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100012918</td><td>29/07/2026</td>
+        <td class="num">$463.41</td><td><span class="badge b-green">vence en 1 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100014386</td><td>22/08/2026</td>
+        <td class="num">$463.26</td><td><span class="badge b-green">vence en 25 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100014498</td><td>24/08/2026</td>
+        <td class="num">$444.21</td><td><span class="badge b-green">vence en 27 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT06</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100001078</td><td>19/08/2026</td>
+        <td class="num">$342.00</td><td><span class="badge b-green">vence en 22 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100013862</td><td>13/08/2026</td>
+        <td class="num">$282.15</td><td><span class="badge b-green">vence en 16 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100013847</td><td>13/08/2026</td>
+        <td class="num">$262.47</td><td><span class="badge b-green">vence en 16 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100012813</td><td>27/07/2026</td>
+        <td class="num">$262.36</td><td><span class="badge b-green">vence en 0 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100013951</td><td>15/08/2026</td>
+        <td class="num">$248.10</td><td><span class="badge b-green">vence en 18 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100013952</td><td>15/08/2026</td>
+        <td class="num">$248.10</td><td><span class="badge b-green">vence en 18 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT07</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100001077</td><td>19/08/2026</td>
+        <td class="num">$242.80</td><td><span class="badge b-green">vence en 22 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT07</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100001078</td><td>19/08/2026</td>
+        <td class="num">$229.68</td><td><span class="badge b-green">vence en 22 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100013965</td><td>15/08/2026</td>
+        <td class="num">$223.06</td><td><span class="badge b-green">vence en 18 d.</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100012615</td><td>24/07/2026</td>
+        <td class="num">$65.63</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+      </tr><tr>
+        <td><span class="tag t-fact">FACTURA</span></td>
+        <td>GT06</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
+        <td>5100001088</td><td>19/08/2026</td>
+        <td class="num">$32.82</td><td><span class="badge b-green">vence en 22 d.</span></td>
+      </tr></tbody></table></div>
+    <div style="font-size:10.5px; color:#9A6A18; margin-top:4px;">* Vencimiento calculado con plazo real cargado manualmente (Fecha de documento + días), no con la fecha de SAP.</div>
+    </div></div><script>const CHART_DATA = {"ALIMENTACION":{"proveedores":{"labels":["FRANCISCO ANTONIO PINEDA…","SERVICIOS DE GERENCIA  S…","DISTRIBUIDORA Y COMERCIA…","MAPRI FOOD SERVICE SOCIE…","PECUARIA EXPORTADORA  SO…","MARIA JOSE MORALES COLIN…","ALIMENTOS BARCELONA  SOC…","MULTIGRANOS BONANZA","IRMA LETICIA MONROY REYE…","ARROCERA LOS CORRALES SO…","EMPRESA DE ALIMENTOS PRO…","VEGETALIA  SOCIEDAD ANON…","ALIMENTOS Y NUTRICION  S…"],"data":[12817.88,4956.4,2376.04,2191.91,2157.91,1909.86,1595.53,1533.01,1526.27,1081.51,436.4,289.85,177.05],"facturas":[0,3,6,3,2,4,7,3,2,1,1,1,4]},"semanal":{"labels":["Vencida","Semana del 31/7","Semana del 7/8","Semana del 14/8","Semana del 21/8","Semana del 28/8","Semana del 4/9","Semana del 11/9","Semana del 18/9","+8 sem."],"data":[1909.86,8188.87,7941.1,869.56,1322.35,0,0,0,0,0]}},"SALUD":{"proveedores":{"labels":["SERGIO GILBERTO HERRERA …","DOCTOR ONLINE  SOCIEDAD …"],"data":[11431.01,7192.13],"facturas":[23,2]},"semanal":{"labels":["Vencida","Semana del 31/7","Semana del 7/8","Semana del 14/8","Semana del 21/8","Semana del 28/8","Semana del 4/9","Semana del 11/9","Semana del 18/9","+8 sem."],"data":[65.63,7917.9,0,1071.74,3964.38,5603.49,0,0,0,0]}},"TRANSPORTE":{"proveedores":{"labels":["MARVIN GIOVANNI REYES NA…","JORGE LUIS MARROQUIN HER…","SERVICIOS Y TRANSPORTES …","JOSE ALBERTO CASTRO BARR…","GLADYS ARGENTINA DEL CID…","JOSÉ LUIS GÓMEZ GONZÁLES","TAVIL S.A.","MELVIN ALEXANDER MARROQUIN","JACINTO GÓMEZ GONZÁLES","RENTA TOTAL  SOCIEDAD AN…","JULIO OMAR GARCIA REYNOSO","CARLOS HUMBERTO GOMEZ CA…","FREDY ADINIO CASTILLO BOCH"],"data":[317725.85,63441.56,45958.76,43086.18,18743.54,17013.2,14028.73,11763.51,11185.3,4584.04,1118.66,644.32,109.54],"facturas":[3,8,8,2,2,1,1,3,2,2,1,1,2]},"semanal":{"labels":["Vencida","Semana del 31/7","Semana del 7/8","Semana del 14/8","Semana del 21/8","Semana del 28/8","Semana del 4/9","Semana del 11/9","Semana del 18/9","+8 sem."],"data":[213371.84,331447.31,0,1743.01,2841.03,0,0,0,0,0]}},"TRANSPORTE AGRICOLA":{"proveedores":{"labels":["JAVIER ANTONIO ALVAREZ L…","GUILLERMO VICENTE VICENTE","LUIS ANTONIO ALVAREZ CHO…","JOSE VIDAL ROLDAN LOPEZ","HECTOR RAFAEL PEÑATE CRI…"],"data":[42002.34,32881.88,31095.05,14365.16,11928.66],"facturas":[4,3,3,4,6]},"semanal":{"labels":["Vencida","Semana del 31/7","Semana del 7/8","Semana del 14/8","Semana del 21/8","Semana del 28/8","Semana del 4/9","Semana del 11/9","Semana del 18/9","+8 sem."],"data":[42002.34,52636.58,6895.46,3426,5040.66,12947.55,0,0,8105.34,1219.16]}},"TRANSPORTE INDUSTRIA":{"proveedores":{"labels":["HARRIS UBALDO MARROQUÍN …","ROBERTO ANTONIO RUIZ AST…","MARCOS ENRIQUE QUIÑONEZ …","CARLOS JUNIEL LOPEZ HERR…"],"data":[23707.07,21931.21,6533.99,1450.35],"facturas":[4,3,2,1]},"semanal":{"labels":["Vencida","Semana del 31/7","Semana del 7/8","Semana del 14/8","Semana del 21/8","Semana del 28/8","Semana del 4/9","Semana del 11/9","Semana del 18/9","+8 sem."],"data":[52172.27,0,1450.35,0,0,0,0,0,0,0]}}};const RESUMEN = [{"rubro":"TRANSPORTE","proveedores":13,"facturas":36,"anticipos":0,"monto":549403.19,"pctVenc":38.837022406076684,"color":"#F2C94C","riesgo":{"label":"Moderado","color":"#946200","bg":"#FAEEDA"}},{"rubro":"TRANSPORTE AGRICOLA","proveedores":5,"facturas":20,"anticipos":0,"monto":132273.09,"pctVenc":31.754259313062093,"color":"#6B6B7B","riesgo":{"label":"Moderado","color":"#946200","bg":"#FAEEDA"}},{"rubro":"TRANSPORTE INDUSTRIA","proveedores":4,"facturas":10,"anticipos":0,"monto":53622.62,"pctVenc":97.29526457304772,"color":"#C2185B","riesgo":{"label":"Crítico","color":"#D64545","bg":"#FCEBEB"}},{"rubro":"ALIMENTACION","proveedores":13,"facturas":37,"anticipos":2,"monto":33049.62000000002,"pctVenc":9.439919651003818,"color":"#9B51E0","riesgo":{"label":"Bajo","color":"#0F8C4E","bg":"#E6FBF0"}},{"rubro":"SALUD","proveedores":2,"facturas":25,"anticipos":0,"monto":18623.140000000003,"pctVenc":0.3524110327259527,"color":"#00B8A9","riesgo":{"label":"Bajo","color":"#0F8C4E","bg":"#E6FBF0"}}];const TOTAL_DATASETS = [{"label":"ALIMENTACION","color":"#9B51E0","data":[1909.86,8188.87,7941.1,869.56,1322.35,0,0,0,0,0]},{"label":"SALUD","color":"#00B8A9","data":[65.63,7917.9,0,1071.74,3964.38,5603.49,0,0,0,0]},{"label":"TRANSPORTE","color":"#F2C94C","data":[213371.84,331447.31,0,1743.01,2841.03,0,0,0,0,0]},{"label":"TRANSPORTE AGRICOLA","color":"#6B6B7B","data":[42002.34,52636.58,6895.46,3426,5040.66,12947.55,0,0,8105.34,1219.16]},{"label":"TRANSPORTE INDUSTRIA","color":"#C2185B","data":[52172.27,0,1450.35,0,0,0,0,0,0,0]}];const WEEK_LABELS = ["Vencida","Semana del 31/7","Semana del 7/8","Semana del 14/8","Semana del 21/8","Semana del 28/8","Semana del 4/9","Semana del 11/9","Semana del 18/9","+8 sem."];function fmtUSD(v){ v=Number(v)||0; return (v<0?"-":"")+"$"+Math.abs(v).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}); }document.querySelectorAll(".tabbtn").forEach(btn => { btn.addEventListener("click", () => {  document.querySelectorAll(".tabbtn").forEach(b=>b.classList.remove("active"));  document.querySelectorAll(".panel").forEach(pn=>pn.classList.remove("active"));  btn.classList.add("active");  document.getElementById("panel-"+btn.dataset.t).classList.add("active");});});new Chart(document.getElementById("cv-total"), { type:"bar",  data:{ labels: WEEK_LABELS, datasets: TOTAL_DATASETS.map(d=>({label:d.label,data:d.data,backgroundColor:d.color,borderRadius:3})) },  options:{ responsive:true, maintainAspectRatio:false,    plugins:{ legend:{position:"bottom",labels:{boxWidth:12,font:{size:10.5}}}, tooltip:{callbacks:{label:ctx=>ctx.dataset.label+": "+fmtUSD(ctx.parsed.y)}} },    scales:{ x:{stacked:true}, y:{stacked:true, ticks:{callback:v=>"$"+Number(v).toLocaleString("en-US")}} } } });RESUMEN.forEach(r => {  const slugR = r.rubro.toLowerCase().replace(/[^a-z0-9]+/g,"_").replace(/^_+|_+$/g,"");  const cd = CHART_DATA[r.rubro];  new Chart(document.getElementById("cv-prov-"+slugR), { type:"bar",    data:{ labels: cd.proveedores.labels, datasets:[{ data: cd.proveedores.data, backgroundColor: r.color, borderRadius:3 }] },    options:{ indexAxis:"y", responsive:true, maintainAspectRatio:false,      plugins:{ legend:{display:false}, tooltip:{callbacks:{label:ctx=>fmtUSD(ctx.parsed.x)+" · "+cd.proveedores.facturas[ctx.dataIndex]+" factura(s)"}} },      scales:{ x:{ ticks:{callback:v=>"$"+Number(v).toLocaleString("en-US")} } } } });  new Chart(document.getElementById("cv-week-"+slugR), { type:"bar",    data:{ labels: cd.semanal.labels, datasets:[{ data: cd.semanal.data, backgroundColor: cd.semanal.labels.map((l,i)=> i===0?"#D64545":r.color), borderRadius:3 }] },    options:{ responsive:true, maintainAspectRatio:false,      plugins:{ legend:{display:false}, tooltip:{callbacks:{label:ctx=>fmtUSD(ctx.parsed.y)}} },      scales:{ x:{ticks:{font:{size:9.5},maxRotation:60,minRotation:60}}, y:{ticks:{callback:v=>"$"+Number(v).toLocaleString("en-US"),font:{size:9.5}}} } } });});</script></body></html>
