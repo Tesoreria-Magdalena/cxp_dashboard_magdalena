@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Newsletter · Gestión Bancaria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--purple:#200086;--purple2:#4A3FB8;--green:#15E574;--border:#E5E1F5;--gray:#64748B;--bg:#FAF9FC;--ink:#1A1530;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);}
+.hdr{position:relative;background:linear-gradient(135deg,#200086 0%,#3A2FA8 55%,#4A3FB8 100%);color:#fff;padding:28px 22px 40px;overflow:hidden;}
+.hdr::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(21,229,116,.22),transparent 70%);}
+.hdr-inner{position:relative;z-index:1;}
+.back{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;color:rgba(255,255,255,.72);text-decoration:none;letter-spacing:.03em;margin-bottom:14px;}
+.back:hover{color:#fff;}
+.hdr h1{margin:0 0 6px;font-family:'Fraunces',serif;font-size:26px;font-weight:700;letter-spacing:-.01em;}
+.hdr .sub{font-size:12.5px;color:rgba(255,255,255,.68);font-weight:500;}
+.wrap{max-width:760px;margin:-22px auto 0;padding:0 14px 50px;position:relative;z-index:2;}
+
+.latest{display:block;background:#fff;border:1px solid var(--border);border-radius:20px;padding:22px 22px 20px;text-decoration:none;color:inherit;box-shadow:0 4px 18px rgba(32,0,134,.07);transition:transform .15s ease, box-shadow .15s ease;position:relative;overflow:hidden;}
+.latest::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--green);}
+.latest:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(32,0,134,.12);}
+.latest-tag{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0F6E56;background:#DCF7EB;padding:3px 9px;border-radius:20px;margin-bottom:11px;}
+.latest-tag .dot{width:5px;height:5px;border-radius:50%;background:#15E574;}
+.latest .ttl{font-family:'Fraunces',serif;font-size:19px;font-weight:700;margin:0;letter-spacing:-.005em;line-height:1.3;}
+.latest .go{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--purple);margin-top:14px;}
+
+.section-lbl{font-size:10.5px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.08em;margin:30px 4px 10px;display:flex;align-items:center;gap:8px;}
+.section-lbl::after{content:'';flex:1;height:1px;background:var(--border);}
+
+.list{display:flex;flex-direction:column;gap:2px;}
+.item{display:flex;align-items:center;gap:14px;padding:13px 14px;text-decoration:none;color:inherit;border-radius:12px;transition:background .12s ease;}
+.item:hover{background:#F1EFFB;}
+.item .fecha-block{flex:0 0 auto;width:44px;text-align:center;}
+.item .dia{font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--purple);line-height:1;}
+.item .mes{font-size:9px;font-weight:700;text-transform:uppercase;color:var(--gray);letter-spacing:.04em;margin-top:2px;}
+.item .body{flex:1;min-width:0;}
+.item .ttl{font-size:13px;font-weight:600;margin:0;}
+.item .chev{flex:0 0 auto;color:#D8D3EF;font-size:16px;}
+.item:hover .chev{color:var(--purple);}
+
+.empty, .loading, .error{text-align:center;padding:40px 20px;color:var(--gray);font-size:12.5px;}
+.error{color:#B5502C;}
+.footer-note{text-align:center;font-size:10.5px;color:#A8A2C4;margin-top:30px;font-weight:500;}
+.footer-note b{color:var(--gray);}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-inner">
+    <a class="back" href="../index.html">‹ Menú principal</a>
+    <h1>Newsletter</h1>
+    <div class="sub">Gestión Bancaria · Edición diaria</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div id="latest-slot"><div class="loading">Cargando ediciones…</div></div>
+  <div id="lista-wrap" style="display:none;">
+    <div class="section-lbl">Ediciones anteriores</div>
+    <div class="list" id="lista-slot"></div>
+  </div>
+  <div class="footer-note">Actualizado por <b>Gestión Bancaria</b> · Tesorería</div>
+</div>
+
+<script>
+/* ============================================================
+   Descubrimiento automático: lee el contenido de esta misma
+   carpeta en GitHub y arma la lista con los archivos que tengan
+   formato YYYY-MM-DD.html. No requiere editar nada a mano.
+   El repo se detecta solo desde la URL (funciona en GitHub Pages
+   bajo cualquier nombre de repositorio dentro de OWNER).
+   ============================================================ */
+const OWNER = "Tesoreria-Magdalena";
+
+const MESES = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+const MESES_LARGO = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+
+function detectarRepo(){
+  // Para https://tesoreria-magdalena.github.io/NOMBRE-REPO/newsletter/index.html
+  const partes = location.pathname.split("/").filter(Boolean);
+  return partes[0] || "";
+}
+
+function tituloDesdeFecha(fecha){
+  const [y,m,d] = fecha.split("-").map(Number);
+  return `Newsletter de Gestión Bancaria del ${d} de ${MESES_LARGO[m-1]} de ${y}`;
+}
+
+async function cargar(){
+  const repo = detectarRepo();
+  const latestSlot = document.getElementById("latest-slot");
+  const listaWrap = document.getElementById("lista-wrap");
+  const listaSlot = document.getElementById("lista-slot");
+
+  try{
+    const resp = await fetch(`https://api.github.com/repos/${OWNER}/${repo}/contents/newsletter`);
+    if(!resp.ok) throw new Error("No se pudo leer la carpeta");
+    const archivos = await resp.json();
+
+    const fechaRegex = /^(\d{4}-\d{2}-\d{2})\.html$/;
+    const ediciones = archivos
+      .map(a => a.name.match(fechaRegex))
+      .filter(Boolean)
+      .map(m => m[1])
+      .sort((a,b) => b.localeCompare(a)); // más reciente primero
+
+    if(ediciones.length === 0){
+      latestSlot.innerHTML = '<div class="empty">Todavía no hay ediciones publicadas.</div>';
+      return;
+    }
+
+    const [reciente, ...anteriores] = ediciones;
+
+    latestSlot.innerHTML = `
+      <a class="latest" href="${reciente}.html">
+        <span class="latest-tag"><span class="dot"></span>Última edición</span>
+        <p class="ttl">${tituloDesdeFecha(reciente)}</p>
+        <span class="go">Ver edición ›</span>
+      </a>`;
+
+    if(anteriores.length > 0){
+      listaWrap.style.display = "block";
+      listaSlot.innerHTML = anteriores.map(fecha => {
+        const [,m,d] = fecha.split("-");
+        return `
+        <a class="item" href="${fecha}.html">
+          <div class="fecha-block">
+            <div class="dia">${parseInt(d)}</div>
+            <div class="mes">${MESES[parseInt(m)-1]}</div>
+          </div>
+          <div class="body"><p class="ttl">${tituloDesdeFecha(fecha)}</p></div>
+          <span class="chev">›</span>
+        </a>`;
+      }).join("");
+    }
+  }catch(err){
+    latestSlot.innerHTML = `<div class="error">No se pudo cargar el listado automáticamente. Verificá tu conexión o intentá de nuevo en un momento.</div>`;
+  }
+}
+
+cargar();
+</script>
+</body>
+</html>
