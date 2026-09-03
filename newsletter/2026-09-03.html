@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es-GT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radar ejecutivo diario — Magdalena — 3 sep 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* --- Identidad Magdalena, adaptada a modo oscuro tipo terminal --- */
+    --purple-core:#200086;       /* morado institucional, uso sólido */
+    --purple-bright:#9B87FF;     /* tinte claro del morado, para líneas/texto sobre fondo oscuro */
+    --purple-dim:#4A3B99;
+    --green:#15E574;             /* verde institucional, sin cambios */
+    --green-dim:#0C7A44;
+    --red:#FF6B5E;
+    --amber:#FFC24B;
+
+    --bg:#0A0714;                /* casi negro con base morada, no negro puro */
+    --bg-elevated:#120B28;
+    --surface:#160F32;
+    --surface-2:#1E1548;
+    --border:#2A2158;
+    --border-soft:#1E1740;
+
+    --text:#F3F1FC;
+    --text-dim:#9A90C4;
+    --text-faint:#655A96;
+  }
+
+  /* ---- Modo claro (para imprimir / ahorrar tinta) ---- */
+  html.light-theme{
+    --purple-bright:#200086;
+    --red:#B42318;
+    --amber:#9A6700;
+    --bg:#F5F6F8;
+    --bg-elevated:#FFFFFF;
+    --surface:#FFFFFF;
+    --surface-2:#F3F0FF;
+    --border:#E2E3E8;
+    --border-soft:#EEEFF3;
+    --text:#171821;
+    --text-dim:#514B6B;
+    --text-faint:#8983A8;
+  }
+  html.light-theme header.top{
+    background:linear-gradient(135deg,var(--purple-core) 0%,#2d0aad 100%);
+  }
+  html.light-theme .kicker,
+  html.light-theme .meta-line{color:#C9BFFF;}
+  html.light-theme .meta-line strong{color:#fff;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{background:var(--bg);}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--purple-bright);color:var(--bg);}
+  a{color:var(--purple-bright);}
+
+  .shell{max-width:1240px;margin:0 auto;}
+
+  /* ============ HEADER ============ */
+  header.top{
+    border-bottom:1px solid var(--border);
+    background:
+      radial-gradient(ellipse 900px 400px at 15% -20%, rgba(32,0,134,0.55), transparent 60%),
+      radial-gradient(ellipse 600px 300px at 90% -10%, rgba(21,229,116,0.10), transparent 60%),
+      var(--bg-elevated);
+  }
+  .top-inner{max-width:1240px;margin:0 auto;padding:26px 24px 22px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:18px;}
+  .logo-row{display:flex;align-items:center;gap:14px;}
+  .logo-img{height:52px;display:block;}
+  .top-right{text-align:right;}
+  h1.masthead{font-family:'Fraunces',serif;font-weight:600;font-size:1.7rem;letter-spacing:-0.01em;margin-top:14px;color:var(--text);}
+  .kicker{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);margin-top:2px;}
+  .meta-line{font-family:'IBM Plex Mono',monospace;font-size:0.76rem;color:var(--text-dim);margin-top:10px;}
+  .meta-line strong{color:var(--text);}
+  .live-dot{
+    display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);
+    box-shadow:0 0 0 0 rgba(21,229,116,0.6);
+    animation:pulse 2s infinite;
+    margin-right:6px;vertical-align:middle;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(21,229,116,0.55);}
+    70%{box-shadow:0 0 0 6px rgba(21,229,116,0);}
+    100%{box-shadow:0 0 0 0 rgba(21,229,116,0);}
+  }
+  .pdf-btn{
+    display:inline-flex;align-items:center;gap:7px;
+    background:var(--green);color:#06170F;border:none;
+    padding:9px 18px;border-radius:7px;font-weight:700;font-size:0.78rem;
+    font-family:'Inter',sans-serif;cursor:pointer;letter-spacing:0.01em;
+    margin-bottom:12px;
+  }
+  .pdf-btn:hover{background:#3FF598;}
+  .pdf-btn:disabled{background:var(--text-faint);color:var(--bg);cursor:wait;}
+  .theme-btn{
+    display:inline-flex;align-items:center;gap:7px;
+    background:transparent;color:var(--text-dim);border:1px solid var(--border);
+    padding:8px 16px;border-radius:7px;font-weight:600;font-size:0.76rem;
+    font-family:'Inter',sans-serif;cursor:pointer;letter-spacing:0.01em;
+    margin-bottom:12px;margin-right:8px;
+  }
+  .theme-btn:hover{border-color:var(--purple-bright);color:var(--text);}
+
+  /* ============ TICKER ============ */
+  .ticker-wrap{
+    border-bottom:1px solid var(--border);
+    background:var(--surface);
+    overflow:hidden;position:relative;
+  }
+  .ticker-wrap::before,.ticker-wrap::after{
+    content:"";position:absolute;top:0;bottom:0;width:40px;z-index:2;pointer-events:none;
+  }
+  .ticker-wrap::before{left:0;background:linear-gradient(90deg,var(--surface),transparent);}
+  .ticker-wrap::after{right:0;background:linear-gradient(-90deg,var(--surface),transparent);}
+  .ticker-track{
+    display:flex;width:max-content;
+    animation:ticker 38s linear infinite;
+    padding:9px 0;
+  }
+  .ticker-wrap:hover .ticker-track{animation-play-state:paused;}
+  @keyframes ticker{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+  .tick{
+    display:inline-flex;align-items:baseline;gap:7px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;
+    padding:0 22px;border-right:1px solid var(--border-soft);white-space:nowrap;
+  }
+  .tick .t-name{color:var(--text-dim);}
+  .tick .t-val{color:var(--text);font-weight:600;}
+  .tick .t-up{color:var(--green);}
+  .tick .t-down{color:var(--red);}
+
+  /* ============ LAYOUT ============ */
+  .layout{
+    max-width:1240px;margin:0 auto;padding:28px 24px 80px;
+    display:grid;grid-template-columns:280px 1fr;gap:24px;
+    align-items:start;
+  }
+  @media(max-width:880px){
+    .layout{grid-template-columns:1fr;}
+  }
+
+  /* ---- Modo de exportación a PDF: fuerza una sola columna, ancho fijo ----
+     El layout de dos columnas (sidebar + main) se ve muy bien en pantalla,
+     pero causaba cortes y desalineación al capturarlo para el PDF. Este modo
+     se activa solo durante la generación del PDF y se quita después. */
+  html.pdf-mode .top-inner,
+  html.pdf-mode .layout{max-width:860px;}
+  html.pdf-mode .layout{grid-template-columns:1fr !important;gap:16px;}
+  html.pdf-mode .sidebar{position:static !important;}
+  html.pdf-mode .table-scroll{overflow-x:visible !important;}
+  /* Los sparklines se quitan solo en el PDF: el valor Δ5D numérico se
+     mantiene, solo se oculta el mini-gráfico que causaba superposiciones. */
+  html.pdf-mode .spark-wrap{display:none !important;}
+
+  /* ============ SIDEBAR ============ */
+  .sidebar{position:sticky;top:20px;display:flex;flex-direction:column;gap:16px;}
+  @media(max-width:880px){.sidebar{position:static;}}
+
+  .panel{
+    background:var(--surface);border:1px solid var(--border);border-radius:12px;
+    padding:16px 18px;
+  }
+  .panel-label{
+    font-family:'IBM Plex Mono',monospace;font-size:0.66rem;text-transform:uppercase;
+    letter-spacing:0.12em;color:var(--text-faint);margin-bottom:12px;
+    display:flex;align-items:center;gap:7px;
+  }
+  .panel-label::before{content:"";width:5px;height:5px;background:var(--green);display:inline-block;}
+
+  .priority-row{display:flex;align-items:center;justify-content:space-between;}
+  .priority-pill{
+    font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:0.82rem;
+    padding:5px 14px;border-radius:20px;letter-spacing:0.02em;
+    background:rgba(255,194,75,0.14);color:var(--amber);border:1px solid rgba(255,194,75,0.35);
+  }
+
+  .watch-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:10px 0;border-bottom:1px solid var(--border-soft);
+    page-break-inside:avoid;break-inside:avoid;
+  }
+  .watch-row:last-child{border-bottom:none;padding-bottom:0;}
+  .watch-row:first-child{padding-top:0;}
+  .w-name{font-size:0.82rem;color:var(--text-dim);}
+  .w-name .ind{cursor:help;border-bottom:1px dotted var(--text-faint);}
+  .w-right{text-align:right;}
+  .w-val{font-family:'IBM Plex Mono',monospace;font-size:0.92rem;font-weight:600;color:var(--text);}
+  .w-delta{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;margin-top:1px;}
+
+  /* tooltip (definiciones de indicador) */
+  .ind{position:relative;}
+  .tooltip-box{
+    display:none;position:absolute;bottom:calc(100% + 8px);left:0;
+    background:var(--purple-core);color:#fff;
+    font-family:'Inter',sans-serif;font-weight:400;font-size:0.74rem;line-height:1.4;
+    padding:9px 12px;border-radius:8px;width:210px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);z-index:20;
+  }
+  .ind:hover .tooltip-box,.ind.tap-active .tooltip-box{display:block;}
+
+  /* ============ MAIN ============ */
+  .main{display:flex;flex-direction:column;gap:20px;}
+
+  .card{
+    background:var(--surface);border:1px solid var(--border);border-radius:12px;
+    padding:22px 24px;
+    page-break-inside:avoid;break-inside:avoid;
+  }
+  .card-label{
+    font-family:'IBM Plex Mono',monospace;font-size:0.68rem;text-transform:uppercase;
+    letter-spacing:0.12em;color:var(--text-faint);margin-bottom:14px;
+    display:flex;align-items:center;gap:7px;
+  }
+  .card-label::before{content:"";width:5px;height:5px;background:var(--green);display:inline-block;}
+
+  .headline{
+    font-family:'Fraunces',serif;font-weight:500;font-size:1.5rem;line-height:1.32;
+    color:var(--text);letter-spacing:-0.01em;
+  }
+
+  /* Snapshot table */
+  .table-scroll{overflow-x:auto;}
+  table.data-table{width:100%;border-collapse:collapse;font-size:0.85rem;}
+  table.data-table th{
+    text-align:left;font-family:'IBM Plex Mono',monospace;font-size:0.66rem;
+    text-transform:uppercase;letter-spacing:0.08em;color:var(--text-faint);
+    padding:8px 10px;border-bottom:1px solid var(--border);
+  }
+  table.data-table td{padding:11px 10px;border-bottom:1px solid var(--border-soft);vertical-align:middle;color:var(--text-dim);}
+  table.data-table tr:last-child td{border-bottom:none;}
+  table.data-table tr{page-break-inside:avoid;break-inside:avoid;}
+  table.data-table td:first-child{color:var(--text);font-weight:600;}
+  .mono{font-family:'IBM Plex Mono',monospace;color:var(--text);}
+  .up{color:var(--green);}
+  .down{color:var(--red);}
+  .flat{color:var(--text-faint);}
+  .no-series{color:var(--text-faint);font-size:0.72rem;}
+
+  .spark-wrap{position:relative;width:76px;height:26px;}
+  .spark-canvas{width:76px;height:26px;display:block;}
+  .spark-hit{
+    position:absolute;width:10px;height:10px;margin-left:-5px;margin-top:-5px;
+    border-radius:50%;cursor:help;background:transparent;
+  }
+  .spark-hit:hover{background:rgba(155,135,255,0.18);}
+
+  .footnote{font-size:0.72rem;color:var(--text-faint);margin-top:12px;}
+
+  /* FX Desk */
+  .fx-grid{display:grid;grid-template-columns:1fr;gap:8px;}
+  .fx-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:13px 16px;border-radius:9px;background:var(--bg-elevated);
+    border:1px solid var(--border-soft);
+    page-break-inside:avoid;break-inside:avoid;
+  }
+  .fx-row.best{
+    background:linear-gradient(90deg, rgba(21,229,116,0.10), rgba(21,229,116,0.02));
+    border-color:rgba(21,229,116,0.35);
+  }
+  .fx-bank{display:flex;align-items:center;gap:10px;}
+  .fx-rank{
+    font-family:'IBM Plex Mono',monospace;font-size:0.7rem;font-weight:700;
+    width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:var(--surface-2);color:var(--text-dim);
+  }
+  .fx-row.best .fx-rank{background:var(--green);color:#06170F;}
+  .fx-name{font-size:0.88rem;color:var(--text);}
+  .fx-quote{font-family:'IBM Plex Mono',monospace;font-size:1rem;font-weight:600;color:var(--text);}
+  .fx-quote.pending{color:var(--text-faint);font-size:0.85rem;font-weight:400;}
+  .fx-diff{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--text-faint);margin-top:2px;text-align:right;}
+  .fx-ref{font-size:0.76rem;color:var(--text-faint);margin-top:12px;}
+
+  /* Tendencia FX comparativa multi-año */
+  .fx-trend-wrap{margin-top:16px;padding-top:16px;border-top:1px solid var(--border-soft);}
+  .fx-trend-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;}
+  .fx-trend-label{font-family:'IBM Plex Mono',monospace;font-size:0.66rem;letter-spacing:0.06em;color:var(--text-faint);text-transform:uppercase;}
+  .fx-trend-legend{display:flex;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--text-dim);}
+  .fx-trend-legend span{display:flex;align-items:center;gap:5px;}
+  .fx-trend-legend i{width:10px;height:3px;border-radius:2px;display:inline-block;}
+  .fx-trend-canvas-wrap{width:100%;}
+  #fx-trend-canvas{width:100%;height:90px;display:block;}
+  .fx-trend-note{font-size:0.74rem;color:var(--text-faint);margin-top:8px;line-height:1.5;}
+  .fx-milestone-hit{border:1.5px solid rgba(255,194,75,0.55);background:rgba(255,194,75,0.12);}
+  .fx-milestone-hit:hover{background:rgba(255,194,75,0.32);}
+  .fx-milestone{
+    margin-top:10px;padding:8px 12px;border-radius:8px;
+    background:rgba(255,194,75,0.12);border:1px solid rgba(255,194,75,0.3);
+    font-size:0.78rem;color:var(--amber);font-weight:600;
+  }
+  .fx-ref .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:0.64rem;background:var(--surface-2);
+    color:var(--text-dim);padding:2px 8px;border-radius:10px;margin-left:4px;
+  }
+
+  /* WATCH grid */
+  .watch-grid-main{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:640px){.watch-grid-main{grid-template-columns:1fr;}}
+  .watch-block-main{background:var(--bg-elevated);border:1px solid var(--border-soft);border-radius:10px;padding:16px;page-break-inside:avoid;break-inside:avoid;}
+  .watch-block-main h3{
+    font-family:'IBM Plex Mono',monospace;font-size:0.7rem;text-transform:uppercase;
+    letter-spacing:0.08em;color:var(--purple-bright);margin-bottom:10px;
+  }
+  ul.dash-list{list-style:none;}
+  ul.dash-list li{
+    font-size:0.86rem;color:var(--text-dim);padding:7px 0 7px 16px;position:relative;
+    border-bottom:1px solid var(--border-soft);line-height:1.45;
+  }
+  ul.dash-list li:last-child{border-bottom:none;}
+  ul.dash-list li::before{content:"—";position:absolute;left:0;color:var(--green);}
+
+  /* Radar de riesgos */
+  .risk-row{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--border-soft);page-break-inside:avoid;break-inside:avoid;}
+  .risk-row:last-child{border-bottom:none;}
+  .risk-tag{
+    font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:700;
+    padding:3px 10px;border-radius:5px;white-space:nowrap;letter-spacing:0.03em;
+  }
+  .risk-alto{background:rgba(255,107,94,0.14);color:var(--red);border:1px solid rgba(255,107,94,0.3);}
+  .risk-medio{background:rgba(255,194,75,0.14);color:var(--amber);border:1px solid rgba(255,194,75,0.3);}
+  .risk-text{font-size:0.86rem;color:var(--text-dim);padding-top:1px;}
+
+  /* Fuentes (details) */
+  details.sources{background:var(--bg-elevated);border:1px solid var(--border-soft);border-radius:10px;padding:2px 18px;}
+  details.sources summary{
+    cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:0.74rem;text-transform:uppercase;
+    letter-spacing:0.08em;color:var(--text-dim);padding:14px 0;list-style:none;
+    display:flex;align-items:center;gap:8px;
+  }
+  details.sources summary::-webkit-details-marker{display:none;}
+  details.sources summary::before{content:"▸";color:var(--green);transition:transform 0.15s;}
+  details.sources[open] summary::before{transform:rotate(90deg);}
+  .sources-body{font-size:0.78rem;color:var(--text-dim);line-height:1.65;padding-bottom:16px;}
+  .sources-body strong{color:var(--text);}
+  .disclaimer-text{font-size:0.72rem;color:var(--text-faint);line-height:1.65;margin-top:12px;}
+  .contact-line{font-size:0.78rem;color:var(--text-dim);margin-top:14px;}
+  .contact-line a{color:var(--green);font-weight:600;text-decoration:none;}
+
+  footer.bottom{
+    max-width:1240px;margin:0 auto;padding:0 24px 50px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--text-faint);
+    text-align:center;
+  }
+
+  /* Aviso: Chrome en iOS no permite guardar como PDF desde su diálogo de impresión */
+  .ios-chrome-notice{
+    display:none;
+    max-width:1240px;margin:0 auto;padding:10px 24px;
+    background:rgba(255,194,75,0.12);border-bottom:1px solid rgba(255,194,75,0.3);
+    font-size:0.82rem;color:var(--amber);
+    align-items:center;justify-content:space-between;gap:12px;
+  }
+  .ios-chrome-notice.show{display:flex;}
+  .ios-chrome-notice a{color:var(--amber);text-decoration:underline;}
+  .ios-chrome-notice button{
+    background:transparent;border:1px solid rgba(255,194,75,0.4);color:var(--amber);
+    border-radius:5px;padding:3px 9px;font-size:0.76rem;cursor:pointer;flex-shrink:0;
+  }
+  .ios-chrome-notice button:hover{background:rgba(255,194,75,0.15);}
+
+  @media print{
+    .no-print{display:none !important;}
+
+    /* Forzar que el navegador imprima los colores de fondo (si no, los
+       quita por defecto y todo sale en blanco). */
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;}
+
+    /* Una sola columna apilada — el layout de dos columnas se ve genial en
+       pantalla pero no traduce bien a una página impresa/PDF. */
+    .layout{grid-template-columns:1fr !important;max-width:860px !important;}
+    .top-inner{max-width:860px !important;}
+    .sidebar{position:static !important;}
+
+    /* Los sparklines se quitan solo al imprimir: el valor Δ5D numérico se
+       mantiene, solo se oculta el mini-gráfico. */
+    .spark-wrap{display:none !important;}
+
+    /* Expandir "Fuentes & metodología" aunque esté colapsado en pantalla. */
+    details.sources > *{display:block !important;}
+    details.sources summary::before{display:none;}
+
+    .table-scroll{overflow-x:visible !important;}
+
+    /* Evitar que tarjetas, filas y bloques se corten a la mitad entre páginas. */
+    .card,.watch-row,tr,.watch-block-main,.fx-row,.risk-row{
+      page-break-inside:avoid;break-inside:avoid;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div>
+      <div class="logo-row">
+        <img class="logo-img" alt="magdalena" src="data:image/png;base64,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">
+      </div>
+      <div class="kicker">Tesorería · Azúcar · Energía · Guatemala · Comercio Exterior</div>
+      <h1 class="masthead">Radar ejecutivo diario</h1>
+      <div class="meta-line"><span class="live-dot"></span><strong>Jueves 3 de septiembre de 2026</strong> · Corte 09:00 hrs · Edición Nº 10</div>
+    </div>
+    <div class="top-right">
+      <button class="theme-btn no-print" id="theme-btn" onclick="toggleTheme()">☀ Versión clara</button>
+      <button class="pdf-btn no-print" id="pdf-btn" onclick="downloadPDF()">⬇ Descargar PDF</button>
+    </div>
+  </div>
+</header>
+
+<div class="ios-chrome-notice no-print" id="ios-chrome-notice">
+  <span>⚠ Chrome en iPhone/iPad no permite guardar como PDF. Para descargarlo, abre este enlace en <strong>Safari</strong>.</span>
+  <button onclick="document.getElementById('ios-chrome-notice').classList.remove('show')">Cerrar</button>
+</div>
+
+<div class="ticker-wrap no-print">
+  <div class="ticker-track" id="ticker-track"><!-- se llena por JS --></div>
+</div>
+
+<div class="layout">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+
+    <div class="panel">
+      <div class="panel-label">Prioridad Tesorería</div>
+      <div class="priority-row">
+        <span class="priority-pill" style="background:rgba(255,107,94,0.14);color:var(--red);border:1px solid rgba(255,107,94,0.3);">ALTA</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-label">KPIs ejecutivos</div>
+
+      <div class="watch-row">
+        <div class="w-name ind">Sugar #11<span class="tooltip-box">Futuros de azúcar cruda negociados en ICE Nueva York. Principal referencia internacional del azúcar cruda.</span></div>
+        <div class="w-right"><div class="w-val">18.31</div><div class="w-delta up">▲ 2.01%</div></div>
+      </div>
+      <div class="watch-row">
+        <div class="w-name ind">Brent<span class="tooltip-box">Referencia internacional del petróleo crudo. Relevante para combustibles, inflación, transporte y fletes.</span></div>
+        <div class="w-right"><div class="w-val">95.04</div><div class="w-delta up">▲ 3.29%</div></div>
+      </div>
+      <div class="watch-row">
+        <div class="w-name ind">WTI<span class="tooltip-box">West Texas Intermediate. Referencia estadounidense de petróleo, complementaria a Brent.</span></div>
+        <div class="w-right"><div class="w-val">90.63</div><div class="w-delta up">▲ 3.47%</div></div>
+      </div>
+      <div class="watch-row">
+        <div class="w-name ind">DXY<span class="tooltip-box">Índice de fortaleza del dólar frente a una canasta de 6 monedas principales (57.6% euro).</span></div>
+        <div class="w-right"><div class="w-val">99.55</div><div class="w-delta up">▲ 0.08%</div></div>
+      </div>
+      <div class="watch-row">
+        <div class="w-name ind">UST 10Y<span class="tooltip-box">Rendimiento del Treasury a 10 años. Referencia global de tasas de largo plazo y costo financiero.</span></div>
+        <div class="w-right"><div class="w-val">4.75%</div><div class="w-delta down">▼ 0.21%</div></div>
+      </div>
+      <div class="watch-row">
+        <div class="w-name ind">SOFR<span class="tooltip-box">Secured Overnight Financing Rate: tasa de referencia para financiamiento a tasa flotante en USD, publicada por la Fed de Nueva York. Reemplazó a LIBOR. La mayoría de préstamos flotantes del grupo referencian este índice.</span></div>
+        <div class="w-right"><div class="w-val">3.68%</div><div class="w-delta up">▲ 0.82%</div></div>
+      </div>
+      <div class="watch-row">
+        <div class="w-name ind">BRL/USD<span class="tooltip-box">Real brasileño. Relevante por el peso de Brasil en la oferta mundial de azúcar.</span></div>
+        <div class="w-right"><div class="w-val">5.0933</div><div class="w-delta down">▼ 1.08%</div></div>
+      </div>
+      <div class="watch-row">
+        <div class="w-name ind">USD/GTQ<span class="tooltip-box">Mejor cotización bancaria de compra de USD recibida por Tesorería hoy (Banguat se muestra aparte, fuera de ranking).</span></div>
+        <div class="w-right"><div class="w-val">Q7.6222</div><div class="w-delta flat">BAM</div></div>
+      </div>
+      <div class="watch-row">
+        <div class="w-name ind">Etanol (CBOT)<span class="tooltip-box">Etanol combustible desnaturalizado, futuros CBOT/CME. Referencia de EE. UU., no es idéntico al anhidro que usa Guatemala pero correlaciona de cerca.</span></div>
+        <div class="w-right"><div class="w-val">$1.955/gal</div><div class="w-delta flat">nuevo</div></div>
+      </div>
+      <div class="watch-row">
+        <div class="w-name ind">Etanol Anidro (CEPEA)<span class="tooltip-box">Etanol anhidro, el mismo tipo que Guatemala usa para la mezcla E10. Indicador semanal CEPEA/ESALQ-SP (Brasil, mayor exportador mundial) — se actualiza una vez por semana, no a diario.</span></div>
+        <div class="w-right"><div class="w-val">R$2,6046/L</div><div class="w-delta up">▲ 1.96% sem.</div></div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="main">
+
+    <div class="card">
+      <div class="card-label">Hoy en una frase</div>
+      <div class="headline">Irán atacó bases de EE. UU. en Jordania, EAU y Kuwait durante la noche; Trump dice que la respuesta será "corta" pero mantiene la presión; petróleo cede desde el máximo de 6 semanas (Brent ~$95); azúcar salta a la apertura (+2.0%); Waller (Fed) se muestra más moderado que Warsh sobre las tasas.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Treasury &amp; Market Snapshot</div>
+      <div class="table-scroll">
+      <table class="data-table">
+        <thead>
+          <tr><th>Indicador</th><th>Último dato</th><th>Δ1D</th><th>Δ5D</th><th>Tendencia 5D</th><th>Lectura</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sugar #11</td><td class="mono">18.31 ¢/lb</td><td class="mono up">+2.01%</td><td class="mono up">+2.29%</td>
+            <td><div class="spark-wrap"><canvas class="spark-canvas" width="200" height="60" data-points='[[4.0, 17.3], [27.0, 26.0], [50.0, 6.6], [73.0, 15.6], [96.0, 4.0]]'></canvas><span class="spark-hit" style="left:3.1px;top:15.0px;" title="28 ago: 17.90 ¢/lb"></span><span class="spark-hit" style="left:21.1px;top:22.5px;" title="31 ago (apertura): 17.63 ¢/lb"></span><span class="spark-hit" style="left:39.0px;top:5.7px;" title="1 sep: 18.23 ¢/lb"></span><span class="spark-hit" style="left:56.9px;top:13.6px;" title="2 sep: 17.95 ¢/lb"></span><span class="spark-hit" style="left:74.9px;top:3.5px;" title="3 sep (apertura): 18.31 ¢/lb"></span></div></td>
+            <td>Salta a la apertura, nuevo máximo de la serie; COT en corto récord mantiene el riesgo de short squeeze.</td>
+          </tr>
+          <tr>
+            <td>Sugar #5</td><td class="mono">n/d hoy</td><td class="mono flat">—</td><td class="mono flat">—</td>
+            <td class="no-series">sin serie</td>
+            <td>Último cierre: 21/08 (-0.11%). Sin dato confiable.</td>
+          </tr>
+          <tr>
+            <td>Brent</td><td class="mono">95.04</td><td class="mono up">+3.29%</td><td class="mono up">+7.96%</td>
+            <td><div class="spark-wrap"><canvas class="spark-canvas" width="200" height="60" data-points='[[4.0, 26.0], [27.0, 17.7], [50.0, 15.8], [73.0, 13.5], [96.0, 4.0]]'></canvas><span class="spark-hit" style="left:3.1px;top:22.5px;" title="28 ago: 88.03 $/bbl"></span><span class="spark-hit" style="left:21.1px;top:15.3px;" title="31 ago: 90.69 $/bbl"></span><span class="spark-hit" style="left:39.0px;top:13.7px;" title="1 sep: 91.28 $/bbl"></span><span class="spark-hit" style="left:56.9px;top:11.7px;" title="2 sep: 92.01 $/bbl"></span><span class="spark-hit" style="left:74.9px;top:3.5px;" title="3 sep: 95.04 $/bbl"></span></div></td>
+            <td>Toca máximo intradía desde el 24 de julio; Irán atacó bases de EE. UU. en Jordania, EAU y Kuwait durante la noche.</td>
+          </tr>
+          <tr>
+            <td>WTI</td><td class="mono">90.63</td><td class="mono up">+3.47%</td><td class="mono up">+9.06%</td>
+            <td><div class="spark-wrap"><canvas class="spark-canvas" width="200" height="60" data-points='[[4.0, 26.0], [27.0, 17.6], [50.0, 15.9], [73.0, 12.9], [96.0, 4.0]]'></canvas><span class="spark-hit" style="left:3.1px;top:22.5px;" title="28 ago: 83.10 $/bbl"></span><span class="spark-hit" style="left:21.1px;top:15.2px;" title="31 ago: 85.99 $/bbl"></span><span class="spark-hit" style="left:39.0px;top:13.7px;" title="1 sep: 86.57 $/bbl"></span><span class="spark-hit" style="left:56.9px;top:11.2px;" title="2 sep: 87.59 $/bbl"></span><span class="spark-hit" style="left:74.9px;top:3.5px;" title="3 sep: 90.63 $/bbl"></span></div></td>
+            <td>Se acerca a la zona de resistencia técnica $90-92; inventarios de EE. UU. cayeron 4.5M barriles la semana pasada.</td>
+          </tr>
+          <tr>
+            <td>DXY</td><td class="mono">99.55</td><td class="mono up">+0.08%</td><td class="mono up">+0.72%</td>
+            <td><div class="spark-wrap"><canvas class="spark-canvas" width="200" height="60" data-points='[[4.0, 26.0], [27.0, 4.0], [50.0, 5.4], [73.0, 8.9], [96.0, 6.7]]'></canvas><span class="spark-hit" style="left:3.1px;top:22.5px;" title="28 ago: 98.84"></span><span class="spark-hit" style="left:21.1px;top:3.5px;" title="31 ago: 99.65"></span><span class="spark-hit" style="left:39.0px;top:4.6px;" title="1 sep: 99.60"></span><span class="spark-hit" style="left:56.9px;top:7.7px;" title="2 sep: 99.47"></span><span class="spark-hit" style="left:74.9px;top:5.8px;" title="3 sep: 99.55"></span></div></td>
+            <td>Repunta levemente; eased 0.13% en la sesión previa por demanda de refugio ante la incertidumbre de Ormuz.</td>
+          </tr>
+          <tr>
+            <td>UST 10Y</td><td class="mono">4.75%</td><td class="mono down">-0.21%</td><td class="mono up">+0.21%</td>
+            <td><div class="spark-wrap"><canvas class="spark-canvas" width="200" height="60" data-points='[[4.0, 19.7], [27.0, 26.0], [50.0, 4.0], [73.0, 13.4], [96.0, 16.6]]'></canvas><span class="spark-hit" style="left:3.1px;top:17.1px;" title="28 ago: 4.74%"></span><span class="spark-hit" style="left:21.1px;top:22.5px;" title="31 ago: 4.72%"></span><span class="spark-hit" style="left:39.0px;top:3.5px;" title="1 sep: 4.79%"></span><span class="spark-hit" style="left:56.9px;top:11.6px;" title="2 sep: 4.76%"></span><span class="spark-hit" style="left:74.9px;top:14.4px;" title="3 sep: 4.75%"></span></div></td>
+            <td>Cede desde el máximo de 4.818% de ayer (más alto desde nov. 2023) tras comentarios más moderados de Waller (Fed) vs. Warsh.</td>
+          </tr>
+          <tr>
+            <td>SOFR</td><td class="mono">3.68%</td><td class="mono up">▲</td><td class="mono flat">—</td>
+            <td class="no-series">sin serie</td>
+            <td>Sube levemente, dentro del rango objetivo Fed (3.50-3.75%).</td>
+          </tr>
+          <tr>
+            <td>BRL/USD</td><td class="mono">5.0933</td><td class="mono down">-1.08%</td><td class="mono down">-1.37%</td>
+            <td><div class="spark-wrap"><canvas class="spark-canvas" width="200" height="60" data-points='[[4.0, 4.0], [27.0, 4.0], [50.0, 4.0], [73.0, 8.7], [96.0, 26.0]]'></canvas><span class="spark-hit" style="left:3.1px;top:3.5px;" title="28 ago: 5.1640"></span><span class="spark-hit" style="left:21.1px;top:3.5px;" title="31 ago: 5.1640"></span><span class="spark-hit" style="left:39.0px;top:3.5px;" title="1 sep: 5.1640"></span><span class="spark-hit" style="left:56.9px;top:7.5px;" title="2 sep: 5.1490"></span><span class="spark-hit" style="left:74.9px;top:22.5px;" title="3 sep: 5.0933"></span></div></td>
+            <td>Se fortalece con fuerza; encuesta electoral (Lula-Bolsonaro empate técnico) y flujos hacia mercados emergentes lo respaldan.</td>
+          </tr>
+          <tr>
+            <td>Etanol (CBOT)</td><td class="mono">$1.955/gal</td><td class="mono flat">s/d hoy</td><td class="mono flat">—</td>
+            <td class="no-series">sin serie</td>
+            <td>Sin dato nuevo confirmado hoy; se muestra el último valor disponible (apertura de ayer).</td>
+          </tr>
+          <tr>
+            <td>Etanol Anidro (CEPEA)</td><td class="mono">R$2,6046/L</td><td class="mono flat">—</td><td class="mono up">+1.96% sem.</td>
+            <td class="no-series">semanal, no diario</td>
+            <td>El mismo tipo que usa Guatemala para el E10. Indicador CEPEA/ESALQ-SP, semana 24-28/08/2026 — se actualiza una vez por semana.</td>
+          </tr>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="footnote">Δ5D y tendencia sobre cierres reales de 5 días hábiles (Investing.com). Sugar #5 y SOFR se omiten por no tener histórico diario confiable. Etanol (CBOT) es indicador nuevo desde hoy, sin serie aún; Etanol Anidro (CEPEA) se actualiza semanalmente, no a diario.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">FX Desk</div>
+      <div class="fx-grid">
+        <div class="fx-row best">
+          <div class="fx-bank"><span class="fx-rank">1</span><span class="fx-name">BAM / Banco Agromercantil</span></div>
+          <div><div class="fx-quote">Q7.6222</div></div>
+        </div>
+        <div class="fx-row">
+          <div class="fx-bank"><span class="fx-rank">2</span><span class="fx-name">Banco Industrial</span></div>
+          <div><div class="fx-quote">Q7.6200</div><div class="fx-diff">-Q0.0022</div></div>
+        </div>
+        <div class="fx-row">
+          <div class="fx-bank"><span class="fx-rank">—</span><span class="fx-name">Banco Ficohsa</span></div>
+          <div><div class="fx-quote pending">No presentó al cierre</div></div>
+        </div>
+      </div>
+      <p class="fx-ref">Referencia Banguat (fuera de ranking): <span class="mono" style="color:var(--text-dim);">Q7.62875</span><span class="tag">oficial, 03/09/2026</span></p>
+
+      <div class="fx-trend-wrap">
+        <div class="fx-trend-head">
+          <span class="fx-trend-label">TENDENCIA BANGUAT · 2024-2025-2026 (semana 1-36)</span>
+          <div class="fx-trend-legend">
+            <span><i style="background:#4A3B99;"></i>2024</span>
+            <span><i style="background:#9B87FF;"></i>2025</span>
+            <span><i style="background:#15E574;"></i>2026</span>
+          </div>
+        </div>
+        <div class="fx-trend-canvas-wrap" style="position:relative;">
+          <canvas id="fx-trend-canvas" width="960" height="180"></canvas>
+          <span class="fx-milestone-hit" style="position:absolute;left:6.63%;top:12.0px;width:9px;height:9px;margin-left:-4.5px;margin-top:-4.5px;border-radius:50%;cursor:help;" title="Máximo 2024: Q7.82083 (14/01/2024)"></span>
+          <span class="fx-milestone-hit" style="position:absolute;left:4.0%;top:48.7px;width:9px;height:9px;margin-left:-4.5px;margin-top:-4.5px;border-radius:50%;cursor:help;" title="Mínimo 2024: Q7.70625 (31/12/2024)"></span>
+          <span class="fx-milestone-hit" style="position:absolute;left:14.51%;top:40.2px;width:9px;height:9px;margin-left:-4.5px;margin-top:-4.5px;border-radius:50%;cursor:help;" title="Máximo 2025: Q7.73299 (02/02/2025)"></span>
+          <span class="fx-milestone-hit" style="position:absolute;left:90.74%;top:63.5px;width:9px;height:9px;margin-left:-4.5px;margin-top:-4.5px;border-radius:50%;cursor:help;" title="Mínimo 2025: Q7.66004 (24/08/2025)"></span>
+          <span class="fx-milestone-hit" style="position:absolute;left:11.89%;top:61.0px;width:9px;height:9px;margin-left:-4.5px;margin-top:-4.5px;border-radius:50%;cursor:help;" title="Máximo 2026: Q7.66802 (25/01/2026)"></span>
+          <span class="fx-milestone-hit" style="position:absolute;left:64.46%;top:78.0px;width:9px;height:9px;margin-left:-4.5px;margin-top:-4.5px;border-radius:50%;cursor:help;" title="Mínimo 2026: Q7.61490 (14/06/2026)"></span>
+        </div>
+        <p class="fx-trend-note">El quetzal se ha apreciado de forma sostenida frente al dólar en los últimos 3 años en este mismo tramo del calendario. Puntos discretos = máximo/mínimo de cada línea (pasa el cursor para ver fecha exacta). Rango 5 años (serie diaria completa): Q7.61364 (mín., 16/06/2026) – Q7.93024 (máx., 07/12/2022). Hoy (Q7.62875) sin hitos — dentro del rango.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">WATCH</div>
+      <div class="watch-grid-main">
+        <div class="watch-block-main">
+          <h3>Sugar Watch</h3>
+          <ul class="dash-list">
+            <li>Azúcar salta +2.01% a la apertura (18.31), nuevo máximo de la serie reciente; posicionamiento de fondos sigue en corto extremo récord (COT) frente a comerciales largos — volatilidad extrema persiste, exposición a margin calls sigue vigente (ver Radar de riesgos).</li>
+          </ul>
+        </div>
+        <div class="watch-block-main">
+          <h3>Energy Watch</h3>
+          <ul class="dash-list">
+            <li>Irán atacó bases de EE. UU. en Jordania, Emiratos Árabes Unidos y Kuwait durante la noche con misiles y drones, en respuesta a los últimos ataques aéreos estadounidenses contra objetivos militares iraníes. Trump dijo que la respuesta sería "corta" pero indicó que EE. UU. está listo para más ataques. Brent toca máximo intradía desde el 24 de julio ($95+) antes de ceder levemente; tránsito por Ormuz cayó a 4 buques el martes (promedio de 10 días: ~13).</li>
+            <li>Sequía por El Niño mantiene elevada la dependencia de generación térmica en Guatemala (46% de la matriz al 5 de agosto).</li>
+          </ul>
+        </div>
+        <div class="watch-block-main">
+          <h3>Treasury Watch</h3>
+          <ul class="dash-list">
+            <li>UST 10Y cede a 4.75% desde el máximo de 4.818% de ayer (más alto desde noviembre 2023) — gobernador Waller de la Fed se mostró más moderado que el presidente Warsh la semana pasada, diciendo que se inclina por mantener tasas sin cambios si no hay sorpresas en los próximos datos de inflación. Primera señal pública de división interna en la Fed. Probabilidad de mercado de alza en sept. se mantiene ~70%.</li>
+            <li>Mañana: informe de empleo (nonfarm payrolls) de agosto a las 12:30 GMT — catalizador clave para las expectativas de la Fed y el dólar.</li>
+          </ul>
+        </div>
+        <div class="watch-block-main">
+          <h3>Comercio Exterior / Logistics Watch</h3>
+          <ul class="dash-list">
+            <li>Sin cambios: Canal de Panamá mantiene la reducción de tránsitos confirmada (36→34→32 buques/día) del 3 al 15 de septiembre.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Guatemala / Agenda próxima</div>
+      <ul class="dash-list">
+        <li>Junta Monetaria mantiene la tasa líder en 3.50% (decisión del 26 de agosto). Próxima sesión: 23 de septiembre.</li>
+        <li>CNEE: seguimiento a Licitación Abierta 1-2026 y su efecto en costo de suministro de corto plazo.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Radar de riesgos</div>
+      <div class="risk-row"><span class="risk-tag risk-alto">ALTO</span><span class="risk-text">Riesgo de margin calls en posiciones de cobertura de azúcar — Sugar #11 en nuevo máximo de la serie (18.31, +2.01%), COT en corto récord; revisar liquidez disponible para coberturas abiertas.</span></div>
+      <div class="risk-row"><span class="risk-tag risk-alto">ALTO</span><span class="risk-text">Escalada militar EE. UU.-Irán — Irán atacó bases de EE. UU. en Jordania, EAU y Kuwait durante la noche; Trump promete respuesta "corta" pero no descarta más ataques. Tránsito por Ormuz cayó a 4 buques.</span></div>
+      <div class="risk-row"><span class="risk-tag risk-alto">ALTO</span><span class="risk-text">Restricción de tránsito, Canal de Panamá (3-15 sep).</span></div>
+      <div class="risk-row"><span class="risk-tag risk-medio">MEDIO</span><span class="risk-text">Incertidumbre sobre política monetaria de EE. UU. — primera señal de división interna en la Fed (Waller moderado vs. Warsh hawkish); probabilidad de alza en sept. se mantiene ~70%; informe de empleo mañana será clave.</span></div>
+      <div class="risk-row"><span class="risk-tag risk-medio">MEDIO</span><span class="risk-text">Mayor dependencia de generación térmica por sequía.</span></div>
+    </div>
+
+    <details class="sources" id="sources-details">
+      <summary>Fuentes &amp; metodología</summary>
+      <div class="sources-body">
+        <p><strong>Oficiales:</strong> Banco de Guatemala, CNEE, AMM. <strong>Mercado/macro:</strong> Reuters, Bloomberg, CNBC, TradingEconomics, Investing.com, FXStreet, FXEmpire, TheStreet, Riotimesonline. <strong>Azúcar/agro:</strong> ICE (vía Investing.com, TradingEconomics, Barchart). <strong>Etanol:</strong> CBOT/CME (vía Investing.com); CEPEA/ESALQ-SP (indicador semanal, Brasil). <strong>Comercio/logística:</strong> Autoridad del Canal de Panamá, Kpler (vía cobertura de prensa previa). <strong>Cotizaciones bancarias:</strong> proporcionadas directamente por Tesorería (BAM, Banco Industrial; Ficohsa no presentó al cierre).</p>
+        <p class="disclaimer-text">Este newsletter es elaborado por Gestión Bancaria / Tesorería con información proporcionada por Tesorería y/o recolectada de las fuentes indicadas en cada edición. Los índices, indicadores y referencias de mercado proceden de fuentes públicas, salvo que se indique expresamente lo contrario, y se presentan únicamente como referencia informativa. Cuando no existe un dato intradía válido, se utiliza el último dato válido disponible indicando su fecha. Cualquier operación que requiera datos exactos, ejecutables o actualizados intradía debe validarse directamente en las fuentes oficiales o plataformas de mercado correspondientes. Las cotizaciones bancarias son información proporcionada por Tesorería y se comparan exclusivamente entre sí; el tipo de cambio de Banco de Guatemala se presenta únicamente como referencia oficial y queda fuera del ranking.</p>
+        <p class="contact-line">Comentarios, sugerencias o consultas: <a href="mailto:esantiago@magdalena.com.gt">esantiago@magdalena.com.gt</a></p>
+      </div>
+    </details>
+
+  </main>
+</div>
+
+<footer class="bottom">GESTIÓN BANCARIA / TESORERÍA · USO INTERNO · NO TRANSACCIONAL</footer>
+
+<script>
+  // -------- Ticker superior: se construye desde los mismos datos del sidebar --------
+  var tickerData = [
+    {name:"SUGAR #11", val:"18.31", cls:"t-up", arrow:"▲", delta:"2.01%"},
+    {name:"BRENT", val:"95.04", cls:"t-up", arrow:"▲", delta:"3.29%"},
+    {name:"WTI", val:"90.63", cls:"t-up", arrow:"▲", delta:"3.47%"},
+    {name:"DXY", val:"99.55", cls:"t-up", arrow:"▲", delta:"0.08%"},
+    {name:"UST 10Y", val:"4.75%", cls:"t-down", arrow:"▼", delta:"0.21%"},
+    {name:"SOFR", val:"3.68%", cls:"", arrow:"—", delta:"sin cambio"},
+    {name:"BRL/USD", val:"5.0933", cls:"t-down", arrow:"▼", delta:"1.08%"},
+    {name:"USD/GTQ", val:"Q7.6222", cls:"", arrow:"", delta:"BAM"}
+  ];
+  function buildTicker() {
+    var track = document.getElementById('ticker-track');
+    var html = '';
+    for (var rep = 0; rep < 2; rep++) {
+      tickerData.forEach(function (t) {
+        html += '<span class="tick"><span class="t-name">' + t.name + '</span>' +
+                '<span class="t-val ' + t.cls + '">' + t.val + ' ' + t.arrow + ' ' + t.delta + '</span></span>';
+      });
+    }
+    track.innerHTML = html;
+  }
+  buildTicker();
+
+  // -------- Alternar tema claro/oscuro --------
+  function toggleTheme() {
+    var html = document.documentElement;
+    var btn = document.getElementById('theme-btn');
+    html.classList.toggle('light-theme');
+    var isLight = html.classList.contains('light-theme');
+    btn.textContent = isLight ? '🌙 Versión oscura' : '☀ Versión clara';
+    drawSparklines();
+  }
+
+  // -------- Sparklines en <canvas> (más confiables que SVG al exportar a PDF) --------
+  // -------- Widget de tendencia FX Banguat multi-año (2024/2025/2026) --------
+  function drawFxTrend() {
+    var canvas = document.getElementById('fx-trend-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var scaleX = canvas.width / 100;
+    var scaleY = canvas.height / 30;
+
+    var series2024 = [[4.0, 16.2], [6.6, 4.0], [9.3, 4.3], [11.9, 4.6], [14.5, 4.8], [17.1, 5.2], [19.8, 5.0], [22.4, 4.9], [25.0, 4.3], [27.7, 5.2], [30.3, 5.4], [32.9, 6.1], [35.5, 7.1], [38.2, 7.8], [40.8, 8.4], [43.4, 8.6], [46.1, 8.7], [48.7, 8.9], [51.3, 9.7], [53.9, 9.9], [56.6, 9.4], [59.2, 9.7], [61.8, 9.8], [64.5, 9.4], [67.1, 9.9], [69.7, 9.6], [72.3, 10.2], [75.0, 10.8], [77.6, 10.9], [80.2, 11.6], [82.9, 11.8], [85.5, 11.9], [88.1, 13.2], [90.7, 13.3], [93.4, 13.8], [96.0, 13.5]];
+    var series2025 = [[4.0, 20.7], [6.6, 15.8], [9.3, 15.3], [11.9, 14.0], [14.5, 13.4], [17.1, 15.1], [19.8, 15.8], [22.4, 15.8], [25.0, 15.7], [27.7, 16.2], [30.3, 16.6], [32.9, 16.6], [35.5, 15.3], [38.2, 15.3], [40.8, 16.1], [43.4, 17.5], [46.1, 17.2], [48.7, 17.9], [51.3, 18.9], [53.9, 20.0], [56.6, 20.6], [59.2, 19.4], [61.8, 18.8], [64.5, 18.7], [67.1, 18.4], [69.7, 18.6], [72.3, 19.4], [75.0, 19.7], [77.6, 19.8], [80.2, 19.5], [82.9, 20.4], [85.5, 20.9], [88.1, 20.8], [90.7, 21.2], [93.4, 21.1], [96.0, 21.1]];
+    var series2026 = [[4.0, 20.6], [6.6, 20.5], [9.3, 20.8], [11.9, 20.3], [14.5, 20.5], [17.1, 20.4], [19.8, 20.9], [22.4, 20.8], [25.0, 20.7], [27.7, 20.9], [30.3, 21.4], [32.9, 21.9], [35.5, 22.2], [38.2, 23.2], [40.8, 23.0], [43.4, 23.4], [46.1, 23.5], [48.7, 23.7], [51.3, 24.5], [53.9, 25.1], [56.6, 25.3], [59.2, 25.2], [61.8, 25.5], [64.5, 26.0], [67.1, 25.9], [69.7, 25.1], [72.3, 25.4], [75.0, 24.9], [77.6, 25.1], [80.2, 24.8], [82.9, 24.9], [85.5, 25.1], [88.1, 25.1], [90.7, 25.0], [93.4, 25.0], [96.0, 24.9]];
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    function drawLine(pts, color, width) {
+      var scaled = pts.map(function (p) { return [p[0] * scaleX, p[1] * scaleY]; });
+      ctx.beginPath();
+      ctx.moveTo(scaled[0][0], scaled[0][1]);
+      for (var i = 1; i < scaled.length; i++) ctx.lineTo(scaled[i][0], scaled[i][1]);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      var last = scaled[scaled.length - 1];
+      ctx.beginPath();
+      ctx.arc(last[0], last[1], 4, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
+    }
+
+    drawLine(series2024, '#4A3B99', 2);
+    drawLine(series2025, '#9B87FF', 2);
+    drawLine(series2026, '#15E574', 2.6);
+  }
+  drawFxTrend();
+  window.addEventListener('resize', drawFxTrend);
+
+  function drawSparklines() {
+    var isLight = document.documentElement.classList.contains('light-theme');
+    var lineColor = isLight ? '#200086' : '#9B87FF';
+    document.querySelectorAll('.spark-canvas').forEach(function (canvas) {
+      var pts = JSON.parse(canvas.getAttribute('data-points'));
+      var ctx = canvas.getContext('2d');
+      var scaleX = canvas.width / 100;
+      var scaleY = canvas.height / 30;
+      var scaled = pts.map(function (p) { return [p[0] * scaleX, p[1] * scaleY]; });
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.beginPath();
+      ctx.moveTo(scaled[0][0], scaled[0][1]);
+      for (var i = 1; i < scaled.length; i++) ctx.lineTo(scaled[i][0], scaled[i][1]);
+      ctx.strokeStyle = lineColor;
+      ctx.lineWidth = 2.4 * scaleX / (100/76);
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      scaled.forEach(function (p, i) {
+        var isLast = i === scaled.length - 1;
+        ctx.beginPath();
+        ctx.arc(p[0], p[1], isLast ? 4.2 : 3.2, 0, Math.PI * 2);
+        ctx.fillStyle = isLast ? '#15E574' : lineColor;
+        ctx.fill();
+      });
+    });
+  }
+  drawSparklines();
+  window.addEventListener('resize', drawSparklines);
+
+  // -------- Tooltips de indicador: soporte tap en móvil --------
+  document.querySelectorAll('.ind').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      var wasActive = el.classList.contains('tap-active');
+      document.querySelectorAll('.ind.tap-active').forEach(function (o) { o.classList.remove('tap-active'); });
+      if (!wasActive) { el.classList.add('tap-active'); e.stopPropagation(); }
+    });
+  });
+  document.addEventListener('click', function () {
+    document.querySelectorAll('.ind.tap-active').forEach(function (o) { o.classList.remove('tap-active'); });
+  });
+
+  // -------- Aviso: Chrome en iOS no soporta guardar como PDF al imprimir --------
+  (function () {
+    var ua = navigator.userAgent;
+    var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+    var isCriOS = /CriOS/.test(ua);
+    if (isIOS && isCriOS) {
+      document.getElementById('ios-chrome-notice').classList.add('show');
+    }
+  })();
+
+  // -------- Botón de PDF: usa la función de imprimir del navegador --------
+  // (más simple y confiable que generar el PDF con una librería externa;
+  // las reglas @media print de arriba se encargan del diseño de una sola
+  // columna, ocultar sparklines/ticker, y expandir Fuentes & metodología)
+  function downloadPDF() {
+    window.print();
+  }
+</script>
+
+</body>
+</html>
