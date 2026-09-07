@@ -1,15 +1,15 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Dashboard CXP — PRIORITARIOS — Gestión Bancaria</title><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script><style>:root{--purple:#200086;--purple-dark:#160060;--purple-soft:#EFEAFB;--green:#15E574;--ink:#1A1A2E;--gray:#6B6B7B;--line:#E3E1EE;--bg:#F7F7FB;}*{box-sizing:border-box;}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Arial,sans-serif;}header{background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:#fff;padding:26px 32px;}header h1{margin:0;font-size:21px;}header .sub{font-size:12px;opacity:.85;margin-top:4px;}.wrap{max-width:1180px;margin:0 auto;padding:24px 22px 60px;}.kpirow{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px;}.kpi{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;flex:1;min-width:150px;}.kpi-lbl{font-size:11px;color:var(--gray);font-weight:700;text-transform:uppercase;letter-spacing:.3px;}.kpi-val{font-size:20px;font-weight:700;margin-top:3px;}.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-bottom:26px;}.rcard{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px;cursor:pointer;transition:.15s;}.rcard:hover{box-shadow:0 6px 16px rgba(32,0,134,.12);transform:translateY(-1px);border-color:transparent;}.rcard-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}.rcard-name{font-weight:700;font-size:13px;}.badge-riesgo{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:10px;}.rcard-monto{font-size:19px;font-weight:700;margin-bottom:4px;}.rcard-meta{font-size:11px;color:var(--gray);margin-top:4px;}.rcard-bar{background:#EDEDF4;border-radius:6px;height:6px;margin-top:8px;overflow:hidden;}.rcard-bar-fill{height:100%;}.backbtn{background:none;border:1px solid var(--line);border-radius:8px;padding:7px 14px;font-size:12px;color:var(--gray);cursor:pointer;margin-bottom:16px;font-family:inherit;}.backbtn:hover{border-color:var(--purple);color:var(--purple);}.panel{display:none;}.panel.active{display:block;}.chartgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}@media (max-width:800px){.chartgrid{grid-template-columns:1fr;}}.chartcard{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px;}.chartcard h3{margin:0 0 4px;font-size:12.5px;color:var(--purple);}.chartcard .dash-sub{font-size:10.5px;color:var(--gray);margin-bottom:6px;}.cbox{position:relative;height:280px;}.dtitle{font-size:13px;color:var(--purple);margin:18px 0 4px;}table{width:100%;border-collapse:collapse;font-size:12px;}thead th{background:var(--purple);color:#fff;text-align:left;padding:8px 9px;position:sticky;top:0;}tbody td{padding:7px 9px;border-bottom:1px solid var(--line);white-space:nowrap;}tbody tr:nth-child(even){background:#FAFAFD;}.tbl-scroll{max-height:420px;overflow:auto;border:1px solid var(--line);border-radius:8px;}.num{text-align:right;font-variant-numeric:tabular-nums;}.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:9px;}.t-fact{background:#E7ECFF;color:#2740B0;}.t-ant{background:#E6FBF0;color:#0F8C4E;}.badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:9px;}.b-red{background:#FCEBEB;color:#D64545;}.b-green{background:#E6FBF0;color:#0F8C4E;}.chartcard.full{grid-column:1/-1;}.pd-box{background:#fff;border:1.5px solid var(--purple);border-radius:10px;padding:16px;margin-bottom:20px;}.pd-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px;}.pd-name{font-weight:700;font-size:14px;color:var(--purple);}.pd-close{background:none;border:1px solid var(--line);border-radius:7px;padding:5px 12px;font-size:11.5px;color:var(--gray);cursor:pointer;font-family:inherit;}.pd-close:hover{border-color:var(--purple);color:var(--purple);}.days-badge{display:block;font-size:9.5px;margin-top:2px;font-weight:700;}.d-over{color:#D64545;}.d-today{color:#C2410C;}.d-ok{color:#0F8C4E;}.amt-sec{display:block;font-size:9.5px;color:var(--gray);font-weight:500;}</style></head><body><header><h1>Dashboard CXP — PRIORITARIOS</h1><div class="sub">Gestión Bancaria · Ingenio Magdalena — generado 4 de septiembre de 2026 a las 7:21 a. m.</div></header><div class="wrap"><div class="kpirow"><div class="kpi"><div class="kpi-lbl">Monto total</div><div class="kpi-val">$253,296.68</div></div><div class="kpi"><div class="kpi-lbl">Facturas</div><div class="kpi-val">92</div></div><div class="kpi"><div class="kpi-lbl">Anticipos</div><div class="kpi-val">2</div></div><div class="kpi"><div class="kpi-lbl">Proveedores</div><div class="kpi-val">29</div></div><div class="kpi"><div class="kpi-lbl">% vencido (facturas)</div><div class="kpi-val">11%</div></div><div class="kpi"><div class="kpi-lbl">Mayor exposición</div><div class="kpi-val" style="font-size:14px;">TRANSPORTE</div></div></div><div class="rgrid">
-    <div class="rcard" style="border-left:4px solid #F2C94C;" onclick="showPanel('transporte')">
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Dashboard CXP — PRIORITARIOS — Gestión Bancaria</title><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script><style>:root{--purple:#200086;--purple-dark:#160060;--purple-soft:#EFEAFB;--green:#15E574;--ink:#1A1A2E;--gray:#6B6B7B;--line:#E3E1EE;--bg:#F7F7FB;}*{box-sizing:border-box;}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Arial,sans-serif;}header{background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:#fff;padding:26px 32px;}header h1{margin:0;font-size:21px;}header .sub{font-size:12px;opacity:.85;margin-top:4px;}.wrap{max-width:1180px;margin:0 auto;padding:24px 22px 60px;}.kpirow{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px;}.kpi{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;flex:1;min-width:150px;}.kpi-lbl{font-size:11px;color:var(--gray);font-weight:700;text-transform:uppercase;letter-spacing:.3px;}.kpi-val{font-size:20px;font-weight:700;margin-top:3px;}.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-bottom:26px;}.rcard{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px;cursor:pointer;transition:.15s;}.rcard:hover{box-shadow:0 6px 16px rgba(32,0,134,.12);transform:translateY(-1px);border-color:transparent;}.rcard-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}.rcard-name{font-weight:700;font-size:13px;}.badge-riesgo{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:10px;}.rcard-monto{font-size:19px;font-weight:700;margin-bottom:4px;}.rcard-meta{font-size:11px;color:var(--gray);margin-top:4px;}.rcard-bar{background:#EDEDF4;border-radius:6px;height:6px;margin-top:8px;overflow:hidden;}.rcard-bar-fill{height:100%;}.backbtn{background:none;border:1px solid var(--line);border-radius:8px;padding:7px 14px;font-size:12px;color:var(--gray);cursor:pointer;margin-bottom:16px;font-family:inherit;}.backbtn:hover{border-color:var(--purple);color:var(--purple);}.panel{display:none;}.panel.active{display:block;}.chartgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}@media (max-width:800px){.chartgrid{grid-template-columns:1fr;}}.chartcard{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px;}.chartcard h3{margin:0 0 4px;font-size:12.5px;color:var(--purple);}.chartcard .dash-sub{font-size:10.5px;color:var(--gray);margin-bottom:6px;}.cbox{position:relative;height:280px;}.dtitle{font-size:13px;color:var(--purple);margin:18px 0 4px;}table{width:100%;border-collapse:collapse;font-size:12px;}thead th{background:var(--purple);color:#fff;text-align:left;padding:8px 9px;position:sticky;top:0;}tbody td{padding:7px 9px;border-bottom:1px solid var(--line);white-space:nowrap;}tbody tr:nth-child(even){background:#FAFAFD;}.tbl-scroll{max-height:420px;overflow:auto;border:1px solid var(--line);border-radius:8px;}.num{text-align:right;font-variant-numeric:tabular-nums;}.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:9px;}.t-fact{background:#E7ECFF;color:#2740B0;}.t-ant{background:#E6FBF0;color:#0F8C4E;}.badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:9px;}.b-red{background:#FCEBEB;color:#D64545;}.b-green{background:#E6FBF0;color:#0F8C4E;}.chartcard.full{grid-column:1/-1;}.pd-box{background:#fff;border:1.5px solid var(--purple);border-radius:10px;padding:16px;margin-bottom:20px;}.pd-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px;}.pd-name{font-weight:700;font-size:14px;color:var(--purple);}.pd-close{background:none;border:1px solid var(--line);border-radius:7px;padding:5px 12px;font-size:11.5px;color:var(--gray);cursor:pointer;font-family:inherit;}.pd-close:hover{border-color:var(--purple);color:var(--purple);}.days-badge{display:block;font-size:9.5px;margin-top:2px;font-weight:700;}.d-over{color:#D64545;}.d-today{color:#C2410C;}.d-ok{color:#0F8C4E;}.amt-sec{display:block;font-size:9.5px;color:var(--gray);font-weight:500;}</style></head><body><header><h1>Dashboard CXP — PRIORITARIOS</h1><div class="sub">Gestión Bancaria · Ingenio Magdalena — generado 7 de septiembre de 2026 a las 9:41 a. m.</div></header><div class="wrap"><div class="kpirow"><div class="kpi"><div class="kpi-lbl">Monto total</div><div class="kpi-val">$252,602.32</div></div><div class="kpi"><div class="kpi-lbl">Facturas</div><div class="kpi-val">89</div></div><div class="kpi"><div class="kpi-lbl">Anticipos</div><div class="kpi-val">2</div></div><div class="kpi"><div class="kpi-lbl">Proveedores</div><div class="kpi-val">28</div></div><div class="kpi"><div class="kpi-lbl">% vencido (facturas)</div><div class="kpi-val">39%</div></div><div class="kpi"><div class="kpi-lbl">Mayor exposición</div><div class="kpi-val" style="font-size:14px;">TRANSPORTE</div></div></div><div class="rgrid">
+    <div class="rcard" style="border-left:4px solid #F2994A;" onclick="showPanel('transporte')">
       <div class="rcard-top">
         <span class="rcard-name">TRANSPORTE</span>
-        <span class="badge-riesgo" style="color:#0F8C4E; background:#E6FBF0;">Bajo</span>
+        <span class="badge-riesgo" style="color:#D64545; background:#FCEBEB;">Crítico</span>
       </div>
       <div class="rcard-monto">$99,695.68</div>
       <div class="rcard-meta">5 proveedores · 13 facturas · 0 anticipos</div>
-      <div class="rcard-bar"><div class="rcard-bar-fill" style="width:17.398085854873546%; background:#0F8C4E;"></div></div>
-      <div class="rcard-meta">17% del monto de facturas está vencido</div>
+      <div class="rcard-bar"><div class="rcard-bar-fill" style="width:85.13184322530324%; background:#D64545;"></div></div>
+      <div class="rcard-meta">85% del monto de facturas está vencido</div>
     </div>
-    <div class="rcard" style="border-left:4px solid #6B6B7B;" onclick="showPanel('transporte_agricola')">
+    <div class="rcard" style="border-left:4px solid #2F80ED;" onclick="showPanel('transporte_agricola')">
       <div class="rcard-top">
         <span class="rcard-name">TRANSPORTE AGRICOLA</span>
         <span class="badge-riesgo" style="color:#0F8C4E; background:#E6FBF0;">Bajo</span>
@@ -19,17 +19,17 @@
       <div class="rcard-bar"><div class="rcard-bar-fill" style="width:0%; background:#0F8C4E;"></div></div>
       <div class="rcard-meta">0% del monto de facturas está vencido</div>
     </div>
-    <div class="rcard" style="border-left:4px solid #9B51E0;" onclick="showPanel('alimentacion')">
+    <div class="rcard" style="border-left:4px solid #200086;" onclick="showPanel('alimentacion')">
       <div class="rcard-top">
         <span class="rcard-name">ALIMENTACION</span>
         <span class="badge-riesgo" style="color:#0F8C4E; background:#E6FBF0;">Bajo</span>
       </div>
-      <div class="rcard-monto">$49,174.32</div>
-      <div class="rcard-meta">13 proveedores · 32 facturas · 2 anticipos</div>
-      <div class="rcard-bar"><div class="rcard-bar-fill" style="width:1.909867962869852%; background:#0F8C4E;"></div></div>
-      <div class="rcard-meta">2% del monto de facturas está vencido</div>
+      <div class="rcard-monto">$48,479.96</div>
+      <div class="rcard-meta">12 proveedores · 29 facturas · 2 anticipos</div>
+      <div class="rcard-bar"><div class="rcard-bar-fill" style="width:0%; background:#0F8C4E;"></div></div>
+      <div class="rcard-meta">0% del monto de facturas está vencido</div>
     </div>
-    <div class="rcard" style="border-left:4px solid #00B8A9;" onclick="showPanel('salud')">
+    <div class="rcard" style="border-left:4px solid #15E574;" onclick="showPanel('salud')">
       <div class="rcard-top">
         <span class="rcard-name">SALUD</span>
         <span class="badge-riesgo" style="color:#0F8C4E; background:#E6FBF0;">Bajo</span>
@@ -39,15 +39,15 @@
       <div class="rcard-bar"><div class="rcard-bar-fill" style="width:1.581545776223725%; background:#0F8C4E;"></div></div>
       <div class="rcard-meta">2% del monto de facturas está vencido</div>
     </div>
-    <div class="rcard" style="border-left:4px solid #C2185B;" onclick="showPanel('transporte_industria')">
+    <div class="rcard" style="border-left:4px solid #EB5757;" onclick="showPanel('transporte_industria')">
       <div class="rcard-top">
         <span class="rcard-name">TRANSPORTE INDUSTRIA</span>
         <span class="badge-riesgo" style="color:#946200; background:#FAEEDA;">Moderado</span>
       </div>
       <div class="rcard-monto">$19,622.00</div>
       <div class="rcard-meta">3 proveedores · 4 facturas · 0 anticipos</div>
-      <div class="rcard-bar"><div class="rcard-bar-fill" style="width:43.895066761797985%; background:#946200;"></div></div>
-      <div class="rcard-meta">44% del monto de facturas está vencido</div>
+      <div class="rcard-bar"><div class="rcard-bar-fill" style="width:45.62959942921211%; background:#946200;"></div></div>
+      <div class="rcard-meta">46% del monto de facturas está vencido</div>
     </div></div><div class="panel active" id="panel-resumen"><div class="chartcard full" style="margin-bottom:24px;"><h3>Vencimiento semanal — total, todos los rubros</h3><div class="cbox" style="height:340px;"><canvas id="cv-total"></canvas></div></div></div>
     <div class="panel" id="panel-transporte">
       <button class="backbtn" onclick="showPanel('resumen')">← Volver al resumen</button>
@@ -56,7 +56,7 @@
         <div class="kpi"><div class="kpi-lbl">Proveedores</div><div class="kpi-val">5</div></div>
         <div class="kpi"><div class="kpi-lbl">Facturas</div><div class="kpi-val">13</div></div>
         <div class="kpi"><div class="kpi-lbl">Anticipos</div><div class="kpi-val">0</div></div>
-        <div class="kpi"><div class="kpi-lbl">% vencido</div><div class="kpi-val" style="color:#0F8C4E">17%</div></div>
+        <div class="kpi"><div class="kpi-lbl">% vencido</div><div class="kpi-val" style="color:#D64545">85%</div></div>
       </div>
       <div class="chartgrid">
         <div class="chartcard"><h3>Monto por proveedor</h3><div class="dash-sub">Clic en una barra para ver el detalle de facturas de ese proveedor</div><div class="cbox"><canvas id="cv-prov-transporte"></canvas></div></div>
@@ -71,7 +71,7 @@
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17005779</td><td>MARVIN GIOVANNI REYES NAVARRETE</td>
         <td>5100012888</td><td>04/09/2026</td>
-        <td class="num">$39,348.30</td><td><span class="badge b-green">vence en 0 d.</span></td>
+        <td class="num">$39,348.30</td><td><span class="badge b-red">venció su viernes de pago</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT07</td><td>17001389</td><td>MELVIN ALEXANDER MARROQUIN</td>
@@ -81,57 +81,57 @@
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17006224</td><td>MARCIA ARACELY CATALAN ESTRADA</td>
         <td>5100013041</td><td>07/09/2026</td>
-        <td class="num">$7,517.64</td><td><span class="badge b-green">vence en 3 d.</span></td>
+        <td class="num">$7,517.64</td><td><span class="badge b-green">vence en 0 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17006224</td><td>MARCIA ARACELY CATALAN ESTRADA</td>
         <td>5100012871</td><td>04/09/2026</td>
-        <td class="num">$6,736.11</td><td><span class="badge b-green">vence en 0 d.</span></td>
+        <td class="num">$6,736.11</td><td><span class="badge b-red">venció su viernes de pago</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17006224</td><td>MARCIA ARACELY CATALAN ESTRADA</td>
         <td>5100012873</td><td>04/09/2026</td>
-        <td class="num">$6,627.65</td><td><span class="badge b-green">vence en 0 d.</span></td>
+        <td class="num">$6,627.65</td><td><span class="badge b-red">venció su viernes de pago</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17006224</td><td>MARCIA ARACELY CATALAN ESTRADA</td>
         <td>5100012874</td><td>04/09/2026</td>
-        <td class="num">$5,481.72</td><td><span class="badge b-green">vence en 0 d.</span></td>
+        <td class="num">$5,481.72</td><td><span class="badge b-red">venció su viernes de pago</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17002855</td><td>SANTOS FELICIANO ZARATE RAMOS</td>
         <td>5100012831</td><td>03/09/2026</td>
-        <td class="num">$4,762.46</td><td><span class="badge b-green">vence en 0 d.</span></td>
+        <td class="num">$4,762.46</td><td><span class="badge b-red">venció su viernes de pago</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17006569</td><td>RENTA TOTAL  SOCIEDAD ANONIMA</td>
         <td>5100012771</td><td>24/09/2026</td>
-        <td class="num">$2,839.02</td><td><span class="badge b-green">vence en 20 d.</span></td>
+        <td class="num">$2,839.02</td><td><span class="badge b-green">vence en 17 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002855</td><td>SANTOS FELICIANO ZARATE RAMOS</td>
         <td>5100017451</td><td>09/09/2026</td>
-        <td class="num">$2,723.77</td><td><span class="badge b-green">vence en 5 d.</span></td>
+        <td class="num">$2,723.77</td><td><span class="badge b-green">vence en 2 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17006224</td><td>MARCIA ARACELY CATALAN ESTRADA</td>
         <td>5100012943</td><td>04/09/2026</td>
-        <td class="num">$2,710.35</td><td><span class="badge b-green">vence en 0 d.</span></td>
+        <td class="num">$2,710.35</td><td><span class="badge b-red">venció su viernes de pago</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17006224</td><td>MARCIA ARACELY CATALAN ESTRADA</td>
         <td>5100012945</td><td>04/09/2026</td>
-        <td class="num">$1,847.96</td><td><span class="badge b-green">vence en 0 d.</span></td>
+        <td class="num">$1,847.96</td><td><span class="badge b-red">venció su viernes de pago</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17006569</td><td>RENTA TOTAL  SOCIEDAD ANONIMA</td>
         <td>5100012007</td><td>11/09/2026</td>
-        <td class="num">$1,742.48</td><td><span class="badge b-green">vence en 7 d.</span></td>
+        <td class="num">$1,742.48</td><td><span class="badge b-green">vence en 4 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17002855</td><td>SANTOS FELICIANO ZARATE RAMOS</td>
         <td>5100012748</td><td>02/09/2026</td>
-        <td class="num">$13.08</td><td><span class="badge b-green">vence en 0 d.</span></td>
+        <td class="num">$13.08</td><td><span class="badge b-red">venció su viernes de pago</span></td>
       </tr></tbody></table></div>
     <div style="font-size:10.5px; color:#9A6A18; margin-top:4px;">* Vencimiento calculado con plazo real cargado manualmente (Fecha de documento + días), no con la fecha de SAP.</div>
     </div>
@@ -157,73 +157,73 @@
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17004154</td><td>GUILLERMO VICENTE VICENTE</td>
         <td>5100013154</td><td>30/09/2026</td>
-        <td class="num">$26,911.60</td><td><span class="badge b-green">vence en 26 d.</span></td>
+        <td class="num">$26,911.60</td><td><span class="badge b-green">vence en 23 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17004156</td><td>JOSE VIDAL ROLDAN LOPEZ</td>
         <td>5100010934</td><td>17/09/2026</td>
-        <td class="num">$7,267.38</td><td><span class="badge b-green">vence en 13 d.</span></td>
+        <td class="num">$7,267.38</td><td><span class="badge b-green">vence en 10 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17004154</td><td>GUILLERMO VICENTE VICENTE</td>
         <td>5100013149</td><td>30/09/2026</td>
-        <td class="num">$6,256.43</td><td><span class="badge b-green">vence en 26 d.</span></td>
+        <td class="num">$6,256.43</td><td><span class="badge b-green">vence en 23 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17004633</td><td>HECTOR RAFAEL PEÑATE CRISTALES</td>
         <td>5100012030</td><td>11/09/2026</td>
-        <td class="num">$4,189.73</td><td><span class="badge b-green">vence en 7 d.</span></td>
+        <td class="num">$4,189.73</td><td><span class="badge b-green">vence en 4 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17003337</td><td>LUIS ANTONIO ALVAREZ CHOVAJAY</td>
         <td>5100012287</td><td>17/09/2026</td>
-        <td class="num">$3,173.52</td><td><span class="badge b-green">vence en 13 d.</span></td>
+        <td class="num">$3,173.52</td><td><span class="badge b-green">vence en 10 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17003337</td><td>LUIS ANTONIO ALVAREZ CHOVAJAY</td>
         <td>5100011986</td><td>11/09/2026</td>
-        <td class="num">$1,818.40</td><td><span class="badge b-green">vence en 7 d.</span></td>
+        <td class="num">$1,818.40</td><td><span class="badge b-green">vence en 4 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17004154</td><td>GUILLERMO VICENTE VICENTE</td>
         <td>5100013011</td><td>27/09/2026</td>
-        <td class="num">$1,388.64</td><td><span class="badge b-green">vence en 23 d.</span></td>
+        <td class="num">$1,388.64</td><td><span class="badge b-green">vence en 20 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17004156</td><td>JOSE VIDAL ROLDAN LOPEZ</td>
         <td>5100011096</td><td>19/09/2026</td>
-        <td class="num">$1,219.16</td><td><span class="badge b-green">vence en 15 d.</span></td>
+        <td class="num">$1,219.16</td><td><span class="badge b-green">vence en 12 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17004633</td><td>HECTOR RAFAEL PEÑATE CRISTALES</td>
         <td>5100012293</td><td>17/09/2026</td>
-        <td class="num">$958.18</td><td><span class="badge b-green">vence en 13 d.</span></td>
+        <td class="num">$958.18</td><td><span class="badge b-green">vence en 10 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17004154</td><td>GUILLERMO VICENTE VICENTE</td>
         <td>5100013126</td><td>30/09/2026</td>
-        <td class="num">$896.00</td><td><span class="badge b-green">vence en 26 d.</span></td>
+        <td class="num">$896.00</td><td><span class="badge b-green">vence en 23 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17004156</td><td>JOSE VIDAL ROLDAN LOPEZ</td>
         <td>5100010954</td><td>17/09/2026</td>
-        <td class="num">$837.96</td><td><span class="badge b-green">vence en 13 d.</span></td>
+        <td class="num">$837.96</td><td><span class="badge b-green">vence en 10 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17004154</td><td>GUILLERMO VICENTE VICENTE</td>
         <td>5100013123</td><td>30/09/2026</td>
-        <td class="num">$13.11</td><td><span class="badge b-green">vence en 26 d.</span></td>
+        <td class="num">$13.11</td><td><span class="badge b-green">vence en 23 d.</span></td>
       </tr></tbody></table></div>
     <div style="font-size:10.5px; color:#9A6A18; margin-top:4px;">* Vencimiento calculado con plazo real cargado manualmente (Fecha de documento + días), no con la fecha de SAP.</div>
     </div>
     <div class="panel" id="panel-alimentacion">
       <button class="backbtn" onclick="showPanel('resumen')">← Volver al resumen</button>
       <div class="kpirow">
-        <div class="kpi"><div class="kpi-lbl">Monto total</div><div class="kpi-val">$49,174.32</div></div>
-        <div class="kpi"><div class="kpi-lbl">Proveedores</div><div class="kpi-val">13</div></div>
-        <div class="kpi"><div class="kpi-lbl">Facturas</div><div class="kpi-val">32</div></div>
+        <div class="kpi"><div class="kpi-lbl">Monto total</div><div class="kpi-val">$48,479.96</div></div>
+        <div class="kpi"><div class="kpi-lbl">Proveedores</div><div class="kpi-val">12</div></div>
+        <div class="kpi"><div class="kpi-lbl">Facturas</div><div class="kpi-val">29</div></div>
         <div class="kpi"><div class="kpi-lbl">Anticipos</div><div class="kpi-val">2</div></div>
-        <div class="kpi"><div class="kpi-lbl">% vencido</div><div class="kpi-val" style="color:#0F8C4E">2%</div></div>
+        <div class="kpi"><div class="kpi-lbl">% vencido</div><div class="kpi-val" style="color:#0F8C4E">0%</div></div>
       </div>
       <div class="chartgrid">
         <div class="chartcard"><h3>Monto por proveedor</h3><div class="dash-sub">Clic en una barra para ver el detalle de facturas de ese proveedor</div><div class="cbox"><canvas id="cv-prov-alimentacion"></canvas></div></div>
@@ -238,7 +238,7 @@
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17005211</td><td>SERVICIOS DE GERENCIA  S.A.</td>
         <td>5100017231</td><td>08/09/2026</td>
-        <td class="num">$11,515.94</td><td><span class="badge b-green">vence en 4 d.</span></td>
+        <td class="num">$11,515.94</td><td><span class="badge b-green">vence en 1 d.</span></td>
       </tr><tr>
         <td><span class="tag t-ant">ANTICIPO</span></td>
         <td>GT00</td><td>17006522</td><td>FRANCISCO ANTONIO PINEDA ARCHILA</td>
@@ -253,157 +253,142 @@
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17005211</td><td>SERVICIOS DE GERENCIA  S.A.</td>
         <td>5100017454</td><td>09/09/2026</td>
-        <td class="num">$5,543.96</td><td><span class="badge b-green">vence en 5 d.</span></td>
+        <td class="num">$5,543.96</td><td><span class="badge b-green">vence en 2 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17003232</td><td>DISTRIBUIDORA Y COMERCIALIZADORA DI</td>
         <td>5100017516</td><td>09/09/2026</td>
-        <td class="num">$2,965.50</td><td><span class="badge b-green">vence en 5 d.</span></td>
+        <td class="num">$2,965.50</td><td><span class="badge b-green">vence en 2 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17005211</td><td>SERVICIOS DE GERENCIA  S.A.</td>
         <td>5100017237</td><td>08/09/2026</td>
-        <td class="num">$2,656.11</td><td><span class="badge b-green">vence en 4 d.</span></td>
+        <td class="num">$2,656.11</td><td><span class="badge b-green">vence en 1 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002318</td><td>PECUARIA EXPORTADORA  SOCIEDAD ANON</td>
         <td>5100017236</td><td>08/09/2026</td>
-        <td class="num">$1,704.83</td><td><span class="badge b-green">vence en 4 d.</span></td>
+        <td class="num">$1,704.83</td><td><span class="badge b-green">vence en 1 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17006659</td><td>MAPRI FOOD SERVICE SOCIEDAD ANONIM</td>
         <td>5100015553</td><td>10/09/2026</td>
-        <td class="num">$1,684.93</td><td><span class="badge b-green">vence en 6 d.</span></td>
+        <td class="num">$1,684.93</td><td><span class="badge b-green">vence en 3 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17004948</td><td>MULTIGRANOS BONANZA</td>
         <td>5100017189</td><td>08/09/2026</td>
-        <td class="num">$1,598.07</td><td><span class="badge b-green">vence en 4 d.</span></td>
+        <td class="num">$1,598.07</td><td><span class="badge b-green">vence en 1 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002575</td><td>ALIMENTOS IDEAL  S.A.</td>
         <td>5100017309</td><td>09/09/2026</td>
-        <td class="num">$1,164.98</td><td><span class="badge b-green">vence en 5 d.</span></td>
+        <td class="num">$1,164.98</td><td><span class="badge b-green">vence en 2 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT41</td><td>17002318</td><td>PECUARIA EXPORTADORA  SOCIEDAD ANON</td>
         <td>5100002058</td><td>09/09/2026</td>
-        <td class="num">$1,115.09</td><td><span class="badge b-green">vence en 5 d.</span></td>
+        <td class="num">$1,115.09</td><td><span class="badge b-green">vence en 2 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17004948</td><td>MULTIGRANOS BONANZA</td>
         <td>5100017401</td><td>09/09/2026</td>
-        <td class="num">$632.16</td><td><span class="badge b-green">vence en 5 d.</span></td>
+        <td class="num">$632.16</td><td><span class="badge b-green">vence en 2 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT41</td><td>17006659</td><td>MAPRI FOOD SERVICE SOCIEDAD ANONIM</td>
         <td>5100001990</td><td>24/09/2026</td>
-        <td class="num">$617.29</td><td><span class="badge b-green">vence en 20 d.</span></td>
+        <td class="num">$617.29</td><td><span class="badge b-green">vence en 17 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17004605</td><td>FRANCISCA LOPEZ HERNANDEZ DE GUZMAN</td>
         <td>5100017267</td><td>08/09/2026</td>
-        <td class="num">$617.10</td><td><span class="badge b-green">vence en 4 d.</span></td>
+        <td class="num">$617.10</td><td><span class="badge b-green">vence en 1 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002575</td><td>ALIMENTOS IDEAL  S.A.</td>
         <td>5100017186</td><td>08/09/2026</td>
-        <td class="num">$611.54</td><td><span class="badge b-green">vence en 4 d.</span></td>
+        <td class="num">$611.54</td><td><span class="badge b-green">vence en 1 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT41</td><td>17002575</td><td>ALIMENTOS IDEAL  S.A.</td>
         <td>5100002054</td><td>09/09/2026</td>
-        <td class="num">$509.62</td><td><span class="badge b-green">vence en 5 d.</span></td>
+        <td class="num">$509.62</td><td><span class="badge b-green">vence en 2 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17000781</td><td>DELFINA  SUM SOCOP DE HERNANDEZ</td>
         <td>5100017417</td><td>09/09/2026</td>
-        <td class="num">$501.65</td><td><span class="badge b-green">vence en 5 d.</span></td>
+        <td class="num">$501.65</td><td><span class="badge b-green">vence en 2 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17005211</td><td>SERVICIOS DE GERENCIA  S.A.</td>
         <td>5100017452</td><td>09/09/2026</td>
-        <td class="num">$406.06</td><td><span class="badge b-green">vence en 5 d.</span></td>
-      </tr><tr>
-        <td><span class="tag t-fact">FACTURA</span></td>
-        <td>GT41</td><td>17005822</td><td>CLARA MARIA RUEDA VEGA</td>
-        <td>5100001719</td><td>21/08/2026</td>
-        <td class="num">$374.63</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+        <td class="num">$406.06</td><td><span class="badge b-green">vence en 2 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT41</td><td>17002575</td><td>ALIMENTOS IDEAL  S.A.</td>
         <td>5100002060</td><td>09/09/2026</td>
-        <td class="num">$356.09</td><td><span class="badge b-green">vence en 5 d.</span></td>
+        <td class="num">$356.09</td><td><span class="badge b-green">vence en 2 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17003969</td><td>IRMA LETICIA MONROY REYES DE FLORES</td>
         <td>5100016420</td><td>21/09/2026</td>
-        <td class="num">$343.53</td><td><span class="badge b-green">vence en 17 d.</span></td>
+        <td class="num">$343.53</td><td><span class="badge b-green">vence en 14 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT41</td><td>17006659</td><td>MAPRI FOOD SERVICE SOCIEDAD ANONIM</td>
         <td>5100002029</td><td>29/09/2026</td>
-        <td class="num">$330.60</td><td><span class="badge b-green">vence en 25 d.</span></td>
+        <td class="num">$330.60</td><td><span class="badge b-green">vence en 22 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17006013</td><td>ALIMENTOS BARCELONA  SOCIEDAD</td>
         <td>5100017295</td><td>09/09/2026</td>
-        <td class="num">$307.97</td><td><span class="badge b-green">vence en 5 d.</span></td>
-      </tr><tr>
-        <td><span class="tag t-fact">FACTURA</span></td>
-        <td>GT41</td><td>17005822</td><td>CLARA MARIA RUEDA VEGA</td>
-        <td>5100001720</td><td>21/08/2026</td>
-        <td class="num">$232.26</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+        <td class="num">$307.97</td><td><span class="badge b-green">vence en 2 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT41</td><td>17002575</td><td>ALIMENTOS IDEAL  S.A.</td>
         <td>5100002057</td><td>09/09/2026</td>
-        <td class="num">$210.44</td><td><span class="badge b-green">vence en 5 d.</span></td>
-      </tr><tr>
-        <td><span class="tag t-fact">FACTURA</span></td>
-        <td>GT41</td><td>17005822</td><td>CLARA MARIA RUEDA VEGA</td>
-        <td>5100001701</td><td>20/08/2026</td>
-        <td class="num">$87.47</td><td><span class="badge b-red">venció su viernes de pago</span></td>
+        <td class="num">$210.44</td><td><span class="badge b-green">vence en 2 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT41</td><td>17002575</td><td>ALIMENTOS IDEAL  S.A.</td>
         <td>5100002055</td><td>09/09/2026</td>
-        <td class="num">$87.20</td><td><span class="badge b-green">vence en 5 d.</span></td>
+        <td class="num">$87.20</td><td><span class="badge b-green">vence en 2 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17006622</td><td>ALIMENTOS Y NUTRICION  SOCIEDAD</td>
         <td>5100016510</td><td>22/09/2026</td>
-        <td class="num">$51.17</td><td><span class="badge b-green">vence en 18 d.</span></td>
+        <td class="num">$51.17</td><td><span class="badge b-green">vence en 15 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17006622</td><td>ALIMENTOS Y NUTRICION  SOCIEDAD</td>
         <td>5100016304</td><td>19/09/2026</td>
-        <td class="num">$51.16</td><td><span class="badge b-green">vence en 15 d.</span></td>
+        <td class="num">$51.16</td><td><span class="badge b-green">vence en 12 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT41</td><td>17002575</td><td>ALIMENTOS IDEAL  S.A.</td>
         <td>5100002056</td><td>09/09/2026</td>
-        <td class="num">$30.09</td><td><span class="badge b-green">vence en 5 d.</span></td>
+        <td class="num">$30.09</td><td><span class="badge b-green">vence en 2 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT41</td><td>17006622</td><td>ALIMENTOS Y NUTRICION  SOCIEDAD</td>
         <td>5100002045</td><td>01/10/2026</td>
-        <td class="num">$25.58</td><td><span class="badge b-green">vence en 27 d.</span></td>
+        <td class="num">$25.58</td><td><span class="badge b-green">vence en 24 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT41</td><td>17006622</td><td>ALIMENTOS Y NUTRICION  SOCIEDAD</td>
         <td>5100002049</td><td>01/10/2026</td>
-        <td class="num">$18.78</td><td><span class="badge b-green">vence en 27 d.</span></td>
+        <td class="num">$18.78</td><td><span class="badge b-green">vence en 24 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17006622</td><td>ALIMENTOS Y NUTRICION  SOCIEDAD</td>
         <td>5100016306</td><td>19/09/2026</td>
-        <td class="num">$2.60</td><td><span class="badge b-green">vence en 15 d.</span></td>
+        <td class="num">$2.60</td><td><span class="badge b-green">vence en 12 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17006622</td><td>ALIMENTOS Y NUTRICION  SOCIEDAD</td>
         <td>5100016071</td><td>17/09/2026</td>
-        <td class="num">$2.04</td><td><span class="badge b-green">vence en 13 d.</span></td>
+        <td class="num">$2.04</td><td><span class="badge b-green">vence en 10 d.</span></td>
       </tr></tbody></table></div>
     <div style="font-size:10.5px; color:#9A6A18; margin-top:4px;">* Vencimiento calculado con plazo real cargado manualmente (Fecha de documento + días), no con la fecha de SAP.</div>
     </div>
@@ -429,112 +414,112 @@
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100016013</td><td>17/09/2026</td>
-        <td class="num">$8,226.13</td><td><span class="badge b-green">vence en 13 d.</span></td>
+        <td class="num">$8,226.13</td><td><span class="badge b-green">vence en 10 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002972</td><td>DROGUERIA CENTRO HISTORICO  S.A.</td>
         <td>5100015630</td><td>11/09/2026</td>
-        <td class="num">$3,866.91</td><td><span class="badge b-green">vence en 7 d.</span></td>
+        <td class="num">$3,866.91</td><td><span class="badge b-green">vence en 4 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100015850</td><td>15/09/2026</td>
-        <td class="num">$3,429.44</td><td><span class="badge b-green">vence en 11 d.</span></td>
+        <td class="num">$3,429.44</td><td><span class="badge b-green">vence en 8 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT07</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100001332</td><td>24/09/2026</td>
-        <td class="num">$1,838.90</td><td><span class="badge b-green">vence en 20 d.</span></td>
+        <td class="num">$1,838.90</td><td><span class="badge b-green">vence en 17 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002972</td><td>DROGUERIA CENTRO HISTORICO  S.A.</td>
         <td>5100015789</td><td>12/09/2026</td>
-        <td class="num">$1,554.18</td><td><span class="badge b-green">vence en 8 d.</span></td>
+        <td class="num">$1,554.18</td><td><span class="badge b-green">vence en 5 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17001364</td><td>MARCIA VALESCA LOPEZ GARCIA DE</td>
         <td>5100015482</td><td>10/09/2026</td>
-        <td class="num">$1,333.02</td><td><span class="badge b-green">vence en 6 d.</span></td>
+        <td class="num">$1,333.02</td><td><span class="badge b-green">vence en 3 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100015898</td><td>16/09/2026</td>
-        <td class="num">$723.84</td><td><span class="badge b-green">vence en 12 d.</span></td>
+        <td class="num">$723.84</td><td><span class="badge b-green">vence en 9 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100015716</td><td>11/09/2026</td>
-        <td class="num">$723.68</td><td><span class="badge b-green">vence en 7 d.</span></td>
+        <td class="num">$723.68</td><td><span class="badge b-green">vence en 4 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100015717</td><td>11/09/2026</td>
-        <td class="num">$723.68</td><td><span class="badge b-green">vence en 7 d.</span></td>
+        <td class="num">$723.68</td><td><span class="badge b-green">vence en 4 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100015715</td><td>11/09/2026</td>
-        <td class="num">$717.35</td><td><span class="badge b-green">vence en 7 d.</span></td>
+        <td class="num">$717.35</td><td><span class="badge b-green">vence en 4 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100015790</td><td>12/09/2026</td>
-        <td class="num">$685.98</td><td><span class="badge b-green">vence en 8 d.</span></td>
+        <td class="num">$685.98</td><td><span class="badge b-green">vence en 5 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100016956</td><td>26/09/2026</td>
-        <td class="num">$685.25</td><td><span class="badge b-green">vence en 22 d.</span></td>
+        <td class="num">$685.25</td><td><span class="badge b-green">vence en 19 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100015794</td><td>12/09/2026</td>
-        <td class="num">$609.76</td><td><span class="badge b-green">vence en 8 d.</span></td>
+        <td class="num">$609.76</td><td><span class="badge b-green">vence en 5 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100016476</td><td>22/09/2026</td>
-        <td class="num">$609.69</td><td><span class="badge b-green">vence en 18 d.</span></td>
+        <td class="num">$609.69</td><td><span class="badge b-green">vence en 15 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100015714</td><td>11/09/2026</td>
-        <td class="num">$526.90</td><td><span class="badge b-green">vence en 7 d.</span></td>
+        <td class="num">$526.90</td><td><span class="badge b-green">vence en 4 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100017272</td><td>30/09/2026</td>
-        <td class="num">$463.35</td><td><span class="badge b-green">vence en 26 d.</span></td>
+        <td class="num">$463.35</td><td><span class="badge b-green">vence en 23 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17001423</td><td>ECOTERMO DE CENTROAMERICA  S.A.</td>
         <td>5100016031</td><td>17/09/2026</td>
-        <td class="num">$459.39</td><td><span class="badge b-green">vence en 13 d.</span></td>
+        <td class="num">$459.39</td><td><span class="badge b-green">vence en 10 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17001364</td><td>MARCIA VALESCA LOPEZ GARCIA DE</td>
         <td>5100016524</td><td>22/09/2026</td>
-        <td class="num">$362.64</td><td><span class="badge b-green">vence en 18 d.</span></td>
+        <td class="num">$362.64</td><td><span class="badge b-green">vence en 15 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100016012</td><td>17/09/2026</td>
-        <td class="num">$262.33</td><td><span class="badge b-green">vence en 13 d.</span></td>
+        <td class="num">$262.33</td><td><span class="badge b-green">vence en 10 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100016858</td><td>25/09/2026</td>
-        <td class="num">$262.30</td><td><span class="badge b-green">vence en 21 d.</span></td>
+        <td class="num">$262.30</td><td><span class="badge b-green">vence en 18 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100016491</td><td>22/09/2026</td>
-        <td class="num">$248.04</td><td><span class="badge b-green">vence en 18 d.</span></td>
+        <td class="num">$248.04</td><td><span class="badge b-green">vence en 15 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100016418</td><td>20/09/2026</td>
-        <td class="num">$247.90</td><td><span class="badge b-green">vence en 16 d.</span></td>
+        <td class="num">$247.90</td><td><span class="badge b-green">vence en 13 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT07</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
@@ -549,37 +534,37 @@
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100015769</td><td>12/09/2026</td>
-        <td class="num">$223.13</td><td><span class="badge b-green">vence en 8 d.</span></td>
+        <td class="num">$223.13</td><td><span class="badge b-green">vence en 5 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100015791</td><td>12/09/2026</td>
-        <td class="num">$131.25</td><td><span class="badge b-green">vence en 8 d.</span></td>
+        <td class="num">$131.25</td><td><span class="badge b-green">vence en 5 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100016859</td><td>25/09/2026</td>
-        <td class="num">$131.15</td><td><span class="badge b-green">vence en 21 d.</span></td>
+        <td class="num">$131.15</td><td><span class="badge b-green">vence en 18 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100015793</td><td>12/09/2026</td>
-        <td class="num">$124.69</td><td><span class="badge b-green">vence en 8 d.</span></td>
+        <td class="num">$124.69</td><td><span class="badge b-green">vence en 5 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17001364</td><td>MARCIA VALESCA LOPEZ GARCIA DE</td>
         <td>5100016523</td><td>22/09/2026</td>
-        <td class="num">$80.37</td><td><span class="badge b-green">vence en 18 d.</span></td>
+        <td class="num">$80.37</td><td><span class="badge b-green">vence en 15 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100015629</td><td>11/09/2026</td>
-        <td class="num">$75.42</td><td><span class="badge b-green">vence en 7 d.</span></td>
+        <td class="num">$75.42</td><td><span class="badge b-green">vence en 4 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17002449</td><td>SERGIO GILBERTO HERRERA HERNANDEZ</td>
         <td>5100016907</td><td>25/09/2026</td>
-        <td class="num">$75.42</td><td><span class="badge b-green">vence en 21 d.</span></td>
+        <td class="num">$75.42</td><td><span class="badge b-green">vence en 18 d.</span></td>
       </tr></tbody></table></div>
     <div style="font-size:10.5px; color:#9A6A18; margin-top:4px;">* Vencimiento calculado con plazo real cargado manualmente (Fecha de documento + días), no con la fecha de SAP.</div>
     </div>
@@ -590,7 +575,7 @@
         <div class="kpi"><div class="kpi-lbl">Proveedores</div><div class="kpi-val">3</div></div>
         <div class="kpi"><div class="kpi-lbl">Facturas</div><div class="kpi-val">4</div></div>
         <div class="kpi"><div class="kpi-lbl">Anticipos</div><div class="kpi-val">0</div></div>
-        <div class="kpi"><div class="kpi-lbl">% vencido</div><div class="kpi-val" style="color:#946200">44%</div></div>
+        <div class="kpi"><div class="kpi-lbl">% vencido</div><div class="kpi-val" style="color:#946200">46%</div></div>
       </div>
       <div class="chartgrid">
         <div class="chartcard"><h3>Monto por proveedor</h3><div class="dash-sub">Clic en una barra para ver el detalle de facturas de ese proveedor</div><div class="cbox"><canvas id="cv-prov-transporte_industria"></canvas></div></div>
@@ -605,7 +590,7 @@
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT00</td><td>17003869</td><td>CARLOS JUNIEL LOPEZ HERRERA</td>
         <td>5100017198</td><td>08/09/2026</td>
-        <td class="num">$10,668.56</td><td><span class="badge b-green">vence en 4 d.</span></td>
+        <td class="num">$10,668.56</td><td><span class="badge b-green">vence en 1 d.</span></td>
       </tr><tr>
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17003657</td><td>ROBERTO ANTONIO RUIZ ASTURIAS</td>
@@ -620,7 +605,7 @@
         <td><span class="tag t-fact">FACTURA</span></td>
         <td>GT30</td><td>17003849</td><td>LILIAN DE JESUS VALENZUELA PEREZ</td>
         <td>5100012595</td><td>31/08/2026</td>
-        <td class="num">$340.35</td><td><span class="badge b-green">vence en 0 d.</span></td>
+        <td class="num">$340.35</td><td><span class="badge b-red">venció su viernes de pago</span></td>
       </tr></tbody></table></div>
     <div style="font-size:10.5px; color:#9A6A18; margin-top:4px;">* Vencimiento calculado con plazo real cargado manualmente (Fecha de documento + días), no con la fecha de SAP.</div>
-    </div></div><script>const CHART_DATA = {"ALIMENTACION":{"proveedores":{"labels":["SERVICIOS DE GERENCIA  S…","FRANCISCO ANTONIO PINEDA…","ALIMENTOS IDEAL  S.A.","DISTRIBUIDORA Y COMERCIA…","PECUARIA EXPORTADORA  SO…","MAPRI FOOD SERVICE SOCIE…","MULTIGRANOS BONANZA","CLARA MARIA RUEDA VEGA","FRANCISCA LOPEZ HERNANDE…","DELFINA  SUM SOCOP DE HE…","IRMA LETICIA MONROY REYE…","ALIMENTOS BARCELONA  SOC…","ALIMENTOS Y NUTRICION  S…"],"full":["SERVICIOS DE GERENCIA  S.A.","FRANCISCO ANTONIO PINEDA ARCHILA","ALIMENTOS IDEAL  S.A.","DISTRIBUIDORA Y COMERCIALIZADORA DI","PECUARIA EXPORTADORA  SOCIEDAD ANON","MAPRI FOOD SERVICE SOCIEDAD ANONIM","MULTIGRANOS BONANZA","CLARA MARIA RUEDA VEGA","FRANCISCA LOPEZ HERNANDEZ DE GUZMAN","DELFINA  SUM SOCOP DE HERNANDEZ","IRMA LETICIA MONROY REYES DE FLORES","ALIMENTOS BARCELONA  SOCIEDAD","ALIMENTOS Y NUTRICION  SOCIEDAD"],"codigo":["17005211","17006522","17002575","17003232","17002318","17006659","17004948","17005822","17004605","17000781","17003969","17006013","17006622"],"data":[20122.07,12817.88,2969.96,2965.5,2819.92,2632.82,2230.23,694.36,617.1,501.65,343.53,307.97,151.33],"facturas":[4,0,7,1,2,3,2,3,1,1,1,1,6],"vencido":[0,0,0,0,0,0,0,694.36,0,0,0,0,0],"porVencer":[20122.07,0,2969.96,2965.5,2819.92,2632.82,2230.23,0,617.1,501.65,343.53,307.97,151.33]},"semanal":{"labels":["Vencida","Semana del 4/9","Semana del 11/9","Semana del 18/9","Semana del 25/9","Semana del 2/10","Semana del 9/10","Semana del 16/10","Semana del 23/10","+8 sem."],"data":[694.36,0,34219.33,2.04,1065.75,374.96,0,0,0,0]}},"SALUD":{"proveedores":{"labels":["SERGIO GILBERTO HERRERA …","DROGUERIA CENTRO HISTORI…","MARCIA VALESCA LOPEZ GAR…","ECOTERMO DE CENTROAMERIC…"],"full":["SERGIO GILBERTO HERRERA HERNANDEZ","DROGUERIA CENTRO HISTORICO  S.A.","MARCIA VALESCA LOPEZ GARCIA DE","ECOTERMO DE CENTROAMERICA  S.A."],"codigo":["17002449","17002972","17001364","17001423"],"data":[22218.06,5421.09,1776.03,459.39],"facturas":[25,2,3,1],"vencido":[472.48,0,0,0],"porVencer":[21745.58,5421.09,1776.03,459.39]},"semanal":{"labels":["Vencida","Semana del 4/9","Semana del 11/9","Semana del 18/9","Semana del 25/9","Semana del 2/10","Semana del 9/10","Semana del 16/10","Semana del 23/10","+8 sem."],"data":[472.48,0,7966.96,16430.12,3856.41,1148.6,0,0,0,0]}},"TRANSPORTE":{"proveedores":{"labels":["MARVIN GIOVANNI REYES NA…","MARCIA ARACELY CATALAN E…","MELVIN ALEXANDER MARROQUIN","SANTOS FELICIANO ZARATE …","RENTA TOTAL  SOCIEDAD AN…"],"full":["MARVIN GIOVANNI REYES NAVARRETE","MARCIA ARACELY CATALAN ESTRADA","MELVIN ALEXANDER MARROQUIN","SANTOS FELICIANO ZARATE RAMOS","RENTA TOTAL  SOCIEDAD ANONIMA"],"codigo":["17005779","17006224","17001389","17002855","17006569"],"data":[39348.3,30921.43,17345.14,7499.31,4581.5],"facturas":[1,6,1,3,2],"vencido":[0,0,17345.14,4775.54,0],"porVencer":[39348.3,30921.43,0,2723.77,4581.5]},"semanal":{"labels":["Vencida","Semana del 4/9","Semana del 11/9","Semana del 18/9","Semana del 25/9","Semana del 2/10","Semana del 9/10","Semana del 16/10","Semana del 23/10","+8 sem."],"data":[17345.14,67527.63,11983.89,0,2839.02,0,0,0,0,0]}},"TRANSPORTE AGRICOLA":{"proveedores":{"labels":["GUILLERMO VICENTE VICENTE","JOSE VIDAL ROLDAN LOPEZ","HECTOR RAFAEL PEÑATE CRI…","LUIS ANTONIO ALVAREZ CHO…"],"full":["GUILLERMO VICENTE VICENTE","JOSE VIDAL ROLDAN LOPEZ","HECTOR RAFAEL PEÑATE CRISTALES","LUIS ANTONIO ALVAREZ CHOVAJAY"],"codigo":["17004154","17004156","17004633","17003337"],"data":[35465.78,9324.5,5147.91,4991.92],"facturas":[5,3,2,2],"vencido":[0,0,0,0],"porVencer":[35465.78,9324.5,5147.91,4991.92]},"semanal":{"labels":["Vencida","Semana del 4/9","Semana del 11/9","Semana del 18/9","Semana del 25/9","Semana del 2/10","Semana del 9/10","Semana del 16/10","Semana del 23/10","+8 sem."],"data":[0,0,6008.13,12237.04,1219.16,35465.78,0,0,0,0]}},"TRANSPORTE INDUSTRIA":{"proveedores":{"labels":["CARLOS JUNIEL LOPEZ HERR…","ROBERTO ANTONIO RUIZ AST…","LILIAN DE JESUS VALENZUE…"],"full":["CARLOS JUNIEL LOPEZ HERRERA","ROBERTO ANTONIO RUIZ ASTURIAS","LILIAN DE JESUS VALENZUELA PEREZ"],"codigo":["17003869","17003657","17003849"],"data":[10668.56,7984.73,968.71],"facturas":[1,1,2],"vencido":[0,7984.73,968.71],"porVencer":[10668.56,0,0]},"semanal":{"labels":["Vencida","Semana del 4/9","Semana del 11/9","Semana del 18/9","Semana del 25/9","Semana del 2/10","Semana del 9/10","Semana del 16/10","Semana del 23/10","+8 sem."],"data":[8613.09,340.35,10668.56,0,0,0,0,0,0,0]}}};const RESUMEN = [{"rubro":"TRANSPORTE","proveedores":5,"facturas":13,"anticipos":0,"monto":99695.68000000002,"pctVenc":17.398085854873546,"color":"#F2C94C","riesgo":{"label":"Bajo","color":"#0F8C4E","bg":"#E6FBF0"}},{"rubro":"TRANSPORTE AGRICOLA","proveedores":4,"facturas":12,"anticipos":0,"monto":54930.11,"pctVenc":0,"color":"#6B6B7B","riesgo":{"label":"Bajo","color":"#0F8C4E","bg":"#E6FBF0"}},{"rubro":"ALIMENTACION","proveedores":13,"facturas":32,"anticipos":2,"monto":49174.32,"pctVenc":1.909867962869852,"color":"#9B51E0","riesgo":{"label":"Bajo","color":"#0F8C4E","bg":"#E6FBF0"}},{"rubro":"SALUD","proveedores":4,"facturas":31,"anticipos":0,"monto":29874.569999999996,"pctVenc":1.581545776223725,"color":"#00B8A9","riesgo":{"label":"Bajo","color":"#0F8C4E","bg":"#E6FBF0"}},{"rubro":"TRANSPORTE INDUSTRIA","proveedores":3,"facturas":4,"anticipos":0,"monto":19622,"pctVenc":43.895066761797985,"color":"#C2185B","riesgo":{"label":"Moderado","color":"#946200","bg":"#FAEEDA"}}];const TOTAL_DATASETS = [{"label":"ALIMENTACION","color":"#9B51E0","data":[694.36,0,34219.33,2.04,1065.75,374.96,0,0,0,0]},{"label":"SALUD","color":"#00B8A9","data":[472.48,0,7966.96,16430.12,3856.41,1148.6,0,0,0,0]},{"label":"TRANSPORTE","color":"#F2C94C","data":[17345.14,67527.63,11983.89,0,2839.02,0,0,0,0,0]},{"label":"TRANSPORTE AGRICOLA","color":"#6B6B7B","data":[0,0,6008.13,12237.04,1219.16,35465.78,0,0,0,0]},{"label":"TRANSPORTE INDUSTRIA","color":"#C2185B","data":[8613.09,340.35,10668.56,0,0,0,0,0,0,0]}];const WEEK_LABELS = ["Vencida","Semana del 4/9","Semana del 11/9","Semana del 18/9","Semana del 25/9","Semana del 2/10","Semana del 9/10","Semana del 16/10","Semana del 23/10","+8 sem."];const DETALLE = {"ALIMENTACION":[{"cod":"17005211","prov":"SERVICIOS DE GERENCIA  S.A.","ndoc":"5100017231","fven":"2026-09-09","ml2":11515.94,"orig":-87778.47,"mon":"GTQ","ref":"EAF5-3811262824","asig":"2026-0000125826"},{"cod":"17005211","prov":"SERVICIOS DE GERENCIA  S.A.","ndoc":"5100017454","fven":"2026-09-10","ml2":5543.96,"orig":-42235,"mon":"GTQ","ref":"7DEE-2379432284","asig":"2026-0000125986"},{"cod":"17003232","prov":"DISTRIBUIDORA Y COMERCIALIZADORA DI","ndoc":"5100017516","fven":"2026-09-10","ml2":2965.5,"orig":-22603.92,"mon":"GTQ","ref":"EF90-3308142766","asig":"2026-0000126016"},{"cod":"17005211","prov":"SERVICIOS DE GERENCIA  S.A.","ndoc":"5100017237","fven":"2026-09-09","ml2":2656.11,"orig":-20245.8,"mon":"GTQ","ref":"8802-579356272","asig":"2026-0000125831"},{"cod":"17002318","prov":"PECUARIA EXPORTADORA  SOCIEDAD ANON","ndoc":"5100017236","fven":"2026-09-09","ml2":1704.83,"orig":-12994.8,"mon":"GTQ","ref":"DA50-2402438728","asig":"2026-0000125822"},{"cod":"17006659","prov":"MAPRI FOOD SERVICE SOCIEDAD ANONIM","ndoc":"5100015553","fven":"2026-09-11","ml2":1684.93,"orig":-12845.4,"mon":"GTQ","ref":"D285-4190916524","asig":"C-2026-0000124306"},{"cod":"17004948","prov":"MULTIGRANOS BONANZA","ndoc":"5100017189","fven":"2026-09-09","ml2":1598.07,"orig":-12177.82,"mon":"GTQ","ref":"DA92-196167618","asig":"C-2026-0000125763"},{"cod":"17002575","prov":"ALIMENTOS IDEAL  S.A.","ndoc":"5100017309","fven":"2026-09-10","ml2":1164.98,"orig":-8882.58,"mon":"GTQ","ref":"FF7C-3421324859","asig":"2026-0000125864"},{"cod":"17002318","prov":"PECUARIA EXPORTADORA  SOCIEDAD ANON","ndoc":"5100002058","fven":"2026-09-10","ml2":1115.09,"orig":-8499.66,"mon":"GTQ","ref":"DAAE-2466728782","asig":"2026-0000001468"},{"cod":"17004948","prov":"MULTIGRANOS BONANZA","ndoc":"5100017401","fven":"2026-09-10","ml2":632.16,"orig":-4819.89,"mon":"GTQ","ref":"D65F-1103252428","asig":"2026-0000125946"},{"cod":"17006659","prov":"MAPRI FOOD SERVICE SOCIEDAD ANONIM","ndoc":"5100001990","fven":"2026-09-25","ml2":617.29,"orig":-4704,"mon":"GTQ","ref":"EB27-2980072367","asig":"2026-0000001420"},{"cod":"17004605","prov":"FRANCISCA LOPEZ HERNANDEZ DE GUZMAN","ndoc":"5100017267","fven":"2026-09-09","ml2":617.1,"orig":-4702.5,"mon":"GTQ","ref":"C096-3116319099","asig":"C-2026-0000125799"},{"cod":"17002575","prov":"ALIMENTOS IDEAL  S.A.","ndoc":"5100017186","fven":"2026-09-09","ml2":611.54,"orig":-4661.38,"mon":"GTQ","ref":"A717-613109515","asig":"2026-0000125758"},{"cod":"17002575","prov":"ALIMENTOS IDEAL  S.A.","ndoc":"5100002054","fven":"2026-09-10","ml2":509.62,"orig":-3884.5,"mon":"GTQ","ref":"6986-2638169493","asig":"2026-0000001458"},{"cod":"17000781","prov":"DELFINA  SUM SOCOP DE HERNANDEZ","ndoc":"5100017417","fven":"2026-09-10","ml2":501.65,"orig":-3823.75,"mon":"GTQ","ref":"A4DD-1167806016","asig":"C-2026-0000125955"},{"cod":"17005211","prov":"SERVICIOS DE GERENCIA  S.A.","ndoc":"5100017452","fven":"2026-09-10","ml2":406.06,"orig":-3096,"mon":"GTQ","ref":"862E-4022356965","asig":"2026-0000125985"},{"cod":"17005822","prov":"CLARA MARIA RUEDA VEGA","ndoc":"5100001719","fven":"2026-08-22","ml2":374.63,"orig":-2855.75,"mon":"GTQ","ref":"4A3E-319507234","asig":"2026-0000001257"},{"cod":"17002575","prov":"ALIMENTOS IDEAL  S.A.","ndoc":"5100002060","fven":"2026-09-10","ml2":356.09,"orig":-2714.24,"mon":"GTQ","ref":"1BF8-3110422473","asig":"2026-0000001469"},{"cod":"17003969","prov":"IRMA LETICIA MONROY REYES DE FLORES","ndoc":"5100016420","fven":"2026-09-22","ml2":343.53,"orig":-2619.02,"mon":"GTQ","ref":"3EDE-1388593300","asig":"2026-0000125072"},{"cod":"17006659","prov":"MAPRI FOOD SERVICE SOCIEDAD ANONIM","ndoc":"5100002029","fven":"2026-09-30","ml2":330.6,"orig":-2520,"mon":"GTQ","ref":"A445-3599911356","asig":"2026-0000001450"},{"cod":"17006013","prov":"ALIMENTOS BARCELONA  SOCIEDAD","ndoc":"5100017295","fven":"2026-09-10","ml2":307.97,"orig":-2348,"mon":"GTQ","ref":"68B5-2132033704","asig":"2026-0000125852"},{"cod":"17005822","prov":"CLARA MARIA RUEDA VEGA","ndoc":"5100001720","fven":"2026-08-22","ml2":232.26,"orig":-1770.5,"mon":"GTQ","ref":"D809-471091550","asig":"2026-0000001259"},{"cod":"17002575","prov":"ALIMENTOS IDEAL  S.A.","ndoc":"5100002057","fven":"2026-09-10","ml2":210.44,"orig":-1604.03,"mon":"GTQ","ref":"B431-3811525297","asig":"2026-0000001466"},{"cod":"17005822","prov":"CLARA MARIA RUEDA VEGA","ndoc":"5100001701","fven":"2026-08-21","ml2":87.47,"orig":-666.9,"mon":"GTQ","ref":"EC6D-1817268041","asig":"2026-0000001252"},{"cod":"17002575","prov":"ALIMENTOS IDEAL  S.A.","ndoc":"5100002055","fven":"2026-09-10","ml2":87.2,"orig":-664.65,"mon":"GTQ","ref":"B6DF-696862020","asig":"2026-0000001460"},{"cod":"17006622","prov":"ALIMENTOS Y NUTRICION  SOCIEDAD","ndoc":"5100016510","fven":"2026-09-23","ml2":51.17,"orig":-390,"mon":"GTQ","ref":"9EE3-934955162","asig":"2026-0000125166"},{"cod":"17006622","prov":"ALIMENTOS Y NUTRICION  SOCIEDAD","ndoc":"5100016304","fven":"2026-09-20","ml2":51.16,"orig":-390,"mon":"GTQ","ref":"6CD2-127093348","asig":"2026-0000124964"},{"cod":"17002575","prov":"ALIMENTOS IDEAL  S.A.","ndoc":"5100002056","fven":"2026-09-10","ml2":30.09,"orig":-229.36,"mon":"GTQ","ref":"40F0-1354976167","asig":"2026-0000001463"},{"cod":"17006622","prov":"ALIMENTOS Y NUTRICION  SOCIEDAD","ndoc":"5100002045","fven":"2026-10-02","ml2":25.58,"orig":-195,"mon":"GTQ","ref":"EC93-2569751705","asig":"2026-0000001461"},{"cod":"17006622","prov":"ALIMENTOS Y NUTRICION  SOCIEDAD","ndoc":"5100002049","fven":"2026-10-02","ml2":18.78,"orig":-143.2,"mon":"GTQ","ref":"CDEA-2796833284","asig":"2026-0000001472"},{"cod":"17006622","prov":"ALIMENTOS Y NUTRICION  SOCIEDAD","ndoc":"5100016306","fven":"2026-09-20","ml2":2.6,"orig":-19.8,"mon":"GTQ","ref":"573D-2157660775","asig":"2026-0000124966"},{"cod":"17006622","prov":"ALIMENTOS Y NUTRICION  SOCIEDAD","ndoc":"5100016071","fven":"2026-09-18","ml2":2.04,"orig":-15.55,"mon":"GTQ","ref":"95AA-2636335154","asig":"C-2026-0000124765"}],"SALUD":[{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016013","fven":"2026-09-18","ml2":8226.13,"orig":-62717.14,"mon":"GTQ","ref":"4879-3597615936","asig":"2026-0000124748"},{"cod":"17002972","prov":"DROGUERIA CENTRO HISTORICO  S.A.","ndoc":"5100015630","fven":"2026-09-12","ml2":3866.91,"orig":-29480,"mon":"GTQ","ref":"4EE5-1214991557","asig":"2026-0000124332"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015850","fven":"2026-09-16","ml2":3429.44,"orig":-26132.14,"mon":"GTQ","ref":"55E5-464668241","asig":"2026-0000124563"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100001332","fven":"2026-09-25","ml2":1838.9,"orig":-14020.98,"mon":"GTQ","ref":"85DC-2292730808","asig":"2026-0000009330"},{"cod":"17002972","prov":"DROGUERIA CENTRO HISTORICO  S.A.","ndoc":"5100015789","fven":"2026-09-13","ml2":1554.18,"orig":-11840,"mon":"GTQ","ref":"5475-3921299475","asig":"2026-0000124522"},{"cod":"17001364","prov":"MARCIA VALESCA LOPEZ GARCIA DE","ndoc":"5100015482","fven":"2026-09-11","ml2":1333.02,"orig":-10162.5,"mon":"GTQ","ref":"5CE6-3078373548","asig":"2026-0000124241"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015898","fven":"2026-09-17","ml2":723.84,"orig":-5516.78,"mon":"GTQ","ref":"3B20-2774221219","asig":"C-2026-0000124599"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015716","fven":"2026-09-12","ml2":723.68,"orig":-5516.78,"mon":"GTQ","ref":"7298-3731834762","asig":"2026-0000124450"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015717","fven":"2026-09-12","ml2":723.68,"orig":-5516.78,"mon":"GTQ","ref":"932D-3671018420","asig":"2026-0000124457"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015715","fven":"2026-09-12","ml2":717.35,"orig":-5468.4,"mon":"GTQ","ref":"E33C-3120382030","asig":"2026-0000124441"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015790","fven":"2026-09-13","ml2":685.98,"orig":-5226.42,"mon":"GTQ","ref":"F2A2-2555199517","asig":"2026-0000124523"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016956","fven":"2026-09-27","ml2":685.25,"orig":-5226.42,"mon":"GTQ","ref":"009A-2573093067","asig":"2026-0000125566"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015794","fven":"2026-09-13","ml2":609.76,"orig":-4645.72,"mon":"GTQ","ref":"DF9C-855130281","asig":"2026-0000124527"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016476","fven":"2026-09-23","ml2":609.69,"orig":-4645.72,"mon":"GTQ","ref":"E7E0-2472363659","asig":"2026-0000125135"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015714","fven":"2026-09-12","ml2":526.9,"orig":-4016.6,"mon":"GTQ","ref":"3819-4080619386","asig":"2026-0000124421"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100017272","fven":"2026-10-01","ml2":463.35,"orig":-3532.68,"mon":"GTQ","ref":"CA3F-1151485670","asig":"C-2026-0000125804"},{"cod":"17001423","prov":"ECOTERMO DE CENTROAMERICA  S.A.","ndoc":"5100016031","fven":"2026-09-18","ml2":459.39,"orig":-3500,"mon":"GTQ","ref":"6B4C-3146337426","asig":"2026-0000124698"},{"cod":"17001364","prov":"MARCIA VALESCA LOPEZ GARCIA DE","ndoc":"5100016524","fven":"2026-09-23","ml2":362.64,"orig":-2763.75,"mon":"GTQ","ref":"C636-55002642","asig":"C-2026-0000125179"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016012","fven":"2026-09-18","ml2":262.33,"orig":-2000,"mon":"GTQ","ref":"4BF4-1274037292","asig":"2026-0000124726"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016858","fven":"2026-09-26","ml2":262.3,"orig":-2000,"mon":"GTQ","ref":"58C3-298467542","asig":"2026-0000125533"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016491","fven":"2026-09-23","ml2":248.04,"orig":-1890,"mon":"GTQ","ref":"3AEB-1985956571","asig":"2026-0000125148"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016418","fven":"2026-09-21","ml2":247.9,"orig":-1890,"mon":"GTQ","ref":"F0BF-2909621952","asig":"2026-0000125068"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100001077","fven":"2026-08-20","ml2":242.8,"orig":-1850,"mon":"GTQ","ref":"86AA-367086219","asig":"2026-0000009174"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100001078","fven":"2026-08-20","ml2":229.68,"orig":-1750,"mon":"GTQ","ref":"FED9-1023888685","asig":"2026-0000009178"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015769","fven":"2026-09-13","ml2":223.13,"orig":-1700,"mon":"GTQ","ref":"A777-3123071368","asig":"2026-0000124502"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015791","fven":"2026-09-13","ml2":131.25,"orig":-1000,"mon":"GTQ","ref":"A4D9-43469391","asig":"2026-0000124524"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016859","fven":"2026-09-26","ml2":131.15,"orig":-1000,"mon":"GTQ","ref":"D728-3344253175","asig":"2026-0000125545"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015793","fven":"2026-09-13","ml2":124.69,"orig":-950,"mon":"GTQ","ref":"A8D0-1860520620","asig":"2026-0000124526"},{"cod":"17001364","prov":"MARCIA VALESCA LOPEZ GARCIA DE","ndoc":"5100016523","fven":"2026-09-23","ml2":80.37,"orig":-612.5,"mon":"GTQ","ref":"AEBA-3085321735","asig":"C-2026-0000125179"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015629","fven":"2026-09-12","ml2":75.42,"orig":-575,"mon":"GTQ","ref":"E536-3980347741","asig":"2026-0000124364"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016907","fven":"2026-09-26","ml2":75.42,"orig":-575,"mon":"GTQ","ref":"603E-3396552068","asig":"2026-0000125428"}],"TRANSPORTE":[{"cod":"17005779","prov":"MARVIN GIOVANNI REYES NAVARRETE","ndoc":"5100012888","fven":"2026-09-05","ml2":39348.3,"orig":-300000,"mon":"GTQ","ref":"8D66-3255389260","asig":"2026-0000076455"},{"cod":"17001389","prov":"MELVIN ALEXANDER MARROQUIN","ndoc":"5100001119","fven":"2026-08-05","ml2":17345.14,"orig":-132195.82,"mon":"GTQ","ref":"8435-706432849","asig":"2026-0000009215"},{"cod":"17006224","prov":"MARCIA ARACELY CATALAN ESTRADA","ndoc":"5100013041","fven":"2026-09-08","ml2":7517.64,"orig":-57296.21,"mon":"GTQ","ref":"C32D-153632789","asig":"C-2026-0000076605"},{"cod":"17006224","prov":"MARCIA ARACELY CATALAN ESTRADA","ndoc":"5100012871","fven":"2026-09-05","ml2":6736.11,"orig":-51376.82,"mon":"GTQ","ref":"0407-4071639232","asig":"2026-0000076443"},{"cod":"17006224","prov":"MARCIA ARACELY CATALAN ESTRADA","ndoc":"5100012873","fven":"2026-09-05","ml2":6627.65,"orig":-50549.67,"mon":"GTQ","ref":"D79D-2690142085","asig":"2026-0000076450"},{"cod":"17006224","prov":"MARCIA ARACELY CATALAN ESTRADA","ndoc":"5100012874","fven":"2026-09-05","ml2":5481.72,"orig":-41809.54,"mon":"GTQ","ref":"3557-1826377049","asig":"2026-0000076453"},{"cod":"17002855","prov":"SANTOS FELICIANO ZARATE RAMOS","ndoc":"5100012831","fven":"2026-09-04","ml2":4762.46,"orig":-36323.59,"mon":"GTQ","ref":"BE5A-1027883495","asig":"2026-0000076400"},{"cod":"17006569","prov":"RENTA TOTAL  SOCIEDAD ANONIMA","ndoc":"5100012771","fven":"2026-09-25","ml2":2839.02,"orig":-21646.43,"mon":"GTQ","ref":"3E66-2731100908","asig":"2026-0000076272"},{"cod":"17002855","prov":"SANTOS FELICIANO ZARATE RAMOS","ndoc":"5100017451","fven":"2026-09-10","ml2":2723.77,"orig":-20761.53,"mon":"GTQ","ref":"DF43-3593751059","asig":"2026-0000125984"},{"cod":"17006224","prov":"MARCIA ARACELY CATALAN ESTRADA","ndoc":"5100012943","fven":"2026-09-05","ml2":2710.35,"orig":-20664.29,"mon":"GTQ","ref":"01B0-1819234124","asig":"2026-0000076504"},{"cod":"17006224","prov":"MARCIA ARACELY CATALAN ESTRADA","ndoc":"5100012945","fven":"2026-09-05","ml2":1847.96,"orig":-14089.29,"mon":"GTQ","ref":"B978-3119073331","asig":"2026-0000076510"},{"cod":"17006569","prov":"RENTA TOTAL  SOCIEDAD ANONIMA","ndoc":"5100012007","fven":"2026-09-12","ml2":1742.48,"orig":-13283.04,"mon":"GTQ","ref":"A726-2526955507","asig":"2026-0000075616"},{"cod":"17002855","prov":"SANTOS FELICIANO ZARATE RAMOS","ndoc":"5100012748","fven":"2026-09-03","ml2":13.08,"orig":-100,"mon":"GTQ","ref":"DC76-993740657","asig":"2026-0000076378"}],"TRANSPORTE AGRICOLA":[{"cod":"17004154","prov":"GUILLERMO VICENTE VICENTE","ndoc":"5100013154","fven":"2026-10-01","ml2":26911.6,"orig":-205191.17,"mon":"GTQ","ref":"57C4-2675262992","asig":"2026-0000076717"},{"cod":"17004156","prov":"JOSE VIDAL ROLDAN LOPEZ","ndoc":"5100010934","fven":"2026-09-18","ml2":7267.38,"orig":-55376.64,"mon":"GTQ","ref":"D2FD-2692697189","asig":"2026-0000074618"},{"cod":"17004154","prov":"GUILLERMO VICENTE VICENTE","ndoc":"5100013149","fven":"2026-10-01","ml2":6256.43,"orig":-47702.96,"mon":"GTQ","ref":"3A96-912932956","asig":"2026-0000076712"},{"cod":"17004633","prov":"HECTOR RAFAEL PEÑATE CRISTALES","ndoc":"5100012030","fven":"2026-09-12","ml2":4189.73,"orig":-31938.76,"mon":"GTQ","ref":"7CFD-1271481877","asig":"2026-0000075725"},{"cod":"17003337","prov":"LUIS ANTONIO ALVAREZ CHOVAJAY","ndoc":"5100012287","fven":"2026-09-18","ml2":3173.52,"orig":-24195.37,"mon":"GTQ","ref":"8824-3440067115","asig":"2026-0000075879"},{"cod":"17003337","prov":"LUIS ANTONIO ALVAREZ CHOVAJAY","ndoc":"5100011986","fven":"2026-09-12","ml2":1818.4,"orig":-13861.83,"mon":"GTQ","ref":"B44C-377897211","asig":"2026-0000075601"},{"cod":"17004154","prov":"GUILLERMO VICENTE VICENTE","ndoc":"5100013011","fven":"2026-09-28","ml2":1388.64,"orig":-10587.37,"mon":"GTQ","ref":"957C-27741208","asig":"2026-0000076568"},{"cod":"17004156","prov":"JOSE VIDAL ROLDAN LOPEZ","ndoc":"5100011096","fven":"2026-09-20","ml2":1219.16,"orig":-9295.65,"mon":"GTQ","ref":"024B-3710275304","asig":"2026-0000074797"},{"cod":"17004633","prov":"HECTOR RAFAEL PEÑATE CRISTALES","ndoc":"5100012293","fven":"2026-09-18","ml2":958.18,"orig":-7305.27,"mon":"GTQ","ref":"F685-2392213594","asig":"2026-0000075897"},{"cod":"17004154","prov":"GUILLERMO VICENTE VICENTE","ndoc":"5100013126","fven":"2026-10-01","ml2":896,"orig":-6829.6,"mon":"GTQ","ref":"E304-2316847071","asig":"C-2026-0000076690"},{"cod":"17004156","prov":"JOSE VIDAL ROLDAN LOPEZ","ndoc":"5100010954","fven":"2026-09-18","ml2":837.96,"orig":-6385.16,"mon":"GTQ","ref":"BE41-3390457509","asig":"2026-0000074626"},{"cod":"17004154","prov":"GUILLERMO VICENTE VICENTE","ndoc":"5100013123","fven":"2026-10-01","ml2":13.11,"orig":-100,"mon":"GTQ","ref":"73BF-3927785733","asig":"C-2026-0000076687"}],"TRANSPORTE INDUSTRIA":[{"cod":"17003869","prov":"CARLOS JUNIEL LOPEZ HERRERA","ndoc":"5100017198","fven":"2026-09-09","ml2":10668.56,"orig":-81339.52,"mon":"GTQ","ref":"A799-2835891936","asig":"C-2026-0000125773"},{"cod":"17003657","prov":"ROBERTO ANTONIO RUIZ ASTURIAS","ndoc":"5100006531","fven":"2026-04-23","ml2":7984.73,"orig":-61009.6,"mon":"GTQ","ref":"FBDA-1765166449","asig":"C-2026-0000070763"},{"cod":"17003849","prov":"LILIAN DE JESUS VALENZUELA PEREZ","ndoc":"5100012471","fven":"2026-08-29","ml2":628.36,"orig":-4790.69,"mon":"GTQ","ref":"8A21-1144734145","asig":"2026-0000076069"},{"cod":"17003849","prov":"LILIAN DE JESUS VALENZUELA PEREZ","ndoc":"5100012595","fven":"2026-09-01","ml2":340.35,"orig":-2593.84,"mon":"GTQ","ref":"558B-3149546228","asig":"2026-0000076186"}]};const CHARTS = {};function fmtUSD(v){ v=Number(v)||0; return (v<0?"-":"")+"$"+Math.abs(v).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}); }function fmtDateISO(iso){ if(!iso) return "—"; var p=iso.split("-"); return p[2]+"/"+p[1]+"/"+p[0]; }function diasVenc(iso){ if(!iso) return null; var hoy=new Date(); hoy.setHours(0,0,0,0); var d=new Date(iso+"T00:00:00"); if(isNaN(d)) return null; d.setHours(0,0,0,0); return Math.round((d-hoy)/86400000); }function diasBadgeHTML(iso){ var d=diasVenc(iso); if(d===null) return ""; if(d<0) return "<small class=\"days-badge d-over\">vencida hace "+Math.abs(d)+" día"+(Math.abs(d)===1?"":"s")+"</small>"; if(d===0) return "<small class=\"days-badge d-today\">vence hoy</small>"; return "<small class=\"days-badge d-ok\">faltan "+d+" día"+(d===1?"":"s")+" para vencer</small>"; }function amtCellHTML(ml2,orig,mon){ var s="<b>"+fmtUSD(ml2)+"</b>"; if(mon && mon!=="USD") s+="<span class=\"amt-sec\">"+fmtUSD(orig)+" "+mon+"</span>"; return s; }function showPanel(id){  document.querySelectorAll(".panel").forEach(function(pn){ pn.classList.remove("active"); });  document.getElementById("panel-"+id).classList.add("active");  if(id!=="resumen"){ if(CHARTS["prov-"+id]) CHARTS["prov-"+id].resize(); if(CHARTS["week-"+id]) CHARTS["week-"+id].resize(); }  window.scrollTo({top:0,behavior:"smooth"});}function showProviderDetail(rubro, slugR, idx){  var cd = CHART_DATA[rubro];  var provName = cd.proveedores.full[idx], codigo = cd.proveedores.codigo[idx];  var rows = (DETALLE[rubro]||[]).filter(function(r){ return r.cod===codigo; });  rows.sort(function(a,b){ return (a.fven||"9999")<(b.fven||"9999")?-1:1; });  var box=document.getElementById("provDetail-"+slugR);  if(!rows.length){ box.innerHTML=""; return; }  var h="<div class=\"pd-box\"><div class=\"pd-head\"><span class=\"pd-name\">"+provName+" · Código "+codigo+"</span><button class=\"pd-close\" onclick=\"document.getElementById('provDetail-"+slugR+"').innerHTML=''\">✕ Cerrar</button></div>";  h+="<div class=\"tbl-scroll\"><table><thead><tr><th>Vencimiento</th><th>Nº documento</th><th class=\"num\">Monto</th></tr></thead><tbody>";  rows.forEach(function(r){ h+="<tr><td>"+fmtDateISO(r.fven)+diasBadgeHTML(r.fven)+"</td><td>"+r.ndoc+"</td><td class=\"num\">"+amtCellHTML(r.ml2,r.orig,r.mon)+"</td></tr>"; });  h+="</tbody></table></div></div>";  box.innerHTML=h;  box.scrollIntoView({behavior:"smooth",block:"nearest"});}CHARTS["total"] = new Chart(document.getElementById("cv-total"), { type:"bar",  data:{ labels: WEEK_LABELS, datasets: TOTAL_DATASETS.map(d=>({label:d.label,data:d.data,backgroundColor:d.color,borderRadius:3})) },  options:{ responsive:true, maintainAspectRatio:false,    plugins:{ legend:{position:"bottom",labels:{boxWidth:12,font:{size:10.5}}}, tooltip:{callbacks:{label:ctx=>ctx.dataset.label+": "+fmtUSD(ctx.parsed.y)}} },    scales:{ x:{stacked:true}, y:{stacked:true, ticks:{callback:v=>"$"+Number(v).toLocaleString("en-US")}} } } });RESUMEN.forEach(r => {  const slugR = r.rubro.toLowerCase().replace(/[^a-z0-9]+/g,"_").replace(/^_+|_+$/g,"");  const cd = CHART_DATA[r.rubro];  CHARTS["prov-"+slugR] = new Chart(document.getElementById("cv-prov-"+slugR), { type:"bar",    data:{ labels: cd.proveedores.labels, datasets:[{ data: cd.proveedores.data, backgroundColor: r.color, borderRadius:3 }] },    options:{ indexAxis:"y", responsive:true, maintainAspectRatio:false,      onClick:(evt,els)=>{ if(!els.length) return; showProviderDetail(r.rubro, slugR, els[0].index); },      onHover:(evt,els)=>{ evt.native.target.style.cursor = els.length ? "pointer" : "default"; },      plugins:{ legend:{display:false}, tooltip:{callbacks:{label:ctx=>{ const i=ctx.dataIndex; return [fmtUSD(ctx.parsed.x)+" · "+cd.proveedores.facturas[i]+" factura(s)", "Vencido: "+fmtUSD(cd.proveedores.vencido[i])+" · Por vencer: "+fmtUSD(cd.proveedores.porVencer[i])]; }}} },      scales:{ x:{ ticks:{callback:v=>"$"+Number(v).toLocaleString("en-US")} } } } });  CHARTS["week-"+slugR] = new Chart(document.getElementById("cv-week-"+slugR), { type:"bar",    data:{ labels: cd.semanal.labels, datasets:[{ data: cd.semanal.data, backgroundColor: cd.semanal.labels.map((l,i)=> i===0?"#D64545":r.color), borderRadius:3 }] },    options:{ responsive:true, maintainAspectRatio:false,      plugins:{ legend:{display:false}, tooltip:{callbacks:{label:ctx=>{ const lbl=cd.semanal.labels[ctx.dataIndex]; const nota = lbl==="Vencida" ? "Todo este monto ya está vencido" : "Aún no vencido a esa fecha"; return [fmtUSD(ctx.parsed.y), nota]; }}} },      scales:{ x:{ticks:{font:{size:9.5},maxRotation:60,minRotation:60}}, y:{ticks:{callback:v=>"$"+Number(v).toLocaleString("en-US"),font:{size:9.5}}} } } });});</script></body></html>
+    </div></div><script>const CHART_DATA = {"ALIMENTACION":{"proveedores":{"labels":["SERVICIOS DE GERENCIA  S…","FRANCISCO ANTONIO PINEDA…","ALIMENTOS IDEAL  S.A.","DISTRIBUIDORA Y COMERCIA…","PECUARIA EXPORTADORA  SO…","MAPRI FOOD SERVICE SOCIE…","MULTIGRANOS BONANZA","FRANCISCA LOPEZ HERNANDE…","DELFINA  SUM SOCOP DE HE…","IRMA LETICIA MONROY REYE…","ALIMENTOS BARCELONA  SOC…","ALIMENTOS Y NUTRICION  S…"],"full":["SERVICIOS DE GERENCIA  S.A.","FRANCISCO ANTONIO PINEDA ARCHILA","ALIMENTOS IDEAL  S.A.","DISTRIBUIDORA Y COMERCIALIZADORA DI","PECUARIA EXPORTADORA  SOCIEDAD ANON","MAPRI FOOD SERVICE SOCIEDAD ANONIM","MULTIGRANOS BONANZA","FRANCISCA LOPEZ HERNANDEZ DE GUZMAN","DELFINA  SUM SOCOP DE HERNANDEZ","IRMA LETICIA MONROY REYES DE FLORES","ALIMENTOS BARCELONA  SOCIEDAD","ALIMENTOS Y NUTRICION  SOCIEDAD"],"codigo":["17005211","17006522","17002575","17003232","17002318","17006659","17004948","17004605","17000781","17003969","17006013","17006622"],"data":[20122.07,12817.88,2969.96,2965.5,2819.92,2632.82,2230.23,617.1,501.65,343.53,307.97,151.33],"facturas":[4,0,7,1,2,3,2,1,1,1,1,6],"vencido":[0,0,0,0,0,0,0,0,0,0,0,0],"porVencer":[20122.07,0,2969.96,2965.5,2819.92,2632.82,2230.23,617.1,501.65,343.53,307.97,151.33]},"semanal":{"labels":["Vencida","Semana del 11/9","Semana del 18/9","Semana del 25/9","Semana del 2/10","Semana del 9/10","Semana del 16/10","Semana del 23/10","Semana del 30/10","+8 sem."],"data":[0,34219.33,2.04,1065.75,374.96,0,0,0,0,0]}},"SALUD":{"proveedores":{"labels":["SERGIO GILBERTO HERRERA …","DROGUERIA CENTRO HISTORI…","MARCIA VALESCA LOPEZ GAR…","ECOTERMO DE CENTROAMERIC…"],"full":["SERGIO GILBERTO HERRERA HERNANDEZ","DROGUERIA CENTRO HISTORICO  S.A.","MARCIA VALESCA LOPEZ GARCIA DE","ECOTERMO DE CENTROAMERICA  S.A."],"codigo":["17002449","17002972","17001364","17001423"],"data":[22218.06,5421.09,1776.03,459.39],"facturas":[25,2,3,1],"vencido":[472.48,0,0,0],"porVencer":[21745.58,5421.09,1776.03,459.39]},"semanal":{"labels":["Vencida","Semana del 11/9","Semana del 18/9","Semana del 25/9","Semana del 2/10","Semana del 9/10","Semana del 16/10","Semana del 23/10","Semana del 30/10","+8 sem."],"data":[472.48,7966.96,16430.12,3856.41,1148.6,0,0,0,0,0]}},"TRANSPORTE":{"proveedores":{"labels":["MARVIN GIOVANNI REYES NA…","MARCIA ARACELY CATALAN E…","MELVIN ALEXANDER MARROQUIN","SANTOS FELICIANO ZARATE …","RENTA TOTAL  SOCIEDAD AN…"],"full":["MARVIN GIOVANNI REYES NAVARRETE","MARCIA ARACELY CATALAN ESTRADA","MELVIN ALEXANDER MARROQUIN","SANTOS FELICIANO ZARATE RAMOS","RENTA TOTAL  SOCIEDAD ANONIMA"],"codigo":["17005779","17006224","17001389","17002855","17006569"],"data":[39348.3,30921.43,17345.14,7499.31,4581.5],"facturas":[1,6,1,3,2],"vencido":[39348.3,23403.79,17345.14,4775.54,0],"porVencer":[0,7517.64,0,2723.77,4581.5]},"semanal":{"labels":["Vencida","Semana del 11/9","Semana del 18/9","Semana del 25/9","Semana del 2/10","Semana del 9/10","Semana del 16/10","Semana del 23/10","Semana del 30/10","+8 sem."],"data":[84872.77,11983.89,0,2839.02,0,0,0,0,0,0]}},"TRANSPORTE AGRICOLA":{"proveedores":{"labels":["GUILLERMO VICENTE VICENTE","JOSE VIDAL ROLDAN LOPEZ","HECTOR RAFAEL PEÑATE CRI…","LUIS ANTONIO ALVAREZ CHO…"],"full":["GUILLERMO VICENTE VICENTE","JOSE VIDAL ROLDAN LOPEZ","HECTOR RAFAEL PEÑATE CRISTALES","LUIS ANTONIO ALVAREZ CHOVAJAY"],"codigo":["17004154","17004156","17004633","17003337"],"data":[35465.78,9324.5,5147.91,4991.92],"facturas":[5,3,2,2],"vencido":[0,0,0,0],"porVencer":[35465.78,9324.5,5147.91,4991.92]},"semanal":{"labels":["Vencida","Semana del 11/9","Semana del 18/9","Semana del 25/9","Semana del 2/10","Semana del 9/10","Semana del 16/10","Semana del 23/10","Semana del 30/10","+8 sem."],"data":[0,6008.13,12237.04,1219.16,35465.78,0,0,0,0,0]}},"TRANSPORTE INDUSTRIA":{"proveedores":{"labels":["CARLOS JUNIEL LOPEZ HERR…","ROBERTO ANTONIO RUIZ AST…","LILIAN DE JESUS VALENZUE…"],"full":["CARLOS JUNIEL LOPEZ HERRERA","ROBERTO ANTONIO RUIZ ASTURIAS","LILIAN DE JESUS VALENZUELA PEREZ"],"codigo":["17003869","17003657","17003849"],"data":[10668.56,7984.73,968.71],"facturas":[1,1,2],"vencido":[0,7984.73,968.71],"porVencer":[10668.56,0,0]},"semanal":{"labels":["Vencida","Semana del 11/9","Semana del 18/9","Semana del 25/9","Semana del 2/10","Semana del 9/10","Semana del 16/10","Semana del 23/10","Semana del 30/10","+8 sem."],"data":[8953.44,10668.56,0,0,0,0,0,0,0,0]}}};const RESUMEN = [{"rubro":"TRANSPORTE","proveedores":5,"facturas":13,"anticipos":0,"monto":99695.68000000002,"pctVenc":85.13184322530324,"color":"#F2994A","riesgo":{"label":"Crítico","color":"#D64545","bg":"#FCEBEB"}},{"rubro":"TRANSPORTE AGRICOLA","proveedores":4,"facturas":12,"anticipos":0,"monto":54930.11,"pctVenc":0,"color":"#2F80ED","riesgo":{"label":"Bajo","color":"#0F8C4E","bg":"#E6FBF0"}},{"rubro":"ALIMENTACION","proveedores":12,"facturas":29,"anticipos":2,"monto":48479.96,"pctVenc":0,"color":"#200086","riesgo":{"label":"Bajo","color":"#0F8C4E","bg":"#E6FBF0"}},{"rubro":"SALUD","proveedores":4,"facturas":31,"anticipos":0,"monto":29874.569999999996,"pctVenc":1.581545776223725,"color":"#15E574","riesgo":{"label":"Bajo","color":"#0F8C4E","bg":"#E6FBF0"}},{"rubro":"TRANSPORTE INDUSTRIA","proveedores":3,"facturas":4,"anticipos":0,"monto":19622,"pctVenc":45.62959942921211,"color":"#EB5757","riesgo":{"label":"Moderado","color":"#946200","bg":"#FAEEDA"}}];const TOTAL_DATASETS = [{"label":"ALIMENTACION","color":"#200086","data":[0,34219.33,2.04,1065.75,374.96,0,0,0,0,0]},{"label":"SALUD","color":"#15E574","data":[472.48,7966.96,16430.12,3856.41,1148.6,0,0,0,0,0]},{"label":"TRANSPORTE","color":"#F2994A","data":[84872.77,11983.89,0,2839.02,0,0,0,0,0,0]},{"label":"TRANSPORTE AGRICOLA","color":"#2F80ED","data":[0,6008.13,12237.04,1219.16,35465.78,0,0,0,0,0]},{"label":"TRANSPORTE INDUSTRIA","color":"#EB5757","data":[8953.44,10668.56,0,0,0,0,0,0,0,0]}];const WEEK_LABELS = ["Vencida","Semana del 11/9","Semana del 18/9","Semana del 25/9","Semana del 2/10","Semana del 9/10","Semana del 16/10","Semana del 23/10","Semana del 30/10","+8 sem."];const DETALLE = {"ALIMENTACION":[{"cod":"17005211","prov":"SERVICIOS DE GERENCIA  S.A.","ndoc":"5100017231","fven":"2026-09-09","ml2":11515.94,"orig":-87778.47,"mon":"GTQ","ref":"EAF5-3811262824","asig":"2026-0000125826"},{"cod":"17005211","prov":"SERVICIOS DE GERENCIA  S.A.","ndoc":"5100017454","fven":"2026-09-10","ml2":5543.96,"orig":-42235,"mon":"GTQ","ref":"7DEE-2379432284","asig":"2026-0000125986"},{"cod":"17003232","prov":"DISTRIBUIDORA Y COMERCIALIZADORA DI","ndoc":"5100017516","fven":"2026-09-10","ml2":2965.5,"orig":-22603.92,"mon":"GTQ","ref":"EF90-3308142766","asig":"2026-0000126016"},{"cod":"17005211","prov":"SERVICIOS DE GERENCIA  S.A.","ndoc":"5100017237","fven":"2026-09-09","ml2":2656.11,"orig":-20245.8,"mon":"GTQ","ref":"8802-579356272","asig":"2026-0000125831"},{"cod":"17002318","prov":"PECUARIA EXPORTADORA  SOCIEDAD ANON","ndoc":"5100017236","fven":"2026-09-09","ml2":1704.83,"orig":-12994.8,"mon":"GTQ","ref":"DA50-2402438728","asig":"2026-0000125822"},{"cod":"17006659","prov":"MAPRI FOOD SERVICE SOCIEDAD ANONIM","ndoc":"5100015553","fven":"2026-09-11","ml2":1684.93,"orig":-12845.4,"mon":"GTQ","ref":"D285-4190916524","asig":"C-2026-0000124306"},{"cod":"17004948","prov":"MULTIGRANOS BONANZA","ndoc":"5100017189","fven":"2026-09-09","ml2":1598.07,"orig":-12177.82,"mon":"GTQ","ref":"DA92-196167618","asig":"C-2026-0000125763"},{"cod":"17002575","prov":"ALIMENTOS IDEAL  S.A.","ndoc":"5100017309","fven":"2026-09-10","ml2":1164.98,"orig":-8882.58,"mon":"GTQ","ref":"FF7C-3421324859","asig":"2026-0000125864"},{"cod":"17002318","prov":"PECUARIA EXPORTADORA  SOCIEDAD ANON","ndoc":"5100002058","fven":"2026-09-10","ml2":1115.09,"orig":-8499.66,"mon":"GTQ","ref":"DAAE-2466728782","asig":"2026-0000001468"},{"cod":"17004948","prov":"MULTIGRANOS BONANZA","ndoc":"5100017401","fven":"2026-09-10","ml2":632.16,"orig":-4819.89,"mon":"GTQ","ref":"D65F-1103252428","asig":"2026-0000125946"},{"cod":"17006659","prov":"MAPRI FOOD SERVICE SOCIEDAD ANONIM","ndoc":"5100001990","fven":"2026-09-25","ml2":617.29,"orig":-4704,"mon":"GTQ","ref":"EB27-2980072367","asig":"2026-0000001420"},{"cod":"17004605","prov":"FRANCISCA LOPEZ HERNANDEZ DE GUZMAN","ndoc":"5100017267","fven":"2026-09-09","ml2":617.1,"orig":-4702.5,"mon":"GTQ","ref":"C096-3116319099","asig":"C-2026-0000125799"},{"cod":"17002575","prov":"ALIMENTOS IDEAL  S.A.","ndoc":"5100017186","fven":"2026-09-09","ml2":611.54,"orig":-4661.38,"mon":"GTQ","ref":"A717-613109515","asig":"2026-0000125758"},{"cod":"17002575","prov":"ALIMENTOS IDEAL  S.A.","ndoc":"5100002054","fven":"2026-09-10","ml2":509.62,"orig":-3884.5,"mon":"GTQ","ref":"6986-2638169493","asig":"2026-0000001458"},{"cod":"17000781","prov":"DELFINA  SUM SOCOP DE HERNANDEZ","ndoc":"5100017417","fven":"2026-09-10","ml2":501.65,"orig":-3823.75,"mon":"GTQ","ref":"A4DD-1167806016","asig":"C-2026-0000125955"},{"cod":"17005211","prov":"SERVICIOS DE GERENCIA  S.A.","ndoc":"5100017452","fven":"2026-09-10","ml2":406.06,"orig":-3096,"mon":"GTQ","ref":"862E-4022356965","asig":"2026-0000125985"},{"cod":"17002575","prov":"ALIMENTOS IDEAL  S.A.","ndoc":"5100002060","fven":"2026-09-10","ml2":356.09,"orig":-2714.24,"mon":"GTQ","ref":"1BF8-3110422473","asig":"2026-0000001469"},{"cod":"17003969","prov":"IRMA LETICIA MONROY REYES DE FLORES","ndoc":"5100016420","fven":"2026-09-22","ml2":343.53,"orig":-2619.02,"mon":"GTQ","ref":"3EDE-1388593300","asig":"2026-0000125072"},{"cod":"17006659","prov":"MAPRI FOOD SERVICE SOCIEDAD ANONIM","ndoc":"5100002029","fven":"2026-09-30","ml2":330.6,"orig":-2520,"mon":"GTQ","ref":"A445-3599911356","asig":"2026-0000001450"},{"cod":"17006013","prov":"ALIMENTOS BARCELONA  SOCIEDAD","ndoc":"5100017295","fven":"2026-09-10","ml2":307.97,"orig":-2348,"mon":"GTQ","ref":"68B5-2132033704","asig":"2026-0000125852"},{"cod":"17002575","prov":"ALIMENTOS IDEAL  S.A.","ndoc":"5100002057","fven":"2026-09-10","ml2":210.44,"orig":-1604.03,"mon":"GTQ","ref":"B431-3811525297","asig":"2026-0000001466"},{"cod":"17002575","prov":"ALIMENTOS IDEAL  S.A.","ndoc":"5100002055","fven":"2026-09-10","ml2":87.2,"orig":-664.65,"mon":"GTQ","ref":"B6DF-696862020","asig":"2026-0000001460"},{"cod":"17006622","prov":"ALIMENTOS Y NUTRICION  SOCIEDAD","ndoc":"5100016510","fven":"2026-09-23","ml2":51.17,"orig":-390,"mon":"GTQ","ref":"9EE3-934955162","asig":"2026-0000125166"},{"cod":"17006622","prov":"ALIMENTOS Y NUTRICION  SOCIEDAD","ndoc":"5100016304","fven":"2026-09-20","ml2":51.16,"orig":-390,"mon":"GTQ","ref":"6CD2-127093348","asig":"2026-0000124964"},{"cod":"17002575","prov":"ALIMENTOS IDEAL  S.A.","ndoc":"5100002056","fven":"2026-09-10","ml2":30.09,"orig":-229.36,"mon":"GTQ","ref":"40F0-1354976167","asig":"2026-0000001463"},{"cod":"17006622","prov":"ALIMENTOS Y NUTRICION  SOCIEDAD","ndoc":"5100002045","fven":"2026-10-02","ml2":25.58,"orig":-195,"mon":"GTQ","ref":"EC93-2569751705","asig":"2026-0000001461"},{"cod":"17006622","prov":"ALIMENTOS Y NUTRICION  SOCIEDAD","ndoc":"5100002049","fven":"2026-10-02","ml2":18.78,"orig":-143.2,"mon":"GTQ","ref":"CDEA-2796833284","asig":"2026-0000001472"},{"cod":"17006622","prov":"ALIMENTOS Y NUTRICION  SOCIEDAD","ndoc":"5100016306","fven":"2026-09-20","ml2":2.6,"orig":-19.8,"mon":"GTQ","ref":"573D-2157660775","asig":"2026-0000124966"},{"cod":"17006622","prov":"ALIMENTOS Y NUTRICION  SOCIEDAD","ndoc":"5100016071","fven":"2026-09-18","ml2":2.04,"orig":-15.55,"mon":"GTQ","ref":"95AA-2636335154","asig":"C-2026-0000124765"}],"SALUD":[{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016013","fven":"2026-09-18","ml2":8226.13,"orig":-62717.14,"mon":"GTQ","ref":"4879-3597615936","asig":"2026-0000124748"},{"cod":"17002972","prov":"DROGUERIA CENTRO HISTORICO  S.A.","ndoc":"5100015630","fven":"2026-09-12","ml2":3866.91,"orig":-29480,"mon":"GTQ","ref":"4EE5-1214991557","asig":"2026-0000124332"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015850","fven":"2026-09-16","ml2":3429.44,"orig":-26132.14,"mon":"GTQ","ref":"55E5-464668241","asig":"2026-0000124563"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100001332","fven":"2026-09-25","ml2":1838.9,"orig":-14020.98,"mon":"GTQ","ref":"85DC-2292730808","asig":"2026-0000009330"},{"cod":"17002972","prov":"DROGUERIA CENTRO HISTORICO  S.A.","ndoc":"5100015789","fven":"2026-09-13","ml2":1554.18,"orig":-11840,"mon":"GTQ","ref":"5475-3921299475","asig":"2026-0000124522"},{"cod":"17001364","prov":"MARCIA VALESCA LOPEZ GARCIA DE","ndoc":"5100015482","fven":"2026-09-11","ml2":1333.02,"orig":-10162.5,"mon":"GTQ","ref":"5CE6-3078373548","asig":"2026-0000124241"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015898","fven":"2026-09-17","ml2":723.84,"orig":-5516.78,"mon":"GTQ","ref":"3B20-2774221219","asig":"C-2026-0000124599"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015716","fven":"2026-09-12","ml2":723.68,"orig":-5516.78,"mon":"GTQ","ref":"7298-3731834762","asig":"2026-0000124450"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015717","fven":"2026-09-12","ml2":723.68,"orig":-5516.78,"mon":"GTQ","ref":"932D-3671018420","asig":"2026-0000124457"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015715","fven":"2026-09-12","ml2":717.35,"orig":-5468.4,"mon":"GTQ","ref":"E33C-3120382030","asig":"2026-0000124441"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015790","fven":"2026-09-13","ml2":685.98,"orig":-5226.42,"mon":"GTQ","ref":"F2A2-2555199517","asig":"2026-0000124523"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016956","fven":"2026-09-27","ml2":685.25,"orig":-5226.42,"mon":"GTQ","ref":"009A-2573093067","asig":"2026-0000125566"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015794","fven":"2026-09-13","ml2":609.76,"orig":-4645.72,"mon":"GTQ","ref":"DF9C-855130281","asig":"2026-0000124527"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016476","fven":"2026-09-23","ml2":609.69,"orig":-4645.72,"mon":"GTQ","ref":"E7E0-2472363659","asig":"2026-0000125135"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015714","fven":"2026-09-12","ml2":526.9,"orig":-4016.6,"mon":"GTQ","ref":"3819-4080619386","asig":"2026-0000124421"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100017272","fven":"2026-10-01","ml2":463.35,"orig":-3532.68,"mon":"GTQ","ref":"CA3F-1151485670","asig":"C-2026-0000125804"},{"cod":"17001423","prov":"ECOTERMO DE CENTROAMERICA  S.A.","ndoc":"5100016031","fven":"2026-09-18","ml2":459.39,"orig":-3500,"mon":"GTQ","ref":"6B4C-3146337426","asig":"2026-0000124698"},{"cod":"17001364","prov":"MARCIA VALESCA LOPEZ GARCIA DE","ndoc":"5100016524","fven":"2026-09-23","ml2":362.64,"orig":-2763.75,"mon":"GTQ","ref":"C636-55002642","asig":"C-2026-0000125179"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016012","fven":"2026-09-18","ml2":262.33,"orig":-2000,"mon":"GTQ","ref":"4BF4-1274037292","asig":"2026-0000124726"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016858","fven":"2026-09-26","ml2":262.3,"orig":-2000,"mon":"GTQ","ref":"58C3-298467542","asig":"2026-0000125533"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016491","fven":"2026-09-23","ml2":248.04,"orig":-1890,"mon":"GTQ","ref":"3AEB-1985956571","asig":"2026-0000125148"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016418","fven":"2026-09-21","ml2":247.9,"orig":-1890,"mon":"GTQ","ref":"F0BF-2909621952","asig":"2026-0000125068"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100001077","fven":"2026-08-20","ml2":242.8,"orig":-1850,"mon":"GTQ","ref":"86AA-367086219","asig":"2026-0000009174"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100001078","fven":"2026-08-20","ml2":229.68,"orig":-1750,"mon":"GTQ","ref":"FED9-1023888685","asig":"2026-0000009178"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015769","fven":"2026-09-13","ml2":223.13,"orig":-1700,"mon":"GTQ","ref":"A777-3123071368","asig":"2026-0000124502"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015791","fven":"2026-09-13","ml2":131.25,"orig":-1000,"mon":"GTQ","ref":"A4D9-43469391","asig":"2026-0000124524"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016859","fven":"2026-09-26","ml2":131.15,"orig":-1000,"mon":"GTQ","ref":"D728-3344253175","asig":"2026-0000125545"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015793","fven":"2026-09-13","ml2":124.69,"orig":-950,"mon":"GTQ","ref":"A8D0-1860520620","asig":"2026-0000124526"},{"cod":"17001364","prov":"MARCIA VALESCA LOPEZ GARCIA DE","ndoc":"5100016523","fven":"2026-09-23","ml2":80.37,"orig":-612.5,"mon":"GTQ","ref":"AEBA-3085321735","asig":"C-2026-0000125179"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100015629","fven":"2026-09-12","ml2":75.42,"orig":-575,"mon":"GTQ","ref":"E536-3980347741","asig":"2026-0000124364"},{"cod":"17002449","prov":"SERGIO GILBERTO HERRERA HERNANDEZ","ndoc":"5100016907","fven":"2026-09-26","ml2":75.42,"orig":-575,"mon":"GTQ","ref":"603E-3396552068","asig":"2026-0000125428"}],"TRANSPORTE":[{"cod":"17005779","prov":"MARVIN GIOVANNI REYES NAVARRETE","ndoc":"5100012888","fven":"2026-09-05","ml2":39348.3,"orig":-300000,"mon":"GTQ","ref":"8D66-3255389260","asig":"2026-0000076455"},{"cod":"17001389","prov":"MELVIN ALEXANDER MARROQUIN","ndoc":"5100001119","fven":"2026-08-05","ml2":17345.14,"orig":-132195.82,"mon":"GTQ","ref":"8435-706432849","asig":"2026-0000009215"},{"cod":"17006224","prov":"MARCIA ARACELY CATALAN ESTRADA","ndoc":"5100013041","fven":"2026-09-08","ml2":7517.64,"orig":-57296.21,"mon":"GTQ","ref":"C32D-153632789","asig":"C-2026-0000076605"},{"cod":"17006224","prov":"MARCIA ARACELY CATALAN ESTRADA","ndoc":"5100012871","fven":"2026-09-05","ml2":6736.11,"orig":-51376.82,"mon":"GTQ","ref":"0407-4071639232","asig":"2026-0000076443"},{"cod":"17006224","prov":"MARCIA ARACELY CATALAN ESTRADA","ndoc":"5100012873","fven":"2026-09-05","ml2":6627.65,"orig":-50549.67,"mon":"GTQ","ref":"D79D-2690142085","asig":"2026-0000076450"},{"cod":"17006224","prov":"MARCIA ARACELY CATALAN ESTRADA","ndoc":"5100012874","fven":"2026-09-05","ml2":5481.72,"orig":-41809.54,"mon":"GTQ","ref":"3557-1826377049","asig":"2026-0000076453"},{"cod":"17002855","prov":"SANTOS FELICIANO ZARATE RAMOS","ndoc":"5100012831","fven":"2026-09-04","ml2":4762.46,"orig":-36323.59,"mon":"GTQ","ref":"BE5A-1027883495","asig":"2026-0000076400"},{"cod":"17006569","prov":"RENTA TOTAL  SOCIEDAD ANONIMA","ndoc":"5100012771","fven":"2026-09-25","ml2":2839.02,"orig":-21646.43,"mon":"GTQ","ref":"3E66-2731100908","asig":"2026-0000076272"},{"cod":"17002855","prov":"SANTOS FELICIANO ZARATE RAMOS","ndoc":"5100017451","fven":"2026-09-10","ml2":2723.77,"orig":-20761.53,"mon":"GTQ","ref":"DF43-3593751059","asig":"2026-0000125984"},{"cod":"17006224","prov":"MARCIA ARACELY CATALAN ESTRADA","ndoc":"5100012943","fven":"2026-09-05","ml2":2710.35,"orig":-20664.29,"mon":"GTQ","ref":"01B0-1819234124","asig":"2026-0000076504"},{"cod":"17006224","prov":"MARCIA ARACELY CATALAN ESTRADA","ndoc":"5100012945","fven":"2026-09-05","ml2":1847.96,"orig":-14089.29,"mon":"GTQ","ref":"B978-3119073331","asig":"2026-0000076510"},{"cod":"17006569","prov":"RENTA TOTAL  SOCIEDAD ANONIMA","ndoc":"5100012007","fven":"2026-09-12","ml2":1742.48,"orig":-13283.04,"mon":"GTQ","ref":"A726-2526955507","asig":"2026-0000075616"},{"cod":"17002855","prov":"SANTOS FELICIANO ZARATE RAMOS","ndoc":"5100012748","fven":"2026-09-03","ml2":13.08,"orig":-100,"mon":"GTQ","ref":"DC76-993740657","asig":"2026-0000076378"}],"TRANSPORTE AGRICOLA":[{"cod":"17004154","prov":"GUILLERMO VICENTE VICENTE","ndoc":"5100013154","fven":"2026-10-01","ml2":26911.6,"orig":-205191.17,"mon":"GTQ","ref":"57C4-2675262992","asig":"2026-0000076717"},{"cod":"17004156","prov":"JOSE VIDAL ROLDAN LOPEZ","ndoc":"5100010934","fven":"2026-09-18","ml2":7267.38,"orig":-55376.64,"mon":"GTQ","ref":"D2FD-2692697189","asig":"2026-0000074618"},{"cod":"17004154","prov":"GUILLERMO VICENTE VICENTE","ndoc":"5100013149","fven":"2026-10-01","ml2":6256.43,"orig":-47702.96,"mon":"GTQ","ref":"3A96-912932956","asig":"2026-0000076712"},{"cod":"17004633","prov":"HECTOR RAFAEL PEÑATE CRISTALES","ndoc":"5100012030","fven":"2026-09-12","ml2":4189.73,"orig":-31938.76,"mon":"GTQ","ref":"7CFD-1271481877","asig":"2026-0000075725"},{"cod":"17003337","prov":"LUIS ANTONIO ALVAREZ CHOVAJAY","ndoc":"5100012287","fven":"2026-09-18","ml2":3173.52,"orig":-24195.37,"mon":"GTQ","ref":"8824-3440067115","asig":"2026-0000075879"},{"cod":"17003337","prov":"LUIS ANTONIO ALVAREZ CHOVAJAY","ndoc":"5100011986","fven":"2026-09-12","ml2":1818.4,"orig":-13861.83,"mon":"GTQ","ref":"B44C-377897211","asig":"2026-0000075601"},{"cod":"17004154","prov":"GUILLERMO VICENTE VICENTE","ndoc":"5100013011","fven":"2026-09-28","ml2":1388.64,"orig":-10587.37,"mon":"GTQ","ref":"957C-27741208","asig":"2026-0000076568"},{"cod":"17004156","prov":"JOSE VIDAL ROLDAN LOPEZ","ndoc":"5100011096","fven":"2026-09-20","ml2":1219.16,"orig":-9295.65,"mon":"GTQ","ref":"024B-3710275304","asig":"2026-0000074797"},{"cod":"17004633","prov":"HECTOR RAFAEL PEÑATE CRISTALES","ndoc":"5100012293","fven":"2026-09-18","ml2":958.18,"orig":-7305.27,"mon":"GTQ","ref":"F685-2392213594","asig":"2026-0000075897"},{"cod":"17004154","prov":"GUILLERMO VICENTE VICENTE","ndoc":"5100013126","fven":"2026-10-01","ml2":896,"orig":-6829.6,"mon":"GTQ","ref":"E304-2316847071","asig":"C-2026-0000076690"},{"cod":"17004156","prov":"JOSE VIDAL ROLDAN LOPEZ","ndoc":"5100010954","fven":"2026-09-18","ml2":837.96,"orig":-6385.16,"mon":"GTQ","ref":"BE41-3390457509","asig":"2026-0000074626"},{"cod":"17004154","prov":"GUILLERMO VICENTE VICENTE","ndoc":"5100013123","fven":"2026-10-01","ml2":13.11,"orig":-100,"mon":"GTQ","ref":"73BF-3927785733","asig":"C-2026-0000076687"}],"TRANSPORTE INDUSTRIA":[{"cod":"17003869","prov":"CARLOS JUNIEL LOPEZ HERRERA","ndoc":"5100017198","fven":"2026-09-09","ml2":10668.56,"orig":-81339.52,"mon":"GTQ","ref":"A799-2835891936","asig":"C-2026-0000125773"},{"cod":"17003657","prov":"ROBERTO ANTONIO RUIZ ASTURIAS","ndoc":"5100006531","fven":"2026-04-23","ml2":7984.73,"orig":-61009.6,"mon":"GTQ","ref":"FBDA-1765166449","asig":"C-2026-0000070763"},{"cod":"17003849","prov":"LILIAN DE JESUS VALENZUELA PEREZ","ndoc":"5100012471","fven":"2026-08-29","ml2":628.36,"orig":-4790.69,"mon":"GTQ","ref":"8A21-1144734145","asig":"2026-0000076069"},{"cod":"17003849","prov":"LILIAN DE JESUS VALENZUELA PEREZ","ndoc":"5100012595","fven":"2026-09-01","ml2":340.35,"orig":-2593.84,"mon":"GTQ","ref":"558B-3149546228","asig":"2026-0000076186"}]};const CHARTS = {};function fmtUSD(v){ v=Number(v)||0; return (v<0?"-":"")+"$"+Math.abs(v).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}); }function fmtDateISO(iso){ if(!iso) return "—"; var p=iso.split("-"); return p[2]+"/"+p[1]+"/"+p[0]; }function diasVenc(iso){ if(!iso) return null; var hoy=new Date(); hoy.setHours(0,0,0,0); var d=new Date(iso+"T00:00:00"); if(isNaN(d)) return null; d.setHours(0,0,0,0); return Math.round((d-hoy)/86400000); }function diasBadgeHTML(iso){ var d=diasVenc(iso); if(d===null) return ""; if(d<0) return "<small class=\"days-badge d-over\">vencida hace "+Math.abs(d)+" día"+(Math.abs(d)===1?"":"s")+"</small>"; if(d===0) return "<small class=\"days-badge d-today\">vence hoy</small>"; return "<small class=\"days-badge d-ok\">faltan "+d+" día"+(d===1?"":"s")+" para vencer</small>"; }function amtCellHTML(ml2,orig,mon){ var s="<b>"+fmtUSD(ml2)+"</b>"; if(mon && mon!=="USD") s+="<span class=\"amt-sec\">"+fmtUSD(orig)+" "+mon+"</span>"; return s; }function showPanel(id){  document.querySelectorAll(".panel").forEach(function(pn){ pn.classList.remove("active"); });  document.getElementById("panel-"+id).classList.add("active");  if(id!=="resumen"){ if(CHARTS["prov-"+id]) CHARTS["prov-"+id].resize(); if(CHARTS["week-"+id]) CHARTS["week-"+id].resize(); }  window.scrollTo({top:0,behavior:"smooth"});}function showProviderDetail(rubro, slugR, idx){  var cd = CHART_DATA[rubro];  var provName = cd.proveedores.full[idx], codigo = cd.proveedores.codigo[idx];  var rows = (DETALLE[rubro]||[]).filter(function(r){ return r.cod===codigo; });  rows.sort(function(a,b){ return (a.fven||"9999")<(b.fven||"9999")?-1:1; });  var box=document.getElementById("provDetail-"+slugR);  if(!rows.length){ box.innerHTML=""; return; }  var h="<div class=\"pd-box\"><div class=\"pd-head\"><span class=\"pd-name\">"+provName+" · Código "+codigo+"</span><button class=\"pd-close\" onclick=\"document.getElementById('provDetail-"+slugR+"').innerHTML=''\">✕ Cerrar</button></div>";  h+="<div class=\"tbl-scroll\"><table><thead><tr><th>Vencimiento</th><th>Nº documento</th><th class=\"num\">Monto</th></tr></thead><tbody>";  rows.forEach(function(r){ h+="<tr><td>"+fmtDateISO(r.fven)+diasBadgeHTML(r.fven)+"</td><td>"+r.ndoc+"</td><td class=\"num\">"+amtCellHTML(r.ml2,r.orig,r.mon)+"</td></tr>"; });  h+="</tbody></table></div></div>";  box.innerHTML=h;  box.scrollIntoView({behavior:"smooth",block:"nearest"});}CHARTS["total"] = new Chart(document.getElementById("cv-total"), { type:"bar",  data:{ labels: WEEK_LABELS, datasets: TOTAL_DATASETS.map(d=>({label:d.label,data:d.data,backgroundColor:d.color,borderRadius:3})) },  options:{ responsive:true, maintainAspectRatio:false,    plugins:{ legend:{position:"bottom",labels:{boxWidth:12,font:{size:10.5}}}, tooltip:{callbacks:{label:ctx=>ctx.dataset.label+": "+fmtUSD(ctx.parsed.y)}} },    scales:{ x:{stacked:true}, y:{stacked:true, ticks:{callback:v=>"$"+Number(v).toLocaleString("en-US")}} } } });RESUMEN.forEach(r => {  const slugR = r.rubro.toLowerCase().replace(/[^a-z0-9]+/g,"_").replace(/^_+|_+$/g,"");  const cd = CHART_DATA[r.rubro];  CHARTS["prov-"+slugR] = new Chart(document.getElementById("cv-prov-"+slugR), { type:"bar",    data:{ labels: cd.proveedores.labels, datasets:[{ data: cd.proveedores.data, backgroundColor: r.color, borderRadius:3 }] },    options:{ indexAxis:"y", responsive:true, maintainAspectRatio:false,      onClick:(evt,els)=>{ if(!els.length) return; showProviderDetail(r.rubro, slugR, els[0].index); },      onHover:(evt,els)=>{ evt.native.target.style.cursor = els.length ? "pointer" : "default"; },      plugins:{ legend:{display:false}, tooltip:{callbacks:{label:ctx=>{ const i=ctx.dataIndex; return [fmtUSD(ctx.parsed.x)+" · "+cd.proveedores.facturas[i]+" factura(s)", "Vencido: "+fmtUSD(cd.proveedores.vencido[i])+" · Por vencer: "+fmtUSD(cd.proveedores.porVencer[i])]; }}} },      scales:{ x:{ ticks:{callback:v=>"$"+Number(v).toLocaleString("en-US")} } } } });  CHARTS["week-"+slugR] = new Chart(document.getElementById("cv-week-"+slugR), { type:"bar",    data:{ labels: cd.semanal.labels, datasets:[{ data: cd.semanal.data, backgroundColor: cd.semanal.labels.map((l,i)=> i===0?"#D64545":r.color), borderRadius:3 }] },    options:{ responsive:true, maintainAspectRatio:false,      plugins:{ legend:{display:false}, tooltip:{callbacks:{label:ctx=>{ const lbl=cd.semanal.labels[ctx.dataIndex]; const nota = lbl==="Vencida" ? "Todo este monto ya está vencido" : "Aún no vencido a esa fecha"; return [fmtUSD(ctx.parsed.y), nota]; }}} },      scales:{ x:{ticks:{font:{size:9.5},maxRotation:60,minRotation:60}}, y:{ticks:{callback:v=>"$"+Number(v).toLocaleString("en-US"),font:{size:9.5}}} } } });});</script></body></html>
