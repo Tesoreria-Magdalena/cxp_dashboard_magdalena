@@ -149,13 +149,13 @@ tr.tot td{background:var(--alt);font-weight:700;border-top:2px solid var(--borde
 <div class="tabs-holder">
   <div class="tabs">
     <div class="tab active" onclick="showTab(0)">Aging CXP</div>
-    
-    <div class="tab" onclick="showTab(1)">📅 Pronóstico 4 sem (14⚠)</div>
-    <div class="tab" onclick="showTab(2)">Facturas x sociedad</div>
-    <div class="tab" onclick="showTab(3)">Anticipos x sociedad</div>
-    <div class="tab" onclick="showTab(4)">Top proveedores</div>
-    <div class="tab" onclick="showTab(5)">⚠ Alertas (153)</div>
-    <div class="tab" onclick="showTab(6)">🔍 Estado de cuenta</div>
+    <div class="tab" onclick="showTab(1)">📈 Tendencia</div>
+    <div class="tab" onclick="showTab(2)">📅 Pronóstico 4 sem (14⚠)</div>
+    <div class="tab" onclick="showTab(3)">Facturas x sociedad</div>
+    <div class="tab" onclick="showTab(4)">Anticipos x sociedad</div>
+    <div class="tab" onclick="showTab(5)">Top proveedores</div>
+    <div class="tab" onclick="showTab(6)">⚠ Alertas (153)</div>
+    <div class="tab" onclick="showTab(7)">🔍 Estado de cuenta</div>
     <div class="tab" style="flex:0 0 auto;border:1px dashed rgba(255,255,255,.35);" id="pdfBtn" onclick="exportPdf(this)" title="Descargar un único PDF con todas las pestañas, una tras otra (excepto Estado de cuenta)">📄 PDF</div>
     <div class="tab" style="flex:0 0 auto;border:1px dashed rgba(255,255,255,.35);" id="sumBtn" onclick="exportResumen(this)" title="Descargar el resumen ejecutivo del día como una sola imagen liviana">🖼 Resumen</div>
   </div>
@@ -271,6 +271,110 @@ tr.tot td{background:var(--alt);font-weight:700;border-top:2px solid var(--borde
 </div>
 
 
+<!-- TAB TENDENCIA -->
+<div class="page" id="pT">
+  <div class="trend-hero">
+    <div>
+      <div class="th-title">Evolución del CXP <span style="color:#15E574;">·</span> 19 snapshots</div>
+      <div class="th-sub">19/08/2026 → 17/09/2026 · deltas vs. snapshot anterior (11/09/2026) · las demás pestañas reflejan la snapshot más reciente</div>
+    </div>
+    <div class="th-insight">Mayor movimiento de la serie: <b style="color:#15E574;">Los anticipos >180 días ▼ $9.6M (−28.8%)</b> desde 19/08/2026.</div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi tk"><div class="kpi-l">Total facturas</div><div class="kpi-v" style="color:#200086;"><span class="mv" title="$63,217,973.35">$63.2M</span></div><div class="tk-spark"><svg viewBox="0 0 100 30" preserveAspectRatio="none" style="width:100%;height:30px;display:block;"><defs><linearGradient id="sg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#200086" stop-opacity="0.28"/><stop offset="1" stop-color="#200086" stop-opacity="0.02"/></linearGradient></defs><polygon points="3.0,7.1 8.2,8.5 13.4,10.1 18.7,3.0 23.9,7.5 29.1,13.2 34.3,18.9 39.6,21.2 44.8,24.9 50.0,20.5 55.2,18.0 60.4,18.2 65.7,12.5 70.9,25.1 76.1,24.9 81.3,21.8 86.6,27.0 91.8,22.6 97.0,22.6 97,27 3,27" fill="url(#sg3)"/><polyline points="3.0,7.1 8.2,8.5 13.4,10.1 18.7,3.0 23.9,7.5 29.1,13.2 34.3,18.9 39.6,21.2 44.8,24.9 50.0,20.5 55.2,18.0 60.4,18.2 65.7,12.5 70.9,25.1 76.1,24.9 81.3,21.8 86.6,27.0 91.8,22.6 97.0,22.6" fill="none" stroke="#200086" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div class="kpi-sub"><span class="chip" style="background:#E6F1FB;color:#185FA5;" title="−$15,471.68">▼ $15K · −0.0%</span></div></div>
+    <div class="kpi tk"><div class="kpi-l">Facturas vencidas</div><div class="kpi-v neg"><span class="mv" title="$46,806,302.78">$46.8M</span></div><div class="tk-spark"><svg viewBox="0 0 100 30" preserveAspectRatio="none" style="width:100%;height:30px;display:block;"><defs><linearGradient id="sg4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E24B4A" stop-opacity="0.28"/><stop offset="1" stop-color="#E24B4A" stop-opacity="0.02"/></linearGradient></defs><polygon points="3.0,24.4 8.2,27.0 13.4,17.6 18.7,16.0 23.9,21.1 29.1,6.4 34.3,16.4 39.6,16.0 44.8,11.0 50.0,5.4 55.2,5.3 60.4,9.4 65.7,8.8 70.9,13.8 76.1,3.0 81.3,5.5 86.6,8.2 91.8,11.8 97.0,6.5 97,27 3,27" fill="url(#sg4)"/><polyline points="3.0,24.4 8.2,27.0 13.4,17.6 18.7,16.0 23.9,21.1 29.1,6.4 34.3,16.4 39.6,16.0 44.8,11.0 50.0,5.4 55.2,5.3 60.4,9.4 65.7,8.8 70.9,13.8 76.1,3.0 81.3,5.5 86.6,8.2 91.8,11.8 97.0,6.5" fill="none" stroke="#E24B4A" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div class="kpi-sub"><span class="chip" style="background:#FCEBEB;color:#A32D2D;" title="$1,220,204.30">▲ $1.2M · +2.7%</span></div></div>
+    <div class="kpi tk"><div class="kpi-l">Total anticipos</div><div class="kpi-v purple"><span class="mv" title="$43,025,505.40">$43.0M</span></div><div class="tk-spark"><svg viewBox="0 0 100 30" preserveAspectRatio="none" style="width:100%;height:30px;display:block;"><defs><linearGradient id="sg5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#534AB7" stop-opacity="0.28"/><stop offset="1" stop-color="#534AB7" stop-opacity="0.02"/></linearGradient></defs><polygon points="3.0,3.0 8.2,23.0 13.4,18.6 18.7,17.1 23.9,26.2 29.1,26.1 34.3,27.0 39.6,26.9 44.8,26.7 50.0,25.8 55.2,25.9 60.4,26.7 65.7,26.9 70.9,25.2 76.1,20.6 81.3,15.4 86.6,19.4 91.8,19.0 97.0,23.4 97,27 3,27" fill="url(#sg5)"/><polyline points="3.0,3.0 8.2,23.0 13.4,18.6 18.7,17.1 23.9,26.2 29.1,26.1 34.3,27.0 39.6,26.9 44.8,26.7 50.0,25.8 55.2,25.9 60.4,26.7 65.7,26.9 70.9,25.2 76.1,20.6 81.3,15.4 86.6,19.4 91.8,19.0 97.0,23.4" fill="none" stroke="#534AB7" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div class="kpi-sub"><span class="chip" style="background:#E6F1FB;color:#185FA5;" title="−$1,618,235.58">▼ $1.6M · −3.6%</span></div></div>
+    <div class="kpi tk"><div class="kpi-l">Anticipos >180 días</div><div class="kpi-v warn"><span class="mv" title="$23,655,150.72">$23.7M</span></div><div class="tk-spark"><svg viewBox="0 0 100 30" preserveAspectRatio="none" style="width:100%;height:30px;display:block;"><defs><linearGradient id="sg6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BA7517" stop-opacity="0.28"/><stop offset="1" stop-color="#BA7517" stop-opacity="0.02"/></linearGradient></defs><polygon points="3.0,3.0 8.2,19.2 13.4,19.2 18.7,19.1 23.9,26.4 29.1,26.4 34.3,27.0 39.6,27.0 44.8,27.0 50.0,26.2 55.2,26.0 60.4,26.2 65.7,26.2 70.9,26.3 76.1,26.2 81.3,26.2 86.6,26.2 91.8,26.1 97.0,24.6 97,27 3,27" fill="url(#sg6)"/><polyline points="3.0,3.0 8.2,19.2 13.4,19.2 18.7,19.1 23.9,26.4 29.1,26.4 34.3,27.0 39.6,27.0 44.8,27.0 50.0,26.2 55.2,26.0 60.4,26.2 65.7,26.2 70.9,26.3 76.1,26.2 81.3,26.2 86.6,26.2 91.8,26.1 97.0,24.6" fill="none" stroke="#BA7517" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div class="kpi-sub"><span class="chip" style="background:#FCEBEB;color:#A32D2D;" title="$666,188.42">▲ $666K · +2.9%</span></div></div>
+    <div class="kpi tk"><div class="kpi-l">Días prom. vencidas<span class="info" title="Promedio ponderado por monto">i</span></div><div class="kpi-v" style="color:#A32D2D;">45.7</div><div class="tk-spark"><svg viewBox="0 0 100 30" preserveAspectRatio="none" style="width:100%;height:30px;display:block;"><defs><linearGradient id="sg7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A32D2D" stop-opacity="0.28"/><stop offset="1" stop-color="#A32D2D" stop-opacity="0.02"/></linearGradient></defs><polygon points="3.0,4.6 8.2,3.0 13.4,10.6 18.7,5.6 23.9,13.9 29.1,20.1 34.3,22.4 39.6,23.3 44.8,25.2 50.0,27.0 55.2,24.8 60.4,21.8 65.7,21.1 70.9,15.1 76.1,18.4 81.3,19.3 86.6,16.5 91.8,14.6 97.0,9.9 97,27 3,27" fill="url(#sg7)"/><polyline points="3.0,4.6 8.2,3.0 13.4,10.6 18.7,5.6 23.9,13.9 29.1,20.1 34.3,22.4 39.6,23.3 44.8,25.2 50.0,27.0 55.2,24.8 60.4,21.8 65.7,21.1 70.9,15.1 76.1,18.4 81.3,19.3 86.6,16.5 91.8,14.6 97.0,9.9" fill="none" stroke="#A32D2D" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div class="kpi-sub"><span class="chip" style="background:#FCEBEB;color:#A32D2D;">▲ 2.1 días</span></div></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Evolución de facturas <span class="panel-sub">· saldo total, vencido y % vencido (eje derecho) · 19/08/2026 → 17/09/2026</span></div>
+    <div style="position:relative;height:260px;"><canvas id="chartTrendFac" role="img" aria-label="Líneas de evolución de facturas y vencido">Evolución de facturas</canvas></div>
+  </div>
+  <div class="grid2" style="margin-bottom:14px;">
+    <div class="panel">
+      <div class="panel-title">Evolución de anticipos <span class="panel-sub">· total de anticipos</span></div>
+      <div style="position:relative;height:220px;"><canvas id="chartTrendAnt" role="img" aria-label="Líneas de evolución de anticipos">Evolución de anticipos</canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Días promedio ponderados <span class="panel-sub">· facturas vencidas y vigentes</span></div>
+      <div style="position:relative;height:220px;"><canvas id="chartTrendDias" role="img" aria-label="Líneas de días promedio">Evolución de días promedio</canvas></div>
+    </div>
+  </div>
+
+  <div class="stitle">Resumen comparativo</div>
+  <div class="panel" style="padding:0;">
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Métrica</th><th style="text-align:right;">Inicio · 19/08/2026</th><th style="text-align:right;">Anterior · 11/09/2026</th><th style="text-align:right;">Actual · 17/09/2026</th><th style="text-align:right;">Δ vs anterior</th><th style="text-align:right;">Δ vs inicio</th></tr></thead>
+      <tbody><tr>
+        <td style="font-weight:700;">Total facturas</td>
+        <td class="num" style="text-align:right;">$69.5M</td>
+        <td class="num" style="text-align:right;">$63.2M</td>
+        <td class="num" style="text-align:right;font-weight:700;">$63.2M</td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#E6F1FB;color:#185FA5;" title="−$15,471.68">▼ $15K · −0.0%</span></td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#E6F1FB;color:#185FA5;" title="−$6,262,299.70">▼ $6.3M · −9.0%</span></td>
+      </tr><tr>
+        <td style="font-weight:700;">Facturas vencidas</td>
+        <td class="num" style="text-align:right;">$42.7M</td>
+        <td class="num" style="text-align:right;">$45.6M</td>
+        <td class="num" style="text-align:right;font-weight:700;">$46.8M</td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#FCEBEB;color:#A32D2D;" title="$1,220,204.30">▲ $1.2M · +2.7%</span></td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#FCEBEB;color:#A32D2D;" title="$4,076,962.11">▲ $4.1M · +9.5%</span></td>
+      </tr><tr>
+        <td style="font-weight:700;">% vencido</td>
+        <td class="num" style="text-align:right;">61.5%</td>
+        <td class="num" style="text-align:right;">72.1%</td>
+        <td class="num" style="text-align:right;font-weight:700;">74.0%</td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#FCEBEB;color:#A32D2D;">▲ 1.9 pp</span></td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#FCEBEB;color:#A32D2D;">▲ 12.5 pp</span></td>
+      </tr><tr>
+        <td style="font-weight:700;">Total anticipos</td>
+        <td class="num" style="text-align:right;">$50.5M</td>
+        <td class="num" style="text-align:right;">$44.6M</td>
+        <td class="num" style="text-align:right;font-weight:700;">$43.0M</td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#E6F1FB;color:#185FA5;" title="−$1,618,235.58">▼ $1.6M · −3.6%</span></td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#E6F1FB;color:#185FA5;" title="−$7,507,880.84">▼ $7.5M · −14.9%</span></td>
+      </tr><tr>
+        <td style="font-weight:700;">Anticipos >180 días</td>
+        <td class="num" style="text-align:right;">$33.2M</td>
+        <td class="num" style="text-align:right;">$23.0M</td>
+        <td class="num" style="text-align:right;font-weight:700;">$23.7M</td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#FCEBEB;color:#A32D2D;" title="$666,188.42">▲ $666K · +2.9%</span></td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#E1F5EE;color:#0F6E56;" title="−$9,565,535.06">▼ $9.6M · −28.8%</span></td>
+      </tr><tr>
+        <td style="font-weight:700;">Días prom. vencidas</td>
+        <td class="num" style="text-align:right;">48.0 d</td>
+        <td class="num" style="text-align:right;">43.6 d</td>
+        <td class="num" style="text-align:right;font-weight:700;">45.7 d</td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#FCEBEB;color:#A32D2D;">▲ 2.1 días</span></td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#E1F5EE;color:#0F6E56;">▼ 2.4 días</span></td>
+      </tr><tr>
+        <td style="font-weight:700;">Días prom. no vencido</td>
+        <td class="num" style="text-align:right;">13.9 d</td>
+        <td class="num" style="text-align:right;">19.3 d</td>
+        <td class="num" style="text-align:right;font-weight:700;">18.6 d</td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#E6F1FB;color:#185FA5;">▼ 0.7 días</span></td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#E6F1FB;color:#185FA5;">▲ 4.7 días</span></td>
+      </tr><tr>
+        <td style="font-weight:700;">Proveedores con saldo</td>
+        <td class="num" style="text-align:right;">602</td>
+        <td class="num" style="text-align:right;">589</td>
+        <td class="num" style="text-align:right;font-weight:700;">602</td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#E6F1FB;color:#185FA5;">▲ 13 · +2.2%</span></td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#F1F5F9;color:#64748B;">= sin cambio</span></td>
+      </tr><tr>
+        <td style="font-weight:700;">Documentos</td>
+        <td class="num" style="text-align:right;">8,355</td>
+        <td class="num" style="text-align:right;">9,210</td>
+        <td class="num" style="text-align:right;font-weight:700;">9,609</td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#E6F1FB;color:#185FA5;">▲ 399 · +4.3%</span></td>
+        <td class="num" style="text-align:right;"><span class="chip" style="background:#E6F1FB;color:#185FA5;">▲ 1,254 · +15.0%</span></td>
+      </tr></tbody>
+    </table></div>
+  </div>
+</div>
 <!-- TAB PRONÓSTICO: VENCIMIENTOS 4 SEMANAS -->
 <div class="page" id="pF">
   <div class="ant-note" style="margin-top:16px;">
@@ -1148,6 +1252,11 @@ tr.tot td{background:var(--alt);font-weight:700;border-top:2px solid var(--borde
       <div class="sc-k"><div class="sc-kl">A vencer · 4 semanas</div><div class="sc-kv" style="color:#185FA5;">$13.3M</div></div>
     </div>
     
+  <div class="sc-sec">Tendencia · 19 snapshots (19/08/2026 → 17/09/2026)</div>
+  <div class="sc-trow"><div class="sc-tlbl">Total facturas</div><div class="sc-tsp"><svg viewBox="0 0 100 30" preserveAspectRatio="none" style="width:100%;height:30px;display:block;"><defs><linearGradient id="sg0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#200086" stop-opacity="0.28"/><stop offset="1" stop-color="#200086" stop-opacity="0.02"/></linearGradient></defs><polygon points="3.0,7.1 8.2,8.5 13.4,10.1 18.7,3.0 23.9,7.5 29.1,13.2 34.3,18.9 39.6,21.2 44.8,24.9 50.0,20.5 55.2,18.0 60.4,18.2 65.7,12.5 70.9,25.1 76.1,24.9 81.3,21.8 86.6,27.0 91.8,22.6 97.0,22.6 97,27 3,27" fill="url(#sg0)"/><polyline points="3.0,7.1 8.2,8.5 13.4,10.1 18.7,3.0 23.9,7.5 29.1,13.2 34.3,18.9 39.6,21.2 44.8,24.9 50.0,20.5 55.2,18.0 60.4,18.2 65.7,12.5 70.9,25.1 76.1,24.9 81.3,21.8 86.6,27.0 91.8,22.6 97.0,22.6" fill="none" stroke="#200086" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"/></svg></div><span class="chip" style="background:#E6F1FB;color:#185FA5;" title="−$15,471.68">▼ $15K · −0.0%</span></div>
+  <div class="sc-trow"><div class="sc-tlbl">Vencido</div><div class="sc-tsp"><svg viewBox="0 0 100 30" preserveAspectRatio="none" style="width:100%;height:30px;display:block;"><defs><linearGradient id="sg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E24B4A" stop-opacity="0.28"/><stop offset="1" stop-color="#E24B4A" stop-opacity="0.02"/></linearGradient></defs><polygon points="3.0,24.4 8.2,27.0 13.4,17.6 18.7,16.0 23.9,21.1 29.1,6.4 34.3,16.4 39.6,16.0 44.8,11.0 50.0,5.4 55.2,5.3 60.4,9.4 65.7,8.8 70.9,13.8 76.1,3.0 81.3,5.5 86.6,8.2 91.8,11.8 97.0,6.5 97,27 3,27" fill="url(#sg1)"/><polyline points="3.0,24.4 8.2,27.0 13.4,17.6 18.7,16.0 23.9,21.1 29.1,6.4 34.3,16.4 39.6,16.0 44.8,11.0 50.0,5.4 55.2,5.3 60.4,9.4 65.7,8.8 70.9,13.8 76.1,3.0 81.3,5.5 86.6,8.2 91.8,11.8 97.0,6.5" fill="none" stroke="#E24B4A" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"/></svg></div><span class="chip" style="background:#FCEBEB;color:#A32D2D;" title="$1,220,204.30">▲ $1.2M · +2.7%</span></div>
+  <div class="sc-trow"><div class="sc-tlbl">Anticipos</div><div class="sc-tsp"><svg viewBox="0 0 100 30" preserveAspectRatio="none" style="width:100%;height:30px;display:block;"><defs><linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#534AB7" stop-opacity="0.28"/><stop offset="1" stop-color="#534AB7" stop-opacity="0.02"/></linearGradient></defs><polygon points="3.0,3.0 8.2,23.0 13.4,18.6 18.7,17.1 23.9,26.2 29.1,26.1 34.3,27.0 39.6,26.9 44.8,26.7 50.0,25.8 55.2,25.9 60.4,26.7 65.7,26.9 70.9,25.2 76.1,20.6 81.3,15.4 86.6,19.4 91.8,19.0 97.0,23.4 97,27 3,27" fill="url(#sg2)"/><polyline points="3.0,3.0 8.2,23.0 13.4,18.6 18.7,17.1 23.9,26.2 29.1,26.1 34.3,27.0 39.6,26.9 44.8,26.7 50.0,25.8 55.2,25.9 60.4,26.7 65.7,26.9 70.9,25.2 76.1,20.6 81.3,15.4 86.6,19.4 91.8,19.0 97.0,23.4" fill="none" stroke="#534AB7" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"/></svg></div><span class="chip" style="background:#E6F1FB;color:#185FA5;" title="−$1,618,235.58">▼ $1.6M · −3.6%</span></div>
+  <div class="sc-box" style="background:#EEEDFE;color:#3C3489;">💡 Mayor movimiento de la serie: <b>Los anticipos >180 días ▼ $9.6M (−28.8%)</b> desde 19/08/2026.</div>
     <div class="sc-sec">Próximas 4 semanas</div>
     <div class="sc-box" style="background:#E6F1FB;color:#185FA5;">
       Semana pico: <b>Semana 1</b> (17/09/2026–23/09/2026) con <b>$5.2M</b> · <b style="color:#C2410C;">14 facturas ≥ $100K</b> por $2.5M
@@ -1573,6 +1682,62 @@ function mkDaily(id,labels,data,docs,grande){
         }}}},
       scales:{x:{ticks:{color:'#94A3B8',font:{size:8},maxRotation:90,minRotation:60,autoSkip:false},grid:{display:false},border:{display:false}},
               y:{ticks:{color:'#94A3B8',font:{size:10},callback:function(v){return fmtAx(v);}},grid:{color:'rgba(0,0,0,0.05)'},border:{display:false}}}}});
+}
+
+var TREND_T=[1787119200000,1787205600000,1787292000000,1787551200000,1787637600000,1787724000000,1787810400000,1787896800000,1788156000000,1788242400000,1788328800000,1788415200000,1788501600000,1788760800000,1788847200000,1788933600000,1789020000000,1789106400000,1789624800000];
+var TREND_FAC=[69480273,68896437,68272018,71124564,69314867,67026322,64729502,63785557,62308182,64070876,65079316,64987465,67304907,62227423,62279878,63539349,61447284,63233445,63217973];
+var TREND_VENC=[42729341,42145436,44285213,44643457,43495046,46823805,44551111,44639493,45784525,47056720,47072959,46141259,46273626,45144684,47591665,47020725,46416719,45586098,46806303];
+var TREND_PCTV=[61.5,61.2,64.9,62.8,62.7,69.9,68.8,70,73.5,73.4,72.3,71,68.8,72.5,76.4,74,75.5,72.1,74];
+var TREND_ANT=[50533386,43160322,44799278,45355028,41997098,42008294,41692428,41723589,41815127,42118432,42114003,41815422,41721759,42347002,44043564,45977920,44501657,44643741,43025505];
+var TREND_ANT180=[33220686,26075298,26075298,26083169,22869978,22886302,22613391,22612142,22628271,22959036,23046816,22961332,22958932,22929891,22952009,22986669,22986669,22988962,23655151];
+var TREND_DV=[48,48.8,45.3,47.6,43.9,41.1,40,39.6,38.8,38,39,40.3,40.6,43.3,41.8,41.4,42.7,43.6,45.7];
+var TREND_DNV=[13.9,13.1,14.3,12.1,12.9,18.2,17.5,18.4,19.1,19.9,20,20.2,18.5,18.4,21.1,21.6,20.7,19.3,18.6];
+function fmtTick(v,full){var dt=new Date(v);var s=String(dt.getDate()).padStart(2,'0')+'/'+String(dt.getMonth()+1).padStart(2,'0');return full?s+'/'+dt.getFullYear():s+'/'+String(dt.getFullYear()).slice(2);}
+function diasFmt(v){return v+' d';}
+function maSerie(arr,w){return arr.map(function(v,i){var a=arr.slice(Math.max(0,i-w+1),i+1);return Math.round(a.reduce(function(s,x){return s+x;},0)/a.length);});}
+function hexA(hex,a){var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return 'rgba('+r+','+g+','+b+','+a+')';}
+function lineChart(id,series,valFmt,withPct){
+  var el=document.getElementById(id);
+  if(!el)return;
+  var scales={
+    x:{type:'linear',min:TREND_T[0],max:TREND_T[TREND_T.length-1],ticks:{color:'#94A3B8',font:{size:9},maxTicksLimit:10,callback:function(v){return fmtTick(v);}},grid:{display:false},border:{display:false}},
+    y:{ticks:{color:'#94A3B8',font:{size:10},callback:function(v){return valFmt===diasFmt?diasFmt(v):fmtAx(v);}},grid:{color:'rgba(0,0,0,0.05)'},border:{display:false}}
+  };
+  if(withPct)scales.y1={position:'right',ticks:{color:'#BA7517',font:{size:10},callback:function(v){return v+'%';}},grid:{display:false},border:{display:false}};
+  new Chart(el,{type:'line',
+    data:{datasets:series.map(function(s){return{
+      label:s.label,
+      data:TREND_T.map(function(t,i){return{x:t,y:s.data[i]};}),
+      borderColor:s.color,
+      backgroundColor:s.fill?function(c){var ch=c.chart;var area=ch.chartArea;if(!area)return hexA(s.color,0.08);var g=ch.ctx.createLinearGradient(0,area.top,0,area.bottom);g.addColorStop(0,hexA(s.color,0.22));g.addColorStop(1,hexA(s.color,0.01));return g;}:s.color,
+      fill:s.fill?'origin':false,
+      borderDash:s.dash||[],yAxisID:s.axis||'y',
+      tension:0.3,borderWidth:2,
+      pointRadius:3.5,pointHoverRadius:5.5,pointBackgroundColor:'#fff',pointBorderColor:s.color,pointBorderWidth:2
+    };})},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:true,position:'bottom',labels:{usePointStyle:true,pointStyle:'circle',boxWidth:6,boxHeight:6,font:{size:9},color:'#64748B'}},
+        tooltip:{callbacks:{
+          title:function(items){return fmtTick(items[0].parsed.x,true);},
+          label:function(c){var v=c.parsed.y;var txt=c.dataset.yAxisID==='y1'?v.toFixed(1)+'%':(valFmt===diasFmt?v.toFixed(1)+' días':fmtAx(v));return' '+c.dataset.label+': '+txt;}}}},
+      scales:scales}});
+}
+function mkTrendCharts(){
+  var s1=[
+    {label:'Total facturas',data:TREND_FAC,color:'#200086',fill:true},
+    {label:'Vencido',data:TREND_VENC,color:'#E24B4A'},
+    {label:'% vencido',data:TREND_PCTV,color:'#BA7517',dash:[5,4],axis:'y1'}
+  ];
+  if(TREND_T.length>=20)s1.push({label:'Vencido · media móvil 7',data:maSerie(TREND_VENC,7),color:'#791F1F',dash:[2,3]});
+  lineChart('chartTrendFac',s1,fmtAx,true);
+  lineChart('chartTrendAnt',[
+    {label:'Total anticipos',data:TREND_ANT,color:'#534AB7',fill:true},
+    {label:'Anticipos >180 días',data:TREND_ANT180,color:'#A32D2D'}
+  ],fmtAx,false);
+  lineChart('chartTrendDias',[
+    {label:'Días prom. vencidas',data:TREND_DV,color:'#E24B4A'},
+    {label:'Días prom. no vencido',data:TREND_DNV,color:'#1D9E75'}
+  ],diasFmt,false);
 }
 
 function initC(){
